@@ -1,4 +1,4 @@
-# 
+# Document: This python is my 4th application of CS50P Week 1.
 
 def ask():
     difficulty = input("Easy or Hard? ").strip().title()

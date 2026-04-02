@@ -1,3 +1,4 @@
+# Document: This python is my 3rd application of CS50P Week 1.
 
 def get_ans():
     print()
