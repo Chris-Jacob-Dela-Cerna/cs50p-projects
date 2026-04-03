@@ -52,7 +52,7 @@ def resto():
     if not response1 == "yes":
         raise SystemExit
     
-    print("System: Sounds great! You may proceed to the cashier to finalize your order.")
+    print("System: Sounds great! You may proceed to the cashier to place your order.")
     process_order(x)
 
 def process_order(x):
@@ -69,11 +69,42 @@ def process_order(x):
         case "Pan-Galactic Gargle Blaster":
             print(f"Resto Cashier: Good day, user! The {order} summer refresher is only $9.")
 
+    response2 = input("Resto Cashier: Take your time. Would you like to borrow a calculator? (yes or no) ").strip().lower()
+    if not response2 == "yes":
+        print("BALLER")
+        # Ask user how many orders do they want.
+        # Tell user total price
+        # Prompt user to pay or exit
+        # If pay, run receipt()
+    
+    
+def calculator():
+    print()
+    print("booting....")
+    print()
+    print("calibrating....")
+    print()
+    print("done.")
 
-
-
+    print()
+    expression = input("Calculator: Use 'x op y'. \nInsert expression: ").strip()
+    x, op, y = expression.split(" ")
+    
+    print()
+    if op == "+":
+        print(f"{expression}\n= {x + y} ")
+    elif op == "-":
+        print(f"{expression}\n= {x + y} ")
+    elif op == "*":
+        print(f"{expression}\n= {x + y} ")
+    elif op == "/":
+        print(f"{expression}\n= {x + y} ")
+    else:
+        print("Syntax error.")
+        # Rerun calculator()
 
 def main():
+    calculator()
     response = greet()
     check_greet(response)
     resto()
