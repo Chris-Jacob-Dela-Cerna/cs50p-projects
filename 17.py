@@ -1,4 +1,6 @@
 
 
-name = float(input("X? "))
+name = int(input("X? "))
 print(name)
+
+print(30 / 6)

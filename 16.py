@@ -4,32 +4,39 @@
 
 def greet():
     print()
-    print("System: I, the Great Question of Life, the Universe, and Everything")
+    print("System: I, the Great Question of Life, the Universe, and Everything.")
     response = input("User: ").strip().lower()
-    pass
     return response
 
 def check_greet(response):
     if response.startswith("hello"):
-        print("System: Welcome! Your cover fee is $0")
+        print("System: Welcome! Your entrance fee is $0.")
     elif response.startswith("h"):
-        print("System: Welcome! Your cover fee is $20")
+        print("System: Welcome! Your entrance fee is $20.")
     elif response == "42" or response == "forty-two" or response == "forty two":
         print("System: Ah, the meaning of life. Welcome!")
     else:
-        print("System: Welcome! Your cover fee is $100")
-    pass
+        print("System: Welcome! Your entrance fee is $100.")
 
 def menu():
     print("Resto Owner: Greetings user! Welcome to the Space Resto!\n             May I ask what time it currently is? ")
-    user_time = input("User: ").replace(":", ".")
-    time = float(user_time)
+    user_time = input("User: ").strip()
+    hour, minute = user_time.split(":")
+    fixed_time = (f"{int(hour)}.{round(int(minute) / 6)}")
+    time = float(fixed_time)
 
-    if 7 <= time >= 8:
-        print(f"Resto Owner: It's {time}? Well I suggest you order our special meal just for this morning!")
-        print("             Our Space Omelet with a side of guacamole")
+    if 7.0 <= time <= 8.0:
+        print(f"Resto Owner: Wait, it's {user_time}? Well I suggest you order our special meal just for this morning!")
+        print("             Our Space Omelet with a side of guacamole.")
+    elif 12.0 <= time <= 13.0:
+        print(f"Resto Owner: Wait, it's {user_time}? Well I suggest you order our hottest meal just for this afternoon!")
+        print("             Our Asteroid Burger with a cup of Juga Cola.")
+    elif 18.0 <= time <= 19.0:
+        print(f"Resto Owner: Wait, it's {user_time}? Well I suggest you order our scrumptious meal just for this evening!")
+        print("             Our Quantum Steak with a bucket of gravy.")
     else:
-        print("BALLER ")
+        print(f"Resto Owner: {user_time}? Well that's off our kitchen hours. Even then, I suggest you order our coldest drink.")
+        print("             Our Pan-Galactic Gargle Blaster!")
 
 
 
@@ -40,8 +47,9 @@ def menu():
 
 
 def main():
+    
+    menu()
     response = greet()
     check_greet(response)
-    menu()
 
 main()
