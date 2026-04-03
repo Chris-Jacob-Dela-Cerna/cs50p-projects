@@ -2,6 +2,7 @@
 
 def get_ans():
     print()
+# .lower() and .strip is used to lowercase and remove whiteline from user's input before running check_color
     answer = input("Enter a color: ").lower().strip()
     return answer
 
@@ -14,6 +15,7 @@ def ask():
 
 def check_color(answer):
     print()
+# Match is used to sort whether the user's input is within the color range
     match answer:
         case "red" | "orange" | "yellow" | "green" | "blue" | "indigo" | "violet":
             print("Passed")

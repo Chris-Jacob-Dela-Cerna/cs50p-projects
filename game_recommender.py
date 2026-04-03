@@ -2,6 +2,7 @@
 
 def ask():
     difficulty = input("Easy or Hard? ").strip().title()
+# if not is used to filter out any input that isn't within the options
     if not (difficulty == "Easy" or difficulty == "Hard"):
         print("Enter a valid difficulty. ")
     
@@ -12,6 +13,7 @@ def ask():
     return difficulty, how_many
     
 def check_ask(difficulty, how_many):
+# if and elif is used to further filter out input before finalizing a suggestion
     if difficulty == "Easy" and how_many == "Singleplayer":
         return "God of War"
     elif difficulty == "Easy" and how_many == "Multiplayer":
