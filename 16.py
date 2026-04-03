@@ -52,7 +52,7 @@ def resto():
     if not response1 == "yes":
         raise SystemExit
     
-    print("System: Sounds great! You may proceed to the cashier to place your order.")
+    print("Resto Owner: Sounds great! You may proceed to the cashier to place your order.")
     process_order(x)
 
 def process_order(x):
@@ -70,13 +70,29 @@ def process_order(x):
             print(f"Resto Cashier: Good day, user! The {order} summer refresher is only $9.")
 
     response2 = input("Resto Cashier: Take your time. Would you like to borrow a calculator? (yes or no) ").strip().lower()
-    if not response2 == "yes":
-        print("BALLER")
-        # Ask user how many orders do they want.
-        # Tell user total price
-        # Prompt user to pay or exit
-        # If pay, run receipt()
+    if response2 == "yes":
+        calculator()
+    else:
+        None
     
+    print()
+    orders = int(input(f"Resto Cashier: After making up your mind, how many orders of {order} do you want?\nUser: "))
+    if order == "Space Omelet":
+        price = orders * 14
+    elif order == "Asteroid Burger":
+        price = orders * 19
+    elif order == "Quantum Steak":
+        price = orders * 29
+    else:
+        price = orders * 9
+    print(f"Resto Cashier: Great! That will be {orders} orders of {order} for a total of ${price}.")
+        
+
+
+    # Tell user total price
+    # Prompt user to pay or exit
+    # If pay, run receipt()
+        
     
 def calculator():
     print()
@@ -89,22 +105,30 @@ def calculator():
     print()
     expression = input("Calculator: Use 'x op y'. \nInsert expression: ").strip()
     x, op, y = expression.split(" ")
-    
+    a = int(x)
+    b = int(y)
+
     print()
     if op == "+":
-        print(f"{expression}\n= {x + y} ")
+        print(expression,"\n=", a + b)
     elif op == "-":
-        print(f"{expression}\n= {x + y} ")
+        print(expression,"\n=", a - b)
     elif op == "*":
-        print(f"{expression}\n= {x + y} ")
+        print(expression,"\n=", a * b)
     elif op == "/":
-        print(f"{expression}\n= {x + y} ")
+        print(expression,"\n=", a / b)
     else:
         print("Syntax error.")
-        # Rerun calculator()
+
+    print()
+    response3 = input("Run calculator again? (yes or no). ").strip().lower()
+    if response3 == "yes":
+        calculator()
+    else:
+        None
+    
 
 def main():
-    calculator()
     response = greet()
     check_greet(response)
     resto()
