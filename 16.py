@@ -23,9 +23,9 @@ def convert_time():
     time = float(fixed_time)
     return user_time, time
 
-def menu():
+def resto():
     print()
-    print("Resto Owner: Greetings user! Welcome to the Space Resto!\n             May I ask what time it currently is? In military '##:##'.")
+    print("Resto Owner: Greetings user! Welcome to the Space Resto!\n             May I ask what time it is? In military '##:##'.")
     user_time, time = convert_time()
 
     if 7.0 <= time <= 8.0:
@@ -41,7 +41,10 @@ def menu():
         print(f"Resto Owner: {user_time}? Well that's off our kitchen hours. Even then, I suggest you order our coldest drink.")
         print("             Our Pan-Galactic Gargle Blaster!")
 
-
+    print()
+    response1 = input("Resto Owner: Are you interested? (y or n). ")
+    if not response1 == "y":
+        raise SystemExit
 
 
 
@@ -52,7 +55,7 @@ def menu():
 def main():
     response = greet()
     check_greet(response)
-    menu()
+    resto()
 
 
 main()
