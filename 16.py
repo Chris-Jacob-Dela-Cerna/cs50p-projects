@@ -23,14 +23,13 @@ def convert_time():
     time = float(fixed_time)
     return user_time, time
 
-def resto():
-    print()
-    print("Resto Owner: Greetings user! Welcome to the Space Resto!\n             May I ask what time it is? In military '##:##'.")
+def resto_owner():
     user_time, time = convert_time()
 
     if 7.0 <= time <= 8.0:
         print(f"Resto Owner: Wait, it's {user_time}? Well I suggest you order our special meal just for this morning!")
         print("             Our Space Omelet with a side of guacamole.")
+        return ("Space Omelet")
     elif 12.0 <= time <= 13.0:
         print(f"Resto Owner: Wait, it's {user_time}? Well I suggest you order our hottest meal just for this afternoon!")
         print("             Our Asteroid Burger with a cup of Juga Cola.")
@@ -41,14 +40,23 @@ def resto():
         print(f"Resto Owner: {user_time}? Well that's off our kitchen hours. Even then, I suggest you order our coldest drink.")
         print("             Our Pan-Galactic Gargle Blaster!")
 
+def resto():
+    print()
+    print("Resto Owner: Greetings user! Welcome to the Space Resto!\n             May I ask what time it is? In military '##:##'.")
+    x = resto_owner()
+
     print()
     response1 = input("Resto Owner: Are you interested? (yes or no). ").strip().lower()
     if not response1 == "yes":
         raise SystemExit
+    
+    process_order(x)
 
-def process_order():
+def process_order(x):
+
+    
     print()
-    print("")
+    print(f"Resto Cashier: Hello user! The {x} morning promo is only $19.")
 
 
 
