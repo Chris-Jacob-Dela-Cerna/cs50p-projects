@@ -1,7 +1,5 @@
 # Document: This python is my 5th application of CS50P Week 1.
 
-
-
 def greet():
     print()
     print("System: I, the Great Question of Life, the Universe, and Everything.")
@@ -18,12 +16,17 @@ def check_greet(response):
     else:
         print("System: Welcome! Your entrance fee is $100.")
 
-def menu():
-    print("Resto Owner: Greetings user! Welcome to the Space Resto!\n             May I ask what time it currently is? ")
+def convert_time():
     user_time = input("User: ").strip()
     hour, minute = user_time.split(":")
     fixed_time = (f"{int(hour)}.{round(int(minute) / 6)}")
     time = float(fixed_time)
+    return user_time, time
+
+def menu():
+    print()
+    print("Resto Owner: Greetings user! Welcome to the Space Resto!\n             May I ask what time it currently is? In military '##:##'.")
+    user_time, time = convert_time()
 
     if 7.0 <= time <= 8.0:
         print(f"Resto Owner: Wait, it's {user_time}? Well I suggest you order our special meal just for this morning!")
@@ -47,9 +50,9 @@ def menu():
 
 
 def main():
-    
-    menu()
     response = greet()
     check_greet(response)
+    menu()
+
 
 main()
