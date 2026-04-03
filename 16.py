@@ -42,11 +42,13 @@ def resto():
         print("             Our Pan-Galactic Gargle Blaster!")
 
     print()
-    response1 = input("Resto Owner: Are you interested? (y or n). ")
-    if not response1 == "y":
+    response1 = input("Resto Owner: Are you interested? (yes or no). ").strip().lower()
+    if not response1 == "yes":
         raise SystemExit
 
-
+def process_order():
+    print()
+    print("")
 
 
 
