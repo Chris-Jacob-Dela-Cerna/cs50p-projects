@@ -6,6 +6,7 @@ def greet():
     response = input("User: ").strip().lower()
     return response
 
+
 def check_greet(response):
     if response.startswith("hello"):
         print("System: Welcome! Your entrance fee is $0.")
@@ -15,7 +16,6 @@ def check_greet(response):
         print("System: Ah, the meaning of life. Welcome!")
     else:
         print("System: Welcome! Your entrance fee is $100.")
-
 
 
 def convert_time():
@@ -46,7 +46,6 @@ def resto_owner():
         return ("Pan-Galactic Gargle Blaster")
 
 
-
 def resto():
     print()
     print("Resto Owner: Greetings user! Welcome to the Space Resto!\n             May I ask what time it is? In military '##:##'.")
@@ -58,7 +57,6 @@ def resto():
     
     print("Resto Owner: Sounds great! You may proceed to the cashier to place your order.")
     process_order(x)
-
 
 
 def process_order(x):
@@ -80,7 +78,7 @@ def process_order(x):
         calculator()
     
     print()
-    orders = int(input(f"Resto Cashier: After making up your mind, how many orders of {order} do you want?\nUser: "))
+    orders = int(input(f"Resto Cashier: Alright, how many orders of {order} do you want?\nUser: "))
     if order == "Space Omelet":
         price = orders * 14.50
     elif order == "Asteroid Burger":
@@ -98,9 +96,11 @@ def process_order(x):
     if not response4 == "yes":
         raise SystemExit
 
-    print("Resto Owner: Fantastic! Would you like to print a receipt?")
+    response5 = input("Resto Cashier: Fantastic! Would you like a digital receipt? (yes or no).\nUser: ")
+    if not response5 == "yes":
+        ("Resto Cashier: Alright user. Have a great day and enjoy your meal!")
+        raise SystemExit
     receipt()
-
 
 
 def calculator():
@@ -134,15 +134,31 @@ def calculator():
     if response3 == "yes":
         calculator()
 
+
 def receipt():
+    user_file = input("Resto Cashier: Sure. Just send me the file. Use this format 'filename.extension'.\nUser: ")
 
-
+    if user_file.endswith(".gif"):
+        media = ("image/gif")
+    elif user_file.endswith(".jpg") or user_file.endswith(".jpeg"):
+        media = ("image/jpeg")
+    elif user_file.endswith(".png"):
+        media = ("image/png")
+    elif user_file.endswith(".pdf"):
+        media = ("application/pdf")
+    elif user_file.endswith(".txt"):
+        media = ("text/plain")
+    elif user_file.endswith(".zip"):
+        media = ("application/zip")
+    else:
+        media = ("application/octet-stream")
+        
+    print(f"Resto Cashier: Here's your receipt.\n               Your file \"{user_file}\" is now converted to {media} format. ")
 
 
 def main():
     response = greet()
     check_greet(response)
     resto()
-
 
 main()
