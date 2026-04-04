@@ -22,3 +22,7 @@ print("13. Empowerment Technologies 10-item Quiz")
 print("14. Color Sorter")
 print("15. Game Recommender")
 print("16. The Hitchhiker's Digital Cafe")
+
+print()
+print("Week 2:")
+print("17. 17.py")
