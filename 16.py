@@ -16,6 +16,8 @@ def check_greet(response):
     else:
         print("System: Welcome! Your entrance fee is $100.")
 
+
+
 def convert_time():
     user_time = input("User: ").strip()
     hour, minute = user_time.split(":")
@@ -43,17 +45,21 @@ def resto_owner():
         print("             Our Pan-Galactic Gargle Blaster!")
         return ("Pan-Galactic Gargle Blaster")
 
+
+
 def resto():
     print()
     print("Resto Owner: Greetings user! Welcome to the Space Resto!\n             May I ask what time it is? In military '##:##'.")
     x = resto_owner()
 
-    response1 = input("Resto Owner: Are you interested? (yes or no). ").strip().lower()
+    response1 = input("Resto Owner: Are you interested? (yes or no).\nUser: ").strip().lower()
     if not response1 == "yes":
         raise SystemExit
     
     print("Resto Owner: Sounds great! You may proceed to the cashier to place your order.")
     process_order(x)
+
+
 
 def process_order(x):
     print()
@@ -61,39 +67,42 @@ def process_order(x):
 
     match order:
         case "Space Omelet":
-            print(f"Resto Cashier: Good morning, user! The {order} promo is only $14.")
+            print(f"Resto Cashier: Good morning, user! The {order} promo is only $14.50.")
         case "Asteroid Burger":
-            print(f"Resto Cashier: Good afternoon, user! The {order} meal is only $19.")
+            print(f"Resto Cashier: Good afternoon, user! The {order} meal is only $19.50.")
         case "Quantum Steak":
-            print(f"Resto Cashier: Good evening, user! The {order} dine is only $29.")
+            print(f"Resto Cashier: Good evening, user! The {order} dine is only $29.50.")
         case "Pan-Galactic Gargle Blaster":
-            print(f"Resto Cashier: Good day, user! The {order} summer refresher is only $9.")
+            print(f"Resto Cashier: Good day, user! The {order} summer refresher is only $9.50.")
 
-    response2 = input("Resto Cashier: Take your time. Would you like to borrow a calculator? (yes or no) ").strip().lower()
+    response2 = input("Resto Cashier: Take your time. Would you like to borrow a calculator? (yes or no)\nUser: ").strip().lower()
     if response2 == "yes":
         calculator()
-    else:
-        None
     
     print()
     orders = int(input(f"Resto Cashier: After making up your mind, how many orders of {order} do you want?\nUser: "))
     if order == "Space Omelet":
-        price = orders * 14
+        price = orders * 14.50
     elif order == "Asteroid Burger":
-        price = orders * 19
+        price = orders * 19.50
     elif order == "Quantum Steak":
-        price = orders * 29
+        price = orders * 29.50
     else:
-        price = orders * 9
+        price = orders * 9.50
+
     print(f"Resto Cashier: Great! That will be {orders} orders of {order} for a total of ${price}.")
-        
-
-
-    # Tell user total price
-    # Prompt user to pay or exit
-    # If pay, run receipt()
-        
+    if not price % 1 == 0:
+        print("               Your payment has cents just so you know. ")
     
+    response4 = input("Pay? (yes or no).\nUser: ").strip().lower()
+    if not response4 == "yes":
+        raise SystemExit
+
+    print("Resto Owner: Fantastic! Would you like to print a receipt?")
+    receipt()
+
+
+
 def calculator():
     print()
     print("booting....")
@@ -105,8 +114,8 @@ def calculator():
     print()
     expression = input("Calculator: Use 'x op y'. \nInsert expression: ").strip()
     x, op, y = expression.split(" ")
-    a = int(x)
-    b = int(y)
+    a = float(x)
+    b = float(y)
 
     print()
     if op == "+":
@@ -124,9 +133,11 @@ def calculator():
     response3 = input("Run calculator again? (yes or no). ").strip().lower()
     if response3 == "yes":
         calculator()
-    else:
-        None
-    
+
+def receipt():
+
+
+
 
 def main():
     response = greet()
