@@ -1,35 +1,25 @@
 # Document: This python is my 1st application of CS50P Week 2.
 
 def program():
+    print("\nGreetings user!", end="")
     while True:
-        response = input("\nGreetings user!\nWould you like to run calculator or match? Enter 1 or 2.\nEnter 'exit' if you want to leave.\nUser: ").strip().lower()
+        response = input("\nWould you like to run calculator or match? Enter 1 or 2.\nEnter 'exit' to end the program.\nUser: ").strip().lower()
         if response == "exit":
             break
 
         elif response == "1":
-            print("\nWelcome to Calculator! ")
-            while True:
-                calculator()
-                leave = input("\nExit calculator? (yes or no)\nUser: ")
-                if leave == "yes":
-                    break
+            print("\nWelcome to Calculator!", end="")
+            calculator()
+            print("Thank you for using Calculator.")
 
         elif response == "2":
-            print("\nWelcome to Match! ")
-            while True:
-                print("BALLER")
-                break
+            print("\nWelcome to Match!")
+            # Placeholder
+            print("BALLER")
+            print("Thank you for using Match.")
 
         else:
-            print("Input is invalid. Please try again.")
-
-# Implement Match
-
-
-
-
-
-
+            print("Input is invalid. Please try again.\n")
 
 
 
@@ -40,6 +30,7 @@ def calculator():
         x = float(x)
         y = float(y)
 # Check if x and y is a number
+
         if op == "+" or op == "-" or op == "*" or op == "/":
             if op == "+":
                 print("=", x + y)
@@ -49,10 +40,17 @@ def calculator():
                 print("=", x * y)
             elif op == "/":
                 print("=", x / y)
-# Prompt user if they want to run another calculation
-            break
+
+            if_calcu = input("\nWant to do another calculation? Enter yes or no.\nUser: ").strip().lower()
+            if if_calcu != "yes":
+                break
+
         else:
             print("Enter a valid operator.")
 
+
+# Implement match()
+def match():
+    print("BALLER")
 
 program()
