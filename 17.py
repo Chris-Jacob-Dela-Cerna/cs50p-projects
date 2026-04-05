@@ -32,15 +32,15 @@ def calculator():
 # Check if x and y is a number
 
         if op == "+" or op == "-" or op == "*" or op == "/":
-            if op == "+":
-                print("=", x + y)
-            elif op == "-":
-                print("=", x - y)
-            elif op == "*":
-                print("=", x * y)
-            elif op == "/":
-                print("=", x / y)
-
+            match op:
+                case "+":
+                    print("=", x + y)
+                case "-":
+                    print("=", x - y)
+                case "*":
+                    print("=", x * y)
+                case "/":
+                    print("=", x / y)
             if_calcu = input("\nWant to do another calculation? Enter yes or no.\nUser: ").strip().lower()
             if if_calcu != "yes":
                 break

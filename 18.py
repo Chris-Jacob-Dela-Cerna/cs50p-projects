@@ -1,5 +1,20 @@
 
 
+fruits = {
+    "red": "apple",
+    "yellow": "banana",
+    "orange": "orange"
+}
+
+for fruit in fruits:
+    print(fruit, fruits[fruit])
+
+
+
+
+
+
+
 def user_input():
     while True:
         number = int(input("Give me a number: "))
@@ -13,8 +28,6 @@ def output(n):
         print(f"This is said {n} amount of times.")
     
 
-def main():
+def number_breaker():
     number = user_input()
     output(number)
-
-main()
