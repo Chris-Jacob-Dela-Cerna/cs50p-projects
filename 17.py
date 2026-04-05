@@ -13,9 +13,9 @@ def program():
             print("Thank you for using Calculator.")
 
         elif response == "2":
-            print("\nWelcome to Match!")
+            print("\nWelcome to Match!.", end="")
             # Placeholder
-            print("BALLER")
+            match()
             print("Thank you for using Match.")
 
         else:
@@ -48,9 +48,14 @@ def calculator():
         else:
             print("Enter a valid operator.")
 
+match_list = [
+    {"name": "apple", "color": "red"},
+    {"name": "banana", "color": "yellow"},
+    {"name": "orange", "color": "orange"},
+]
 
-# Implement match()
 def match():
-    print("BALLER")
+    while True:
+        print(match_list["apple"]["red"])
 
 program()

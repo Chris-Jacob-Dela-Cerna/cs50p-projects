@@ -1,20 +1,5 @@
 
 
-fruits = {
-    "red": "apple",
-    "yellow": "banana",
-    "orange": "orange"
-}
-
-for fruit in fruits:
-    print(fruit, fruits[fruit])
-
-
-
-
-
-
-
 def user_input():
     while True:
         number = int(input("Give me a number: "))
@@ -30,4 +15,4 @@ def output(n):
 
 def number_breaker():
     number = user_input()
-    output(number)
+    output(number) 
