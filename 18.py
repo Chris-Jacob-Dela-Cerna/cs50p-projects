@@ -1,11 +1,14 @@
 
-
+name = input("Enter name: ")
+age = input("Enter age: ")
+height = input("Enter height: ")
+birthday = input("Enter birthday: ")
 
 person = {
-    "Name": "name",
-    "Age": "age",
-    "Height": "height",
-    "Birthday": "birthday"
+    "Name": name,
+    "Age": age,
+    "Height": height,
+    "Birthday": birthday
 }
 
 indicator =f"""
