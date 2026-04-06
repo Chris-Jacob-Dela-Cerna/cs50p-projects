@@ -19,3 +19,17 @@ indicator =f"""
 """
 
 print(indicator)
+
+
+
+
+def main():
+    a, b, c, d = input("Enter a 4 numbers with a space in between: ").split(" ")
+    a = int(a)
+    b = int(b)
+    c = int(c)
+    d = int(d)
+    print(calculate(a, b, c, d))
+
+def calculate(w, x, y, z):
+    return (w + x) - (y + z)
