@@ -21,15 +21,12 @@ def program():
         else:
             print("Input is invalid. Please try again.\n")
 
-
-
 def calculator():
     while True:
         exp = input("\nEnter an expression:\nUser: ")
         x, op, y = exp.split(" ")
         x = float(x)
         y = float(y)
-# Check if x and y is a number
 
         if op == "+" or op == "-" or op == "*" or op == "/":
             match op:
@@ -44,7 +41,6 @@ def calculator():
             if_calcu = input("\nWant to do another calculation? Enter yes or no.\nUser: ").strip().lower()
             if if_calcu != "yes":
                 break
-
         else:
             print("Enter a valid operator.")
 
