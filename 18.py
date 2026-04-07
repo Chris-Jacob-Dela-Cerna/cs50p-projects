@@ -1,35 +1,24 @@
 
-name = input("Enter name: ")
-age = input("Enter age: ")
-height = input("Enter height: ")
-birthday = input("Enter birthday: ")
-
-person = {
-    "Name": name,
-    "Age": age,
-    "Height": height,
-    "Birthday": birthday
+fruits = {
+    "apple": {"name": "apple", "color": "red"},
+    "banana": {"name": "banana", "color": "yellow"}
 }
 
-indicator =f"""
-    Name: {person.get("Name")}
-    Age: {person.get("Age")}
-    Height: {person.get("Height")}
-    Birthday: {person.get("Birthday")}
-"""
+if fruits["apple"]["name"].startswith(("a", "e", "i", "o", "u")):
+    a_an = "An"
+else:
+    a_an = "A"
 
-print(indicator)
+print(f"{a_an} {fruits["apple"]["name"]} has the color {fruits["apple"]["color"]}.")
 
+newfruit = input("Enter a fruit: ").strip().lower()
+newcolor = input("Enter the color of that fruit: ").strip().lower()
 
+fruits.update({newfruit: {"name": newfruit, "color": newcolor}})
 
+if fruits[newfruit]["name"].startswith(("a", "e", "i", "o", "u")):
+    a_an = "An"
+else:
+    a_an = "A"
 
-def main():
-    a, b, c, d = input("Enter a 4 numbers with a space in between: ").split(" ")
-    a = int(a)
-    b = int(b)
-    c = int(c)
-    d = int(d)
-    print(calculate(a, b, c, d))
-
-def calculate(w, x, y, z):
-    return (w + x) - (y + z)
+print(f"{a_an} {fruits[newfruit]["name"]} has the color {fruits[newfruit]["color"]}.")
