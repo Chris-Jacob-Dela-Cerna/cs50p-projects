@@ -25,4 +25,5 @@ print("16. The Hitchhiker's Digital Cafe")
 
 print()
 print("Week 2:")
-print("17. 17.py")
+print("17. Calculator or Match")
+print("18. Fruit")
