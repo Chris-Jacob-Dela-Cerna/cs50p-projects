@@ -1,3 +1,4 @@
+# Document: This python is my 2nd application of CS50P Week 2.
 
 fruits = {
     "apple": {"name": "apple", "color": "red"},
