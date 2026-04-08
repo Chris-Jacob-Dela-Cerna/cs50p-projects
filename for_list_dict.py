@@ -13,6 +13,23 @@ for eachfruit in fruits:
     print(eachfruit)
 print()
 
+# Adds a single item at the end of the list
+fruits.append("grapes")
+print(fruits)
+
+# Removes a specific item in the list
+fruits.remove("grapes")
+print(fruits)
+print()
+
+# Adds multiple items at the end of a list
+fruits.extend("grapes", "blueberry")
+print(fruits)
+
+# Adds a single item at a specific position in a list
+fruits.insert(0, "kiwi")
+print(fruits)
+
 ''''''
 
 # List of Dictionaries for testing
@@ -27,7 +44,7 @@ for eachkey in fruitsncolor[2].keys():
     print(eachkey)
 print()
 
-# For each value inside the 2nd dictionary, print that value
+# For each value inside the 2nd dictionary in the list, print that value
 for eachvalue in fruitsncolor[1].values():
     print(eachvalue)
 print()
@@ -35,6 +52,17 @@ print()
 # Update the 1st dictionary in the list by adding a new key and value
 fruitsncolor[0].update({"flavor": "sweet"})
 print(fruitsncolor)
+print()
+
+# Removes the key pair "flavor" from the 1st dictionary in the list. Returns the value inside a variable which is then printed
+value = fruitsncolor[0].pop("flavor")
+print(value)
+print(fruitsncolor)
+print()
+
+# For each key and value inside the 2nd dictionary in the list, print both items
+for eachkey, eachvalue in fruitsncolor[1].items():
+    print(f"The {eachkey} is {eachvalue}.")
 print()
 
 ''''''
