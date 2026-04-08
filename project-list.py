@@ -1,32 +1,30 @@
 # This python will be used to track my .py projects.
 
-print()
-print("Week 0:")
-print("List of projects:")
-print("1. Simple conversation")
-print("2. Trial conversation") 
-print("3. Simple 2-constant calculator")
-print("4. Replayable 2-constant calculator")
-print("5. Assignment time estimator")
-print("6. Simple tip calculator")
-print("7. Calculator with return")
-print("8. Better calculator")
-print("9. Simple inside voice converter")
-print("10. Simple word counter")
-print("11. Master Challenge - Einstein's Formatter")
+week0 = [
+    "Simple conversation",
+    "Trial conversation",
+    "Simple 2-constant calculator",
+    "Replayable 2-constant calculator",
+    "Assignment time estimator",
+    "Simple tip calculator",
+    "Calculator with return",
+    "Better calculator",
+    "Simple inside voice converter",
+    "Simple word counter",
+    "Master Challenge - Einstein's Formatter"
+]
 
-print()
-print("Week 1:")
-print("12. Simple odd or even checker")
-print("13. 10-item Quiz")
-print("14. Simple color sorter")
-print("15. Game recommender")
-print("16. Master Challenge - The Hitchhiker's Digital Cafe")
+week1 = [
+    "Simple odd or even checker",
+    "10-item Quiz",
+    "Simple color sorter",
+    "Game recommender",
+    "Master Challenge - The Hitchhiker's Digital Cafe"
+]
 
-print()
-print("Week 2:")
-print("17. Calculator or match")
-print("18. Simple fruit dictionary")
-print("19. Lists and dictionaries")
-print("20. Simple word slicer")
-print("21. ")
+week2 = [
+    "Calculator or match",
+    "Simple fruit dictionary",
+    "Lists and dictionaries",
+    "Simple word slicer"   
+]
