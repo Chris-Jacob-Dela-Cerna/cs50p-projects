@@ -1,3 +1,4 @@
+# Document: This python is my 4th application of CS50P Week 2.
 
 fruits = []
 

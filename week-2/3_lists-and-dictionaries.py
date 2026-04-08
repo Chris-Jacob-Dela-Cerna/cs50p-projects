@@ -1,4 +1,4 @@
-# # Document: This python is my 3rd application of CS50P Week 2.
+# Document: This python is my 3rd application of CS50P Week 2.
 
 ''' This program will be used to note down different ways to use lists/dictionaries with the for loop.
 The goal is to better understand the "for" loop. '''
