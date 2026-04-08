@@ -9,6 +9,7 @@ List Methods:
 .remove()
 .extend()
 .insert()
+.clear
 
 Dictionary Methods:
 .keys
@@ -37,12 +38,17 @@ print(fruits)
 print()
 
 # Adds multiple items at the end of a list
-fruits.extend("grapes", "blueberry")
+fruits.extend(["grapes", "blueberry"])
 print(fruits)
 
 # Adds a single item at a specific position in a list
 fruits.insert(0, "kiwi")
 print(fruits)
+print()
+
+fruits.clear()
+print(fruits)
+print()
 
 ''''''
 
