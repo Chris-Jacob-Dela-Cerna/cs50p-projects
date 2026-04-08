@@ -28,3 +28,17 @@ week2 = [
     "Lists and dictionaries",
     "Simple word slicer"   
 ]
+
+print("\nFull Project List")
+
+print("\nWeek 0:")
+for eachproject in range(len(week0)):
+    print(f"{eachproject + 1}.", week0[eachproject])
+
+print("\nWeek 1:")
+for eachproject in range(len(week1)):
+    print(f"{eachproject + 1}.", week1[eachproject])
+
+print("\nWeek 2:")
+for eachproject in range(len(week2)):
+    print(f"{eachproject + 1}.", week2[eachproject])
