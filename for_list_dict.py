@@ -3,7 +3,21 @@
 ''' This program will be used to note down different ways to use lists/dictionaries with the for loop.
 The goal is to better understand the "for" loop. '''
 
-''''''
+'''
+List Methods:
+.append()
+.remove()
+.extend()
+.insert()
+
+Dictionary Methods:
+.keys
+.values
+.items
+.update()
+.get()
+.pop()
+'''
 
 # List for testing
 fruits = ["apple", "banana", "orange"]
