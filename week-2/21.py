@@ -30,7 +30,7 @@ def check_id(newid):
             if number.isalpha():
                 print("System:   Invalid. After the last letter entered, there must only be succeeding numbers.")
                 return False
-        if alpha < 6:
+        if alpha < 6 and alpha != len(newid):
             if newid[alpha] == "0":
                 print("System:   Invalid. The first number must not be 0.")
                 return False
