@@ -8,13 +8,13 @@ def transit_id(id):
             else:
                 return False
         else:
-            print("Invalid. There must be no spaces or punctuation.")
+            print("System:   Invalid. There must be no spaces or punctuation.")
             return False
     else:
         if_s = "s"
         if len(id) == 1:
             if_s = ""
-        print(f"Invalid. User entered {len(id)} character{if_s}.")
+        print(f"System:   Invalid. User entered {len(id)} character{if_s}.")
         return False
     
 
@@ -28,23 +28,25 @@ def check_id(newid):
                 break
         for number in newid[alpha: ]:
             if number.isalpha():
-                print("Invalid. After the last letter entered, there must only be succeeding numbers.")
+                print("System:   Invalid. After the last letter entered, there must only be succeeding numbers.")
                 return False
         if alpha < 6:
             if newid[alpha] == "0":
-                print("Invalid. The first number must not be 0.")
+                print("System:   Invalid. The first number must not be 0.")
                 return False
         return True
     else:
-        print("Invalid. There must first be atleast 2 letters.")
+        print("System:   Invalid. There must first be atleast 2 letters.")
         return False
 
 
 def registration():
     print("\nWelcome user.")
     while True:
-        userid = input("\nEnter your 2-6 character Transit ID.\nUser: ")
+        userid = input("\nSystem:   Enter your 2-6 character Transit ID.\nUser:   ")
+        print("System:   Processing ID...")
         if transit_id(userid):
+            print(f"System:   Transit ID saved successfully.")
             break
 
 
