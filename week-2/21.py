@@ -26,7 +26,7 @@ def check_id(newid):
                 alpha += 1
             elif character.isdigit():
                 break
-        for number in newid[alpha: ]:
+        for number in newid[alpha:]:
             if number.isalpha():
                 print("System:   Invalid. After the last letter entered, there must only be succeeding numbers.")
                 return False
@@ -38,20 +38,30 @@ def check_id(newid):
     else:
         print("System:   Invalid. There must first be atleast 2 letters.")
         return False
+    
+
+def commuter_tag(name):
+    newname = name.lower().replace("a", "").replace("e", "").replace("i", "").replace("o", "").replace("u", "").replace(".", "")
+    print(f"System:   Commuter Tag [{newname.title()}] saved successfully.")
+    return True
 
 
 def registration():
-    print("\nWelcome user.")
+    print("\nWelcome to LRT-2 Areneta Station.\nHead to the reception desk to register your ID.")
     while True:
-        userid = input("\nSystem:   Enter your 2-6 character Transit ID.\nUser:   ")
+        userid = input("\nSystem:   Enter your 2-6 character Transit ID.\nUser:     ")
         print("System:   Processing ID...")
         if transit_id(userid):
-            print(f"System:   Transit ID saved successfully.")
+            print(f"System:   Transit ID [{userid}] saved successfully.")
+            break
+    while True:
+        username = input("\nSystem:   Enter your full name to receive a Commuter Tag.\nUser:     ").strip()
+        print("System:   Processing username...")
+        if commuter_tag(username):
             break
 
 
 def main():
     registration()
-
 
 main()
