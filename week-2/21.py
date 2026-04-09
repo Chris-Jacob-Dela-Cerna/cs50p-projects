@@ -2,20 +2,34 @@
 
 def transit_id(id):
     if len(id) >= 2 and len(id) <= 6:
-        print("Correct")
+
+        if id.isalnum():
+            check_id(id)
+            print("Valid")
+            return True
+        
+        else:
+            print("Invalid. There must be no spaces or punctuation.")
+            return False
+        
     else:
-        if_s = ""
-        if len(id) > 1:
-            if_s = "s"
+        if_s = "s"
+        if len(id) == 1:
+            if_s = ""
         print(f"Invalid. User entered {len(id)} character{if_s}.")
         return False
+    
+
+def check_id(newid):
+    for eachletter in newid:
+        print(eachletter)
 
 
 def registration():
     print("\nWelcome user.")
     while True:
         userid = input("\nEnter your 2-6 character Transit ID.\nUser: ")
-        if transit_id(userid) == True:
+        if transit_id(userid):
             break
 
 
