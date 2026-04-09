@@ -22,11 +22,22 @@ def transit_id(id):
 
 def check_id(newid):
     if newid[:2].isalpha():
+        alpha = 0
+        for character in newid:
+            if character.isalpha():
+                alpha += 1
+            elif character.isdigit():
+                break
+        for number in newid[alpha: ]:
+            if number.isalpha():
+                print("Invalid. After the last letter entered, there must only be succeeding numbers.")
+                return False
         return True
         
     else:
-        print("Invalid. There must be atleast 2 letters.")
+        print("Invalid. There must first be atleast 2 letters.")
         return False
+
 
 def registration():
     print("\nWelcome user.")
