@@ -8,7 +8,7 @@ week0 = [
     "Assignment time estimator",
     "Simple tip calculator",
     "Calculator with return",
-    "Better calculator",
+    "Simple structured calculator",
     "Simple inside voice converter",
     "Simple word counter",
     "Master Challenge - Einstein's Formatter"
