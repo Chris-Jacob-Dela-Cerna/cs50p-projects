@@ -4,9 +4,7 @@ def transit_id(id):
     if len(id) >= 2 and len(id) <= 6:
         if id.isalnum():
             if check_id(id):
-                print("Valid")
                 return True
-            
             else:
                 return False
         else:
@@ -32,8 +30,11 @@ def check_id(newid):
             if number.isalpha():
                 print("Invalid. After the last letter entered, there must only be succeeding numbers.")
                 return False
+        if alpha < 6:
+            if newid[alpha] == "0":
+                print("Invalid. The first number must not be 0.")
+                return False
         return True
-        
     else:
         print("Invalid. There must first be atleast 2 letters.")
         return False
