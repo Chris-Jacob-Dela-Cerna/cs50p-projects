@@ -65,23 +65,28 @@ def registration():
             break
 
 
+
 stations = [
-    {"listname": "recto", "name": "Recto"}, 
-    {"listname": "legarda", "name": "Legarda"}, 
-    {"listname": "pureza", "name": "Pureza"}, 
-    {"listname": "vmapa", "name": "V. Mapa"}, 
-    {"listname": "jruiz", "name": "Gilmore"},
-    {"listname": "bettygo", "name": "Betty Go-Belmonte"},
-    {"listname": "anonas", "name": "Anonas"},
-    {"listname": "katipunan", "name": "Katipunan"},
-    {"listname": "santolan", "name": "Santolan"},
-    {"listname": "marikina", "name": "Marikina-Pasig"},
-    {"listname": "antipolo", "name": "Antipolo"}
+    {"stationid": "recto", "name": "Recto"}, 
+    {"stationid": "legarda", "name": "Legarda"}, 
+    {"stationid": "pureza", "name": "Pureza"}, 
+    {"stationid": "vmapa", "name": "V. Mapa"}, 
+    {"stationid": "jruiz", "name": "Gilmore"},
+    {"stationid": "bettygo", "name": "Betty Go-Belmonte"},
+    {"stationid": "anonas", "name": "Anonas"},
+    {"stationid": "katipunan", "name": "Katipunan"},
+    {"stationid": "santolan", "name": "Santolan"},
+    {"stationid": "marikina", "name": "Marikina-Pasig"},
+    {"stationid": "antipolo", "name": "Antipolo"}
 ]
 
 def station(station):
     if station.endswith("Station"):
-        print("Win")
+        for eachstation in range(len(stations)):
+            if station[:-7] == stations[eachstation]["stationid"]:
+                return True
+        print("System:   Invalid. Choose a correct Station ID.")
+        return False
     else:
         print("System:   Invalid. Must end with -Station.")
         return False
@@ -91,15 +96,15 @@ def station(station):
 def ticket_kiosk():
     print("\nHead to a nearby ticket kiosk to select your destination.")
     while True:
-        userstation = input("\nSystem:   Enter a station using this format: [nameStation].\n          Enter 'stations' to see the list of available stations.\nUser:     ").strip()
+        userstation = input("\nSystem:   Enter a station using this format: [stationidStation].\n          Enter 'stations' to see the list of available stations.\nUser:     ").strip()
         if userstation != "stations":  
             if station(userstation):
                 print("Success")
                 break
         else:
-            print("\nList of Stations:")
+            print("\nList of Stations IDs:")
             for eachstation in range(len(stations)):
-                print(f"{eachstation}. {stations[eachstation]["listname"]} - {stations[eachstation]["name"]} Station")
+                print(f"{eachstation + 1}. {stations[eachstation]["stationid"]} - {stations[eachstation]["name"]} Station")
 
 
 
