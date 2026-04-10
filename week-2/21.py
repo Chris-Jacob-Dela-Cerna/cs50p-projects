@@ -65,7 +65,19 @@ def registration():
             break
 
 
-stations = []
+stations = {
+    "recto": "Recto", 
+    "legarda": "Legarda", 
+    "pureza": "Pureza", 
+    "vmapa": "V. Mapa", 
+    "jruiz": "Gilmore",
+    "bettygo": "Betty Go-Belmonte",
+    "anonas": "Anonas",
+    "katipunan": "Katipunan",
+    "santolan": "Santolan",
+    "marikina": "Marikina-Pasig",
+    "antipolo": "Antipolo",
+}
 
 def station(station):
     if station.endswith("Station"):
@@ -80,6 +92,10 @@ def ticket_kiosk():
     print("\nHead to a nearby ticket kiosk to select your destination.")
     while True:
         userstation = input("\nSystem:   Enter a station using this format: [nameStation].\n          Enter 'stations' to see the list of available stations.\nUser:     ").strip()
+        if userstation == "stations":
+            print("\nList of Stations:")
+            for eachstation in stations:
+                print(f"{eachstation.title()} Station")
         if station(userstation):
             print("Success")
             break
