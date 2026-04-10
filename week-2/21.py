@@ -41,9 +41,13 @@ def check_id(newid):
     
 
 def commuter_tag(name):
-    newname = name.lower().replace("a", "").replace("e", "").replace("i", "").replace("o", "").replace("u", "").replace(".", "")
-    print(f"System:   Commuter Tag [{newname.title()}] saved successfully.")
-    return True
+    if name.isalpha():
+        newname = name.lower().replace("a", "").replace("e", "").replace("i", "").replace("o", "").replace("u", "").replace(".", "")
+        print(f"System:   Commuter Tag [{newname.title()}] saved successfully.")
+        return True
+    else:
+        print("System:   Invalid. There must only be letters.")
+        return False
 
 
 def registration():
@@ -59,9 +63,17 @@ def registration():
         print("System:   Processing username...")
         if commuter_tag(username):
             break
+    print("\nHead to a nearby ticket kiosk to select your destination.")
+
+
+
+def ticket_kiosk():
+    print()
+
 
 
 def main():
     registration()
+    ticket_kiosk()
 
 main()
