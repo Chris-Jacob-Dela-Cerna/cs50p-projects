@@ -63,17 +63,31 @@ def registration():
         print("System:   Processing username...")
         if commuter_tag(username):
             break
-    print("\nHead to a nearby ticket kiosk to select your destination.")
+
+
+stations = []
+
+def station(station):
+    if station.endswith("Station"):
+        print("Win")
+    else:
+        print("System:   Invalid. Must end with -Station.")
+        return False
 
 
 
 def ticket_kiosk():
-    print()
+    print("\nHead to a nearby ticket kiosk to select your destination.")
+    while True:
+        userstation = input("\nSystem:   Enter a station using this format: [nameStation].\n          Enter 'stations' to see the list of available stations.\nUser:     ").strip()
+        if station(userstation):
+            print("Success")
+            break
 
 
 
 def main():
-    registration()
+    # Temporarily remove registration()
     ticket_kiosk()
 
 main()
