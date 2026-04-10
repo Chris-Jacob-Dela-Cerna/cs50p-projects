@@ -81,9 +81,12 @@ stations = [
 ]
 
 def station(station):
+    print("System:   Processing text...")
     if station.endswith("Station"):
+        print("System:   Processing Station IDs...")
         for eachstation in range(len(stations)):
-            if station[:-7] == stations[eachstation]["stationid"]:
+            if station[:-7] == stations[eachstation]['stationid']:
+                print(f"System:   {stations[eachstation]['name']} Station selected.")
                 return True
         print("System:   Invalid. Choose a correct Station ID.")
         return False
@@ -99,12 +102,11 @@ def ticket_kiosk():
         userstation = input("\nSystem:   Enter a station using this format: [stationidStation].\n          Enter 'stations' to see the list of available stations.\nUser:     ").strip()
         if userstation != "stations":  
             if station(userstation):
-                print("Success")
                 break
         else:
             print("\nList of Stations IDs:")
             for eachstation in range(len(stations)):
-                print(f"{eachstation + 1}. {stations[eachstation]["stationid"]} - {stations[eachstation]["name"]} Station")
+                print(f"{eachstation + 1}. {stations[eachstation]['stationid']} - {stations[eachstation]['name']} Station")
 
 
 
