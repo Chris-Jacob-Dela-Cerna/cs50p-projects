@@ -66,7 +66,7 @@ def registration():
 
 
 
-stations = [
+stationid = [
     {"stationid": "recto", "name": "Recto"}, 
     {"stationid": "legarda", "name": "Legarda"}, 
     {"stationid": "pureza", "name": "Pureza"}, 
@@ -80,13 +80,31 @@ stations = [
     {"stationid": "antipolo", "name": "Antipolo"}
 ]
 
+stations = [
+    "recto_station",
+    "legarda_station",
+    "pureza_station",
+    "vmapa_station",
+    "jruiz_station",
+    "bettygo_station",
+    "anonas_station",
+    "katipunan_station",
+    "santolan_station",
+    "marikina_station",
+    "antipolo_station"
+]
+
 def station(station):
     print("System:   Processing text...")
     if station.endswith("Station"):
         print("System:   Processing Station IDs...")
-        for eachstation in range(len(stations)):
-            if station[:-7] == stations[eachstation]['stationid']:
-                print(f"System:   {stations[eachstation]['name']} Station selected.")
+
+        # Convert stationidStation into snake_case
+        # Check if snake_case version matches the station list
+
+        for eachstation in range(len(stationid)):
+            if station[:-7] == stationid[eachstation]['stationid']:
+                print(f"System:   {stationid[eachstation]['name']} Station selected.")
                 return True
         print("System:   Invalid. Choose a correct Station ID.")
         return False
@@ -105,8 +123,8 @@ def ticket_kiosk():
                 break
         else:
             print("\nList of Stations IDs:")
-            for eachstation in range(len(stations)):
-                print(f"{eachstation + 1}. {stations[eachstation]['stationid']} - {stations[eachstation]['name']} Station")
+            for eachstation in range(len(stationid)):
+                print(f"{eachstation + 1}. {stationid[eachstation]['stationid']} - {stationid[eachstation]['name']} Station")
 
 
 
