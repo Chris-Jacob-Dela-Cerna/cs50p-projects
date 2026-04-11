@@ -41,8 +41,8 @@ def check_id(newid):
     
 
 def commuter_tag(name):
-    if name.isalpha():
-        newname = name.lower().replace("a", "").replace("e", "").replace("i", "").replace("o", "").replace("u", "").replace(".", "")
+    if name.replace(" ", "A").isalpha():
+        newname = name.replace("a", "").replace("e", "").replace("i", "").replace("o", "").replace("u", "").replace(".", "").replace("A", "")
         print(f"System:   Commuter Tag [{newname.title()}] saved successfully.")
         return True
     else:
@@ -59,7 +59,7 @@ def registration():
             print(f"System:   Transit ID [{userid}] saved successfully.")
             break
     while True:
-        username = input("\nSystem:   Enter your full name to receive a Commuter Tag.\nUser:     ").strip()
+        username = input("\nSystem:   Enter your full name to receive a Commuter Tag.\nUser:     ").strip().lower()
         print("System:   Processing username...")
         if commuter_tag(username):
             break
@@ -111,7 +111,7 @@ def ticket_kiosk():
 
 
 def main():
-    # Temporarily remove registration()
+    registration()
     ticket_kiosk()
 
 main()
