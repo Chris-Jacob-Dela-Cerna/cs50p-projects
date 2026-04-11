@@ -64,7 +64,6 @@ def registration():
         if commuter_tag(username):
             break
 
-
 stations = [
     {"stationid": "recto_station", "name": "Recto", "price": 25}, 
     {"stationid": "legarda_station", "name": "Legarda", "price": 20}, 
@@ -79,7 +78,6 @@ stations = [
     {"stationid": "marikina_station", "name": "Marikina-Pasig", "price": 20},
     {"stationid": "antipolo_station", "name": "Antipolo", "price": 25}
 ]
-
 
 def station(station):
     print("System:   Processing text...")
@@ -97,9 +95,7 @@ def station(station):
         print("System:   Invalid. Must end with -Station.")
         return False
     
-
 validcoins = [1, 5, 10, 20]
-
 
 def payment(selected):
     price = stations[selected]["price"]
@@ -111,9 +107,8 @@ def payment(selected):
                 price -= int(coin)
                 if not price > 0:
                     price *= -1
-                    print(f"\nStatus:   Paid\nChange:   {price} pesos")
+                    print(f"Status:   Paid\nChange:   {price} pesos")
                     return True
-                
                 else:
                     print(f"Status:   {price} pesos left")
             else:
@@ -133,10 +128,19 @@ def ticket_kiosk():
             print("\nList of Stations IDs:")
             for eachstation in range(len(stations)):
                 print(f"{eachstation + 1}. {stations[eachstation]['stationid'][:-8]} - {stations[eachstation]['name']} Station")
-    print("Baller")
+
+
+def fruit_stand():
+    print("\nWhile waiting for the train you spot a fruit stand.")
+    user = input("\nSystem:   Would you like to check their fruits? Enter yes or no.\nUser:     ").strip().lower()
+    if user == "yes":
+        print("Check fruit")
+        
+    print("\nYou wait for the train to arrive and then board safely.\n")
 
 def main():
-    # Temporarily remove registration()
-    ticket_kiosk()
+    # Tempremove registration()
+    # Tempremove ticket_kiosk()
+    fruit_stand()
 
 main()
