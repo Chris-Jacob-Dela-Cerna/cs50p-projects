@@ -129,20 +129,33 @@ def ticket_kiosk():
             for eachstation in range(len(stations)):
                 print(f"{eachstation + 1}. {stations[eachstation]['stationid'][:-8]} - {stations[eachstation]['name']} Station")
 
-fruits = {
+fruits = [
     {"fruit": "mango", "calories": 150},
     {"fruit": "banana", "calories": 105},
     {"fruit": "pineapple", "calories": 50},
     {"fruit": "papaya", "calories": 60},
     {"fruit": "guyabano", "calories": 66}
-}
+]
 
 def fruit_stand():
     print("\nWhile waiting for the train you spot a fruit stand.")
     user = input("\nSystem:   Would you like to check their fruits? Enter yes or no.\nUser:     ").strip().lower()
     if user == "yes":
-        print("Check fruit")
+        print("\nVendor:   Good day! We have a few sorts of fruits.\n          This includes mangoes, bananas, pineapples, papayas, and guyabanos.\n          Any of them interests you?\n          If interested, enter the fruit in singular form. Otherwise, enter 'no'.")
         
+        # Fix and continue this code block
+
+        while True:
+            userfruit = input("User:     ").strip().lower()
+            if userfruit in fruits["fruit"]:
+                for eachfruit in range(len(fruits)):
+                    print(eachfruit)
+            elif userfruit == "no":
+                print("Vendor:   Okay, thank you.")
+                break
+            else:
+                print("Vendor:   Ohh sorry, we don't have that at the moment.")
+
     print("\nYou wait for the train to arrive and then board safely.\n")
 
 
