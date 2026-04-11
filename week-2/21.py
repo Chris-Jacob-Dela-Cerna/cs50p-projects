@@ -129,6 +129,13 @@ def ticket_kiosk():
             for eachstation in range(len(stations)):
                 print(f"{eachstation + 1}. {stations[eachstation]['stationid'][:-8]} - {stations[eachstation]['name']} Station")
 
+fruits = {
+    {"fruit": "mango", "calories": 150},
+    {"fruit": "banana", "calories": 105},
+    {"fruit": "pineapple", "calories": 50},
+    {"fruit": "papaya", "calories": 60},
+    {"fruit": "guyabano", "calories": 66}
+}
 
 def fruit_stand():
     print("\nWhile waiting for the train you spot a fruit stand.")
@@ -137,6 +144,7 @@ def fruit_stand():
         print("Check fruit")
         
     print("\nYou wait for the train to arrive and then board safely.\n")
+
 
 def main():
     # Tempremove registration()
