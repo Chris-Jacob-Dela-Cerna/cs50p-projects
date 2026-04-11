@@ -65,45 +65,29 @@ def registration():
             break
 
 
-
 stationid = [
-    {"stationid": "recto", "name": "Recto"}, 
-    {"stationid": "legarda", "name": "Legarda"}, 
-    {"stationid": "pureza", "name": "Pureza"}, 
-    {"stationid": "vmapa", "name": "V. Mapa"}, 
-    {"stationid": "jruiz", "name": "J. Ruiz"},
-    {"stationid": "gilmore", "name": "Gilmore"},
-    {"stationid": "bettygo", "name": "Betty Go-Belmonte"},
-    {"stationid": "anonas", "name": "Anonas"},
-    {"stationid": "katipunan", "name": "Katipunan"},
-    {"stationid": "santolan", "name": "Santolan"},
-    {"stationid": "marikina", "name": "Marikina-Pasig"},
-    {"stationid": "antipolo", "name": "Antipolo"}
+    {"stationid": "recto_station", "name": "Recto"}, 
+    {"stationid": "legarda_station", "name": "Legarda"}, 
+    {"stationid": "pureza_station", "name": "Pureza"}, 
+    {"stationid": "vmapa_station", "name": "V. Mapa"}, 
+    {"stationid": "jruiz_station", "name": "J. Ruiz"},
+    {"stationid": "gilmore_station", "name": "Gilmore"},
+    {"stationid": "bettygo_station", "name": "Betty Go-Belmonte"},
+    {"stationid": "anonas_station", "name": "Anonas"},
+    {"stationid": "katipunan_station", "name": "Katipunan"},
+    {"stationid": "santolan_station", "name": "Santolan"},
+    {"stationid": "marikina_station", "name": "Marikina-Pasig"},
+    {"stationid": "antipolo_station", "name": "Antipolo"}
 ]
 
-stations = [
-    "recto_station",
-    "legarda_station",
-    "pureza_station",
-    "vmapa_station",
-    "jruiz_station",
-    "gilmore_station",
-    "bettygo_station",
-    "anonas_station",
-    "katipunan_station",
-    "santolan_station",
-    "marikina_station",
-    "antipolo_station"
-]
 
 def station(station):
     print("System:   Processing text...")
     if station.endswith("Station"):
         print("System:   Processing Station ID...")
-
         selected = [station[:-7], station[-7:].lower()]
         for eachstation in range(len(stationid)):
-            if ("_").join(selected) == stations[eachstation]:
+            if ("_").join(selected) == stationid[eachstation]["stationid"]:
                 print(f"System:   {stationid[eachstation]['name']} Station selected.")
                 return True
         print("System:   Invalid. Choose a correct Station ID.")
@@ -111,7 +95,6 @@ def station(station):
     else:
         print("System:   Invalid. Must end with -Station.")
         return False
-
 
 
 def ticket_kiosk():
@@ -124,8 +107,7 @@ def ticket_kiosk():
         else:
             print("\nList of Stations IDs:")
             for eachstation in range(len(stationid)):
-                print(f"{eachstation + 1}. {stationid[eachstation]['stationid']} - {stationid[eachstation]['name']} Station")
-
+                print(f"{eachstation + 1}. {stationid[eachstation]['stationid'][:-8]} - {stationid[eachstation]['name']} Station")
 
 
 def main():
