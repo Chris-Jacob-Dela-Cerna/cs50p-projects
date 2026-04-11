@@ -110,11 +110,12 @@ def payment(selected):
             if int(coin) in validcoins:
                 price -= int(coin)
                 if not price > 0:
-                    print("Paid")
+                    price *= -1
+                    print(f"\nStatus:   Paid\nChange:   {price} pesos")
                     return True
                 
                 else:
-                    print(f"System: {price} pesos left.")
+                    print(f"Status:   {price} pesos left")
             else:
                 print("System:   Invalid. The coin deposit only accepts 1, 5, 10, 20 peso coins.")
         else:
@@ -132,7 +133,7 @@ def ticket_kiosk():
             print("\nList of Stations IDs:")
             for eachstation in range(len(stations)):
                 print(f"{eachstation + 1}. {stations[eachstation]['stationid'][:-8]} - {stations[eachstation]['name']} Station")
-
+    print("Baller")
 
 def main():
     # Temporarily remove registration()
