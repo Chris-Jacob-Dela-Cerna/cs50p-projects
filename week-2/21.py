@@ -87,7 +87,7 @@ stations = [
     "pureza_station",
     "vmapa_station",
     "jruiz_station",
-    "gilmore_station"
+    "gilmore_station",
     "bettygo_station",
     "anonas_station",
     "katipunan_station",
