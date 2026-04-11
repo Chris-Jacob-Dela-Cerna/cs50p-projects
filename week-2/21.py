@@ -96,9 +96,30 @@ def station(station):
     else:
         print("System:   Invalid. Must end with -Station.")
         return False
+    
+
+validcoins = [1, 5, 10, 20]
+
 
 def payment(selected):
-    print()
+    price = stations[selected]["price"]
+    print(f"\nSystem:   Your ticket fee is {price} pesos.\nSystem:   For payment, please insert inside the coin deposit the following coins: \n          1, 5, 10, 20")
+    while True:
+        coin = input("Deposit:  ").strip()
+        if coin.isdigit():
+            if coin in validcoins:
+                price -= int(coin)
+                if price > 0:
+                    print(f"System: {price} pesos left.")
+                else:
+                    print("Paid")
+                    return True
+            
+            else:
+                print("System:   Invalid. The coin deposit only accepts 1, 5, 10, 20 peso coins.")
+        else:
+            print("System:   Invalid. Enter numbers only.")
+        
 
 def ticket_kiosk():
     print("\nHead to a nearby ticket kiosk to select your destination.")
