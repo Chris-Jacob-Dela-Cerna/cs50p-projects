@@ -66,18 +66,18 @@ def registration():
 
 
 stations = [
-    {"stationid": "recto_station", "name": "Recto", "price": "25"}, 
-    {"stationid": "legarda_station", "name": "Legarda", "price": "20"}, 
-    {"stationid": "pureza_station", "name": "Pureza", "price": "20"}, 
-    {"stationid": "vmapa_station", "name": "V. Mapa", "price": "20"}, 
-    {"stationid": "jruiz_station", "name": "J. Ruiz", "price": "15"},
-    {"stationid": "gilmore_station", "name": "Gilmore", "price": "15"},
-    {"stationid": "bettygo_station", "name": "Betty Go-Belmonte", "price": "15"},
-    {"stationid": "anonas_station", "name": "Anonas", "price": "15"},
-    {"stationid": "katipunan_station", "name": "Katipunan", "price": "15"},
-    {"stationid": "santolan_station", "name": "Santolan", "price": "15"},
-    {"stationid": "marikina_station", "name": "Marikina-Pasig", "price": "20"},
-    {"stationid": "antipolo_station", "name": "Antipolo", "price": "25"}
+    {"stationid": "recto_station", "name": "Recto", "price": 25}, 
+    {"stationid": "legarda_station", "name": "Legarda", "price": 20}, 
+    {"stationid": "pureza_station", "name": "Pureza", "price": 20}, 
+    {"stationid": "vmapa_station", "name": "V. Mapa", "price": 20}, 
+    {"stationid": "jruiz_station", "name": "J. Ruiz", "price": 15},
+    {"stationid": "gilmore_station", "name": "Gilmore", "price": 15},
+    {"stationid": "bettygo_station", "name": "Betty Go-Belmonte", "price": 15},
+    {"stationid": "anonas_station", "name": "Anonas", "price": 15},
+    {"stationid": "katipunan_station", "name": "Katipunan", "price": 15},
+    {"stationid": "santolan_station", "name": "Santolan", "price": 15},
+    {"stationid": "marikina_station", "name": "Marikina-Pasig", "price": 20},
+    {"stationid": "antipolo_station", "name": "Antipolo", "price": 25}
 ]
 
 
@@ -89,6 +89,7 @@ def station(station):
         for eachstation in range(len(stations)):
             if ("_").join(selected) == stations[eachstation]["stationid"]:
                 print(f"System:   {stations[eachstation]['name']} Station selected.")
+                payment(eachstation)
                 return True
         print("System:   Invalid. Choose a correct Station ID.")
         return False
@@ -96,6 +97,8 @@ def station(station):
         print("System:   Invalid. Must end with -Station.")
         return False
 
+def payment(selected):
+    print()
 
 def ticket_kiosk():
     print("\nHead to a nearby ticket kiosk to select your destination.")
@@ -108,8 +111,6 @@ def ticket_kiosk():
             print("\nList of Stations IDs:")
             for eachstation in range(len(stations)):
                 print(f"{eachstation + 1}. {stations[eachstation]['stationid'][:-8]} - {stations[eachstation]['name']} Station")
-    while True:
-
 
 
 def main():
