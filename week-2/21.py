@@ -71,7 +71,8 @@ stationid = [
     {"stationid": "legarda", "name": "Legarda"}, 
     {"stationid": "pureza", "name": "Pureza"}, 
     {"stationid": "vmapa", "name": "V. Mapa"}, 
-    {"stationid": "jruiz", "name": "Gilmore"},
+    {"stationid": "jruiz", "name": "J. Ruiz"},
+    {"stationid": "gilmore", "name": "Gilmore"},
     {"stationid": "bettygo", "name": "Betty Go-Belmonte"},
     {"stationid": "anonas", "name": "Anonas"},
     {"stationid": "katipunan", "name": "Katipunan"},
@@ -86,6 +87,7 @@ stations = [
     "pureza_station",
     "vmapa_station",
     "jruiz_station",
+    "gilmore_station"
     "bettygo_station",
     "anonas_station",
     "katipunan_station",
@@ -97,13 +99,11 @@ stations = [
 def station(station):
     print("System:   Processing text...")
     if station.endswith("Station"):
-        print("System:   Processing Station IDs...")
+        print("System:   Processing Station ID...")
 
-        # Convert stationidStation into snake_case
-        # Check if snake_case version matches the station list
-
+        selected = [station[:-7], station[-7:].lower()]
         for eachstation in range(len(stationid)):
-            if station[:-7] == stationid[eachstation]['stationid']:
+            if ("_").join(selected) == stations[eachstation]:
                 print(f"System:   {stationid[eachstation]['name']} Station selected.")
                 return True
         print("System:   Invalid. Choose a correct Station ID.")
