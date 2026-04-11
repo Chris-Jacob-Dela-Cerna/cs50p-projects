@@ -107,14 +107,14 @@ def payment(selected):
     while True:
         coin = input("Deposit:  ").strip()
         if coin.isdigit():
-            if coin in validcoins:
+            if int(coin) in validcoins:
                 price -= int(coin)
-                if price > 0:
-                    print(f"System: {price} pesos left.")
-                else:
+                if not price > 0:
                     print("Paid")
                     return True
-            
+                
+                else:
+                    print(f"System: {price} pesos left.")
             else:
                 print("System:   Invalid. The coin deposit only accepts 1, 5, 10, 20 peso coins.")
         else:
