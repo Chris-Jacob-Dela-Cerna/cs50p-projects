@@ -168,8 +168,8 @@ def fruit_stand():
 
 
 def main():
-    # Tempremove registration()
-    # Tempremove ticket_kiosk()
+    registration()
+    ticket_kiosk()
     fruit_stand()
 
 main()
