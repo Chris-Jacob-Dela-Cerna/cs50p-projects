@@ -137,24 +137,30 @@ fruits = [
     {"fruit": "guyabano", "calories": 66}
 ]
 
+def check_fruit():
+    print("\nVendor:   Good day! We have a few sorts of fruits.\n          This includes mangoes, bananas, pineapples, papayas, and guyabanos.\n          Any of them of interest to you?\n          If yes, enter the fruit in singular form. Otherwise, enter 'no'.")
+    while True:
+        user = input("User:     ").strip().lower()
+        if user == "no":
+            print("Vendor:   Thank you and have a safe trip!")
+            break
+        else:
+            for eachfruit in range(len(fruits)):
+                if user == fruits[eachfruit]['fruit']:
+                    print(fruits[eachfruit])
+                    match = True
+                    break
+            if match == True:
+                break
+            else:
+                print("Vendor:   Looks like we don't have that at the moment.")
+
+
 def fruit_stand():
     print("\nWhile waiting for the train you spot a fruit stand.")
     user = input("\nSystem:   Would you like to check their fruits? Enter yes or no.\nUser:     ").strip().lower()
     if user == "yes":
-        print("\nVendor:   Good day! We have a few sorts of fruits.\n          This includes mangoes, bananas, pineapples, papayas, and guyabanos.\n          Any of them interests you?\n          If interested, enter the fruit in singular form. Otherwise, enter 'no'.")
-        
-        # Fix and continue this code block
-
-        while True:
-            userfruit = input("User:     ").strip().lower()
-            if userfruit in fruits["fruit"]:
-                for eachfruit in range(len(fruits)):
-                    print(eachfruit)
-            elif userfruit == "no":
-                print("Vendor:   Okay, thank you.")
-                break
-            else:
-                print("Vendor:   Ohh sorry, we don't have that at the moment.")
+        check_fruit()
 
     print("\nYou wait for the train to arrive and then board safely.\n")
 
