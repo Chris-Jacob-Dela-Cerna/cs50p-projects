@@ -140,20 +140,22 @@ fruits = [
 def check_fruit():
     print("\nVendor:   Good day! We have a few sorts of fruits.\n          This includes mangoes, bananas, pineapples, papayas, and guyabanos.\n          Any of them of interest to you?\n          If yes, enter the fruit in singular form. Otherwise, enter 'no'.")
     while True:
-        user = input("User:     ").strip().lower()
-        if user == "no":
-            print("Vendor:   Thank you and have a safe trip!")
+        userfruit = input("User:     ").strip().lower()
+        if userfruit == "no":
+            print("\nYou hear the train arriving and say goodbye to the vendor.\nVendor:   Thank you and have a safe trip!", end="")
             break
         else:
+            match = False
             for eachfruit in range(len(fruits)):
-                if user == fruits[eachfruit]['fruit']:
-                    print(fruits[eachfruit])
+                if userfruit == fruits[eachfruit]['fruit']:
                     match = True
+                    print(f"Vendor:   Ohh, well a pair of {userfruit} has about {fruits[eachfruit]['calories'] * 2} calories.\n          Looking to buy any?")
+                    print("\nYou hear the train arriving and say goodbye to the vendor.\nVendor:   Thank you and have a safe trip!", end="")
                     break
             if match == True:
                 break
             else:
-                print("Vendor:   Looks like we don't have that at the moment.")
+                print("\nVendor:   Looks like we don't have that at the moment.")
 
 
 def fruit_stand():
@@ -162,7 +164,7 @@ def fruit_stand():
     if user == "yes":
         check_fruit()
 
-    print("\nYou wait for the train to arrive and then board safely.\n")
+    print("\nYou board the train and travel safely.\n")
 
 
 def main():
