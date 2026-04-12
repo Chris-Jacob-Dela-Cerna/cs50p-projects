@@ -27,5 +27,8 @@ while True:
                     expression = x * y
                 else:
                     expression = x / y
-                break
-print(f"System:   The answer is {expression}.")
+    print(f"System:   The answer is {expression}.")
+    again = input("\nSystem:   Want to do another calculation? Enter yes or no.\nUser:     ").strip().lower()
+    if again != "yes":
+        break
+    continue
