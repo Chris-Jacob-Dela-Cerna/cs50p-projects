@@ -19,14 +19,15 @@ week1 = [
     "10-item Quiz",
     "Simple color sorter",
     "Game recommender",
-    "Master Challenge - The Hitchhiker's Digital Cafe"
+    "Master Challenge - Hitchhiker's Digital Cafe"
 ]
 
 week2 = [
     "Calculator or match",
     "Simple fruit dictionary",
     "Lists and dictionaries",
-    "Simple word slicer"   
+    "Simple word slicer",
+    "Master Challenge - LRT-2 Digital Commuter Hub" 
 ]
 
 print("\nFull Project List")
