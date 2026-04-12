@@ -30,6 +30,10 @@ week2 = [
     "Master Challenge - LRT-2 Digital Commuter Hub" 
 ]
 
+week3 = [
+    "Better Calculator"
+]
+
 print("\nFull Project List")
 
 print("\nWeek 0:")
@@ -43,3 +47,7 @@ for eachproject in range(len(week1)):
 print("\nWeek 2:")
 for eachproject in range(len(week2)):
     print(f"{eachproject + 1}.", week2[eachproject])
+
+print("\nWeek 3:")
+for eachproject in range(len(week3)):
+    print(f"{eachproject + 1}.", week3[eachproject])
