@@ -11,24 +11,35 @@ def main():
 def intro():
     print("\nContext: You are managing a shipping hub in Metro Manila that sends Balikbayan boxes to various provinces.\nYou must manage the inventory of items being packed, the fuel for the delivery trucks, and the schedule of shipments.")
 
-
+onhand = []
 
 def cargo_inventory():
     print("\nYou head to the packing station. You are tasked to pack items inside a Balikbayan Box.")
+    print("\nSystem:   Enter the name of the items 1 by 1.\n          Enter ctrl-z to finish packing items.")
     while True:
         try:    
-            useritem = input("System:   Enter the name of the items 1 by 1.\n          Enter ctrl-z to finish packing items.").strip()
+            useritem = input("User:     ").strip().lower()
         except EOFError:
-            inventory()
+            pack_items()
             break
         else:
-            insert_item()
+            onhand.append(useritem)
 
-def inventory():
-    pass
-
-def insert_item():
-    pass
+def pack_items():
+    onhand.sort()
+    box = {}
+    for eachitem in onhand:
+        if not eachitem in box:
+            box.update({eachitem: 1})
+        else:
+            box[eachitem] +=1
+    print("\n ==================")
+    list(box.keys())
+    total = 0
+    for eachitem in box.keys():
+        print(f" | {box[eachitem]} - {eachitem.upper()}")
+        total += box[eachitem]
+    print(f" = {total} total items\n")
 
 
 
