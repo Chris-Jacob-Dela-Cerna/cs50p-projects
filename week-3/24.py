@@ -14,6 +14,7 @@ def intro():
 
 
 onhand = []
+box = {}
 
 def cargo_inventory():
     print("\n | You head to the packing station. You are tasked to pack items inside a Balikbayan Box.")
@@ -22,27 +23,34 @@ def cargo_inventory():
         try:    
             useritem = input("User:     ").strip().lower()
         except EOFError:
+            sort_items()
             pack_items()
-            break
+            pack = input("\nSystem:   Enter 'yes' if you're done packing, otherwise enter 'no'.\nUser:     ").strip().lower()
+            if pack == "yes":
+                break
         else:
             onhand.append(useritem)
 
-def pack_items():
+def sort_items():
     onhand.sort()
-    box = {}
     for eachitem in onhand:
         if not eachitem in box:
             box.update({eachitem: 1})
         else:
             box[eachitem] +=1
 
+def pack_items():
     list(box.keys())
     total = 0
     print("\n <<< Balikbayan Box >>>")
     for eachitem in box.keys():
         print(f" | {box[eachitem]} - {eachitem.upper()}")
         total += box[eachitem]
-    print(f" = {total} total items")
+    if total == 1:
+        if_s = ""
+    else:
+        if_s = "s"
+    print(f" = {total} total item{if_s}")
 
 
 
@@ -59,7 +67,6 @@ snacks = {
     "maruya": {"price": 15.00},
     "halo-halo": {"price": 40.00}
 }
-
 order = {}
 
 def canteen():
@@ -70,7 +77,7 @@ def canteen():
             usersnack = input("User:     ").strip().lower()
         except EOFError:
             receipt()
-            pay = input("\nVendor:   Is that all? Or do you want to add more items?\n          To pay and exit, enter yes. Otherwise enter no.\nUser:     ").strip().lower()
+            pay = input("\nVendor:   Is that all? Or do you want to add more items?\n          To pay and exit, enter 'yes'. Otherwise enter 'no'.\nUser:     ").strip().lower()
             if pay == "yes":
                 print("Vendor:   Lovely! Thank you and have a nice day.")
                 break
