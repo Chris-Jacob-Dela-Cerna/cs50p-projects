@@ -2,8 +2,8 @@
 
 
 def main():
-    # intro()
-    # cargo_inventory()
+    intro()
+    cargo_inventory()
     canteen()
     # fuel_management()
     # shipment_audit()
@@ -14,7 +14,7 @@ def intro():
 onhand = []
 
 def cargo_inventory():
-    print("\n | You head to the packing station. You are tasked to pack items inside a Balgitikbayan Box.")
+    print("\n | You head to the packing station. You are tasked to pack items inside a Balikbayan Box.")
     print("\nSystem:   Enter the name of the items 1 by 1.\n          Enter 'ctrl-z' to finish packing items.")
     while True:
         try:    
@@ -35,7 +35,7 @@ def pack_items():
             box[eachitem] +=1
     list(box.keys())
     total = 0
-    print()
+    print("\n <<< Balikbayan Box >>>")
     for eachitem in box.keys():
         print(f" | {box[eachitem]} - {eachitem.upper()}")
         total += box[eachitem]
@@ -83,12 +83,15 @@ def check_snack(snack):
             order.update({snack: {"quantity": 1}})
         else:
             order[snack]["quantity"] += 1
-        print(order_price())
+        order_price()
+    else:
+        print("Vendor:   Oops, we don't have that at the moment.")
 
 def order_price():
     price = 0
     for eachsnack in order:
-        pass
+        price += order[eachsnack].get("quantity") * snacks[eachsnack].get("price") 
+    print(f"Total:    {price} pesos")
 
 
 def fuel_management():
