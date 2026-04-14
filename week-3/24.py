@@ -2,8 +2,8 @@
 
 
 def main():
-    intro()
-    cargo_inventory()
+    # intro()
+    # cargo_inventory()
     canteen()
     # fuel_management()
     # shipment_audit()
@@ -59,12 +59,18 @@ order = {}
 
 def canteen():
     print("\n | You hear your stomach growl, you're hungry.\n | Thankfully it's breaktime so you head to the canteen.")
-    print("\nVendor:   Hello user. Interested in some snacks?\n          Enter 'menu' to see the list of snacks.\n          Enter the name of the snack to add to your order.\n          Enter 'ctrl-z' to pay or leave.")
+    print("\nVendor:   Hello user. Interested in some snacks?\n          Enter 'menu' to see the list of snacks.\n          Enter the name of the snack to add to your order.\n          Enter 'ctrl-z' to finalize your order.")
     while True:
         try:
             usersnack = input("User:     ").strip().lower()
         except EOFError:
             receipt()
+            pay = input("\nVendor:   Is that all? Or do you want to add more items?\n          To pay and exit, enter yes. Otherwise enter no.\nUser:     ").strip().lower()
+            if pay == "yes":
+                print("Vendor:   Lovely! Thank you user and have a nice day.")
+                break
+            else:
+                print("Vendor:   Take your time user.")
         else:
             if usersnack == "menu":
                 print("\n <<< List of Snacks >>>")
@@ -75,7 +81,13 @@ def canteen():
                 check_snack(usersnack)
 
 def receipt():
-    pass
+    print("\n <<< Order >>>")
+    for eachorder in order:
+        print(f" | {order[eachorder].get("quantity")} {eachorder.title()} = {order[eachorder].get("quantity") * snacks[eachorder].get("price")}")
+    total = order_price()
+    print(f" = {total} pesos total")
+    
+    
 
 def check_snack(snack):
     if snack in snacks:
@@ -83,15 +95,17 @@ def check_snack(snack):
             order.update({snack: {"quantity": 1}})
         else:
             order[snack]["quantity"] += 1
-        order_price()
+        total = order_price()
+        print(f"Total:    {total} pesos")
     else:
         print("Vendor:   Oops, we don't have that at the moment.")
 
 def order_price():
-    price = 0
+    total = 0
     for eachsnack in order:
-        price += order[eachsnack].get("quantity") * snacks[eachsnack].get("price") 
-    print(f"Total:    {price} pesos")
+        total += order[eachsnack].get("quantity") * snacks[eachsnack].get("price") 
+    return total
+
 
 
 def fuel_management():
