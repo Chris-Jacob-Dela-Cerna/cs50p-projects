@@ -2,14 +2,16 @@
 
 
 def main():
-    # intro()
-    # cargo_inventory()
+    intro()
+    cargo_inventory()
     canteen()
-    # fuel_management()
+    fuel_management()
     # shipment_audit()
 
 def intro():
-    print("\n | You are managing a shipping hub in Metro Manila that sends Balikbayan boxes to various provinces.\n | You must manage the inventory of items being packed, the fuel for the delivery trucks, and the schedule of shipments.")
+    print("\nContext:\nYou are managing a shipping hub in Metro Manila that sends Balikbayan boxes to various provinces.\nYou must manage the inventory of items being packed, the fuel for the delivery trucks, and the schedule of shipments.")
+
+
 
 onhand = []
 
@@ -33,6 +35,7 @@ def pack_items():
             box.update({eachitem: 1})
         else:
             box[eachitem] +=1
+
     list(box.keys())
     total = 0
     print("\n <<< Balikbayan Box >>>")
@@ -40,6 +43,8 @@ def pack_items():
         print(f" | {box[eachitem]} - {eachitem.upper()}")
         total += box[eachitem]
     print(f" = {total} total items")
+
+
 
 snacks = {
     "turon": {"price": 10.00},
@@ -67,7 +72,7 @@ def canteen():
             receipt()
             pay = input("\nVendor:   Is that all? Or do you want to add more items?\n          To pay and exit, enter yes. Otherwise enter no.\nUser:     ").strip().lower()
             if pay == "yes":
-                print("Vendor:   Lovely! Thank you user and have a nice day.")
+                print("Vendor:   Lovely! Thank you and have a nice day.")
                 break
             else:
                 print("Vendor:   Take your time user.")
@@ -86,8 +91,6 @@ def receipt():
         print(f" | {order[eachorder].get("quantity")} {eachorder.title()} = {order[eachorder].get("quantity") * snacks[eachorder].get("price")}")
     total = order_price()
     print(f" = {total} pesos total")
-    
-    
 
 def check_snack(snack):
     if snack in snacks:
@@ -109,8 +112,7 @@ def order_price():
 
 
 def fuel_management():
-    pass
-
+    print("\n | It's time to go back to work.\n | The trucks are loaded with Balikbayan Boxes but before they leave you must check their fuel level.")
 
 
 def shipment_audit():
