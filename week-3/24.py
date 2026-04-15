@@ -215,8 +215,11 @@ def check_date(userdate):
     else:
         if mm in dates:
             if 0 < dd <= dates[mm]["days"]:
-                convert_date(mm, dd, yyyy)
-                return True
+                if yyyy >= 0:
+                    convert_date(mm, dd, yyyy)
+                    return True
+                else:
+                    print(f"System:   Invalid. There can't be negative years.")
             else:
                 print(f"System:   Invalid. {dates[mm]["month"].title()} only has 1-{dates[mm]["days"]} days.")
         else:
@@ -248,8 +251,11 @@ def check_date2(userdate):
     else:
         if month in dates:
             if 0 < dd <= dates[month]["days"]:
-                convert_date2(month, dd, yyyy)
-                return True
+                if yyyy >= 0:
+                    convert_date2(month, dd, yyyy)
+                    return True
+                else:
+                    print(f"System:   Invalid. There can't be negative years.")
             else:
                 print(f"System:   Invalid. {month.title()} only has 1-{dates[month]["days"]} days.")
         else:
