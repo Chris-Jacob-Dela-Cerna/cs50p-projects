@@ -214,7 +214,13 @@ def check_date(userdate):
     except ValueError:
         print("System:   Invalid. Enter the date in the right format.")
     else:
-        pass
+        if mm in date1:
+            if 0 < dd <= date1[mm].get("days"):
+                pass
+            else:
+                print(f"System:   Invalid. {date1[mm]["month"].title()} only has 1-{date1[mm]["days"]} days.")
+        else:
+            print("System:   Invalid. Months only range from 1-12.")
 
 def check_date2():
     print("Digit")
