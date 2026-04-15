@@ -128,13 +128,32 @@ def fuel_management():
             left = int(left)
             tank = int(tank)
         except ValueError:
-            print("System:   Invalid. Please input in the right format.")
+            print("System:   Invalid. Please input the fuel level in the right format.")
             continue
         else:
             if fuel_check(left, tank):
                 break
 
 
+
+def fuel_check(left, tank):
+    if left <= tank:
+        if left >= 0 and tank >= 0:
+            try:
+                fuellevel = left / tank
+            except ZeroDivisionError:
+                print("System:   Invalid. The tank's capacity can't be 0.")
+                return False
+            else:
+                print(fuellevel)
+                pass
+
+        else:
+            print("System:   Invalid. Fuel can't be lower than 0.")
+            return False
+    else:
+        print("System:   Invalid. Remaining fuel must be lower than the tank's capacity.")
+        return False
 
 
 
