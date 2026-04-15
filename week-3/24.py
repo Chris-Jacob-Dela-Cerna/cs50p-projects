@@ -165,7 +165,7 @@ def fuel_convert(level):
 
 
 
-date1 = {
+dates = {
     1: {"month": "january", "days": 31},
     2: {"month": "febraury", "days": 28},
     3: {"month": "march", "days": 31},
@@ -177,10 +177,7 @@ date1 = {
     9: {"month": "september", "days": 30},
     10: {"month": "october", "days": 31},
     11: {"month": "november", "days": 30},
-    12: {"month": "december", "days": 31}
-}
-
-date2 = {
+    12: {"month": "december", "days": 31},
     "january": {"days": 31},
     "febraury": {"days": 28},
     "march": {"days": 31},
@@ -201,9 +198,11 @@ def shipment_audit():
     while True:
         userdate = input("User:     ").strip()
         if userdate[0].isdigit():
-            check_date(userdate)
+            if check_date(userdate):
+                break
         elif userdate[0].isalpha():
-            check_date2(userdate)
+            if check_date2(userdate):
+                break
                 
 def check_date(userdate):
     try:
@@ -214,13 +213,29 @@ def check_date(userdate):
     except ValueError:
         print("System:   Invalid. Enter the date in the right format.")
     else:
-        if mm in date1:
-            if 0 < dd <= date1[mm].get("days"):
-                pass
+        if mm in dates:
+            if 0 < dd <= dates[mm].get("days"):
+                date_convert1(mm, dd, yyyy)
+                return True
             else:
-                print(f"System:   Invalid. {date1[mm]["month"].title()} only has 1-{date1[mm]["days"]} days.")
+                print(f"System:   Invalid. {dates[mm]["month"].title()} only has 1-{dates[mm]["days"]} days.")
         else:
             print("System:   Invalid. Months only range from 1-12.")
+
+def date_convert1(mm, dd, yyyy):
+    if dd < 10:
+        dd = f"0{dd}"
+    if mm < 10:
+        mm = f"0{mm}"
+    if yyyy < 1:
+        yyyy = f"0000{yyyy}"
+    elif yyyy < 10:
+        yyyy = f"000{yyyy}"
+    elif yyyy < 100:
+        yyyy = f"00{yyyy}"
+    elif yyyy < 1000:
+        yyyy = f"0{yyyy}"
+    print(f"System:   Date of origin set to {yyyy}:{mm}:{dd}.")
 
 def check_date2():
     print("Digit")
