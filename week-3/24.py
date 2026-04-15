@@ -165,6 +165,21 @@ def fuel_convert(level):
 
 
 
+date1 = {
+    "january": {"days": 31},
+    "febraury": {"days": 28},
+    "march": {"days": 31},
+    "april": {"days": 30},
+    "may": {"days": 31},
+    "june": {"days": 30},
+    "july": {"days": 31},
+    "august": {"days": 31},
+    "september": {"days": 30},
+    "october": {"days": 31},
+    "november": {"days": 30},
+    "december": {"days": 31}
+}
+
 def shipment_audit():
     print(" | Your last task is to document the shipment's date of origin.")
     print("\nSystem:   Enter the date of shipment in either format:\n          [MM/DD/YYYY] or [Month, DD, YYYY]")
