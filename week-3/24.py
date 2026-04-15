@@ -5,8 +5,8 @@ def main():
     # intro()
     # cargo_inventory()
     # canteen()
-    fuel_management()
-    # shipment_audit()
+    # fuel_management()
+    shipment_audit()
 
 def intro():
     print("\nContext:\nYou are managing a shipping hub in Metro Manila that sends Balikbayan boxes to various provinces.\nYou must manage the inventory of items being packed, the fuel for the delivery trucks, and the schedule of shipments.")
@@ -25,9 +25,7 @@ def cargo_inventory():
         except EOFError:
             sort_items()
             pack_items()
-            pack = input("\nSystem:   Enter 'yes' if you're done packing, otherwise enter 'no'.\nUser:     ").strip().lower()
-            if pack == "yes":
-                break
+            break
         else:
             onhand.append(useritem)
 
@@ -134,8 +132,6 @@ def fuel_management():
             if fuel_check(left, tank):
                 break
 
-
-
 def fuel_check(left, tank):
     if left <= tank:
         if left >= 0 and tank >= 0:
@@ -165,11 +161,25 @@ def fuel_convert(level):
     if fuelpercent <= 30:
         print("\n | You refill the truck and send it off for delivery.")
     else:
-        print("\n | The truck's fuel is alright. You send it off for delivery.")
+        print("\n | The truck's fuel is set. You send it off for delivery.")
+
+
 
 def shipment_audit():
+    print(" | Your last task is to document the shipment's date of origin.")
+    print("\nSystem:   Enter the date of shipment in either format:\n          [MM/DD/YYYY] or [Month, DD, YYYY]")
+    while True:
+        userdate = input("User:     ").strip()
+        if userdate[0].isdigit:
+            check_date()
+        elif userdate[0].isalpha:
+            check_date2()
+                
+def check_date():
     pass
 
+def check_date2():
+    pass
 
 
 main()
