@@ -32,7 +32,8 @@ week2 = [
 
 week3 = [
     "Better Calculator",
-    "Simple Fruit Guesser"
+    "Simple Fruit Guesser",
+    "Master Challenge - Balikbayan Logistics"
 ]
 
 print("\nFull Project List")
