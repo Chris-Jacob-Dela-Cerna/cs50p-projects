@@ -215,14 +215,14 @@ def check_date(userdate):
     else:
         if mm in dates:
             if 0 < dd <= dates[mm].get("days"):
-                date_convert1(mm, dd, yyyy)
+                date_convert(mm, dd, yyyy)
                 return True
             else:
                 print(f"System:   Invalid. {dates[mm]["month"].title()} only has 1-{dates[mm]["days"]} days.")
         else:
             print("System:   Invalid. Months only range from 1-12.")
 
-def date_convert1(mm, dd, yyyy):
+def date_convert(mm, dd, yyyy):
     if dd < 10:
         dd = f"0{dd}"
     if mm < 10:
@@ -237,9 +237,18 @@ def date_convert1(mm, dd, yyyy):
         yyyy = f"0{yyyy}"
     print(f"System:   Date of origin set to {yyyy}:{mm}:{dd}.")
 
-def check_date2():
-    print("Digit")
-
-
+def check_date2(userdate):
+    try:
+        month, dd, yyyy = userdate.split(", ")
+        month = month.lower()
+        dd = int(dd)
+        yyyy = int(yyyy)
+    except ValueError:
+        print("System:   Invalid. Enter the date in the right format.")
+    else:
+        if month in dates:
+            pass
+        else:
+            print(f"System:   Invalid. {month.title()} isn't a valid month.")
 
 main()
