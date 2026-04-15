@@ -1,11 +1,10 @@
 # Document: This python is my last application of CS50P Week 3.
 
-
 def main():
-    # intro()
-    # cargo_inventory()
-    # canteen()
-    # fuel_management()
+    intro()
+    cargo_inventory()
+    canteen()
+    fuel_management()
     shipment_audit()
 
 def intro():
@@ -80,7 +79,7 @@ def canteen():
                 print("Vendor:   Lovely! Thank you and have a nice day.")
                 break
             else:
-                print("Vendor:   Take your time user.")
+                print("Vendor:   Take your time user!")
         else:
             if usersnack == "menu":
                 print("\n <<< List of Snacks >>>")
@@ -203,7 +202,7 @@ def shipment_audit():
         elif userdate[0].isalpha():
             if check_date2(userdate):
                 break
-    print("\n | The clock hits 5 o'clock. It's time to go home.")
+    print("\n | The clock hits 5 o'clock. It's time to go home.\n")
                 
 def check_date(userdate):
     try:
