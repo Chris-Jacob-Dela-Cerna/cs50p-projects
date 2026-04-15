@@ -166,6 +166,21 @@ def fuel_convert(level):
 
 
 date1 = {
+    1: {"month": "january", "days": 31},
+    2: {"month": "febraury", "days": 28},
+    3: {"month": "march", "days": 31},
+    4: {"month": "april", "days": 30},
+    5: {"month": "may", "days": 31},
+    6: {"month": "june", "days": 30},
+    7: {"month": "july", "days": 31},
+    8: {"month": "august", "days": 31},
+    9: {"month": "september", "days": 30},
+    10: {"month": "october", "days": 31},
+    11: {"month": "november", "days": 30},
+    12: {"month": "december", "days": 31}
+}
+
+date2 = {
     "january": {"days": 31},
     "febraury": {"days": 28},
     "march": {"days": 31},
@@ -193,9 +208,9 @@ def shipment_audit():
 def check_date(userdate):
     try:
         mm, dd, yyyy = userdate.split("/")
-        int(mm)
-        int(dd)
-        int(yyyy)
+        mm = int(mm)
+        dd = int(dd)
+        yyyy = int(yyyy)
     except ValueError:
         print("System:   Invalid. Enter the date in the right format.")
     else:
