@@ -126,7 +126,7 @@ def fuel_management():
             left = float(left)
             tank = float(tank)
         except ValueError:
-            print("System:   Invalid. Please input the fuel level in the right format.")
+            print("System:   Invalid. Enter the fuel level in the right format.")
             continue
         else:
             if fuel_check(left, tank):
@@ -170,16 +170,25 @@ def shipment_audit():
     print("\nSystem:   Enter the date of shipment in either format:\n          [MM/DD/YYYY] or [Month, DD, YYYY]")
     while True:
         userdate = input("User:     ").strip()
-        if userdate[0].isdigit:
-            check_date()
-        elif userdate[0].isalpha:
-            check_date2()
+        if userdate[0].isdigit():
+            check_date(userdate)
+        elif userdate[0].isalpha():
+            check_date2(userdate)
                 
-def check_date():
-    pass
+def check_date(userdate):
+    try:
+        mm, dd, yyyy = userdate.split("/")
+        int(mm)
+        int(dd)
+        int(yyyy)
+    except ValueError:
+        print("System:   Invalid. Enter the date in the right format.")
+    else:
+        pass
 
 def check_date2():
-    pass
+    print("Digit")
+
 
 
 main()
