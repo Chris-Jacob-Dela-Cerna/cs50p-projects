@@ -2,9 +2,9 @@
 
 
 def main():
-    intro()
-    cargo_inventory()
-    canteen()
+    # intro()
+    # cargo_inventory()
+    # canteen()
     fuel_management()
     # shipment_audit()
 
@@ -120,6 +120,23 @@ def order_price():
 
 def fuel_management():
     print("\n | It's time to go back to work.\n | The trucks are loaded with Balikbayan Boxes but before they leave you must check their fuel level.")
+    print("\nSystem:   Enter the fuel level in fraction form.\n          Use this format: [remaining/capacity].")
+    while True:
+        userfuel = input("User:     ").strip()
+        try:   
+            left, tank = userfuel.split("/")
+            left = int(left)
+            tank = int(tank)
+        except ValueError:
+            print("System:   Invalid. Please input in the right format.")
+            continue
+        else:
+            if fuel_check(left, tank):
+                break
+
+
+
+
 
 
 def shipment_audit():
