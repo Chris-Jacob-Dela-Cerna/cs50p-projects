@@ -249,13 +249,27 @@ def check_date2(userdate):
         if month in dates:
             if 0 < dd <= dates[month]["days"]:
                 convert_date2(month, dd, yyyy)
+                return True
             else:
                 print(f"System:   Invalid. {month.title()} only has 1-{dates[month]["days"]} days.")
         else:
             print(f"System:   Invalid. {month.title()} isn't a valid month.")
 
-def convert_date2():
-    pass
+def convert_date2(month, dd, yyyy):
+    if dd < 10:
+        dd = f"0{dd}"
+    mm = dates[month]["month"]
+    if mm < 10:
+        mm = f"0{mm}"
+    if yyyy < 1:
+        yyyy = f"0000{yyyy}"
+    elif yyyy < 10:
+        yyyy = f"000{yyyy}"
+    elif yyyy < 100:
+        yyyy = f"00{yyyy}"
+    elif yyyy < 1000:
+        yyyy = f"0{yyyy}"
+    print(f"System:   Date of origin set to {yyyy}:{mm}:{dd}.")
 
 
 
