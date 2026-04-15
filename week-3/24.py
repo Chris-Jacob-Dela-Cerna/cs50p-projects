@@ -178,18 +178,18 @@ dates = {
     10: {"month": "october", "days": 31},
     11: {"month": "november", "days": 30},
     12: {"month": "december", "days": 31},
-    "january": {"days": 31},
-    "febraury": {"days": 28},
-    "march": {"days": 31},
-    "april": {"days": 30},
-    "may": {"days": 31},
-    "june": {"days": 30},
-    "july": {"days": 31},
-    "august": {"days": 31},
-    "september": {"days": 30},
-    "october": {"days": 31},
-    "november": {"days": 30},
-    "december": {"days": 31}
+    "january": {"month": 1, "days": 31},
+    "febraury": {"month": 2, "days": 28},
+    "march": {"month": 3, "days": 31},
+    "april": {"month": 4, "days": 30},
+    "may": {"month": 5, "days": 31},
+    "june": {"month": 6, "days": 30},
+    "july": {"month": 7, "days": 31},
+    "august": {"month": 8, "days": 31},
+    "september": {"month": 9, "days": 30},
+    "october": {"month": 10, "days": 31},
+    "november": {"month": 11, "days": 30},
+    "december": {"month": 12, "days": 31}
 }
 
 def shipment_audit():
@@ -214,15 +214,15 @@ def check_date(userdate):
         print("System:   Invalid. Enter the date in the right format.")
     else:
         if mm in dates:
-            if 0 < dd <= dates[mm].get("days"):
-                date_convert(mm, dd, yyyy)
+            if 0 < dd <= dates[mm]["days"]:
+                convert_date(mm, dd, yyyy)
                 return True
             else:
                 print(f"System:   Invalid. {dates[mm]["month"].title()} only has 1-{dates[mm]["days"]} days.")
         else:
             print("System:   Invalid. Months only range from 1-12.")
 
-def date_convert(mm, dd, yyyy):
+def convert_date(mm, dd, yyyy):
     if dd < 10:
         dd = f"0{dd}"
     if mm < 10:
@@ -247,8 +247,16 @@ def check_date2(userdate):
         print("System:   Invalid. Enter the date in the right format.")
     else:
         if month in dates:
-            pass
+            if 0 < dd <= dates[month]["days"]:
+                convert_date2(month, dd, yyyy)
+            else:
+                print(f"System:   Invalid. {month.title()} only has 1-{dates[month]["days"]} days.")
         else:
             print(f"System:   Invalid. {month.title()} isn't a valid month.")
+
+def convert_date2():
+    pass
+
+
 
 main()
