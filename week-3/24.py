@@ -194,7 +194,7 @@ dates = {
 
 def shipment_audit():
     print(" | Your last task is to document the shipment's date of origin.")
-    print("\nSystem:   Enter the date of shipment in either format:\n          [MM/DD/YYYY] or [Month, DD, YYYY]")
+    print("\nSystem:   Enter the date of shipment in either format:\n          [MM/DD/YYYY] or [Month DD, YYYY]")
     while True:
         userdate = input("User:     ").strip()
         if userdate[0].isdigit():
@@ -203,6 +203,7 @@ def shipment_audit():
         elif userdate[0].isalpha():
             if check_date2(userdate):
                 break
+    print("\n | The clock hits 5 o'clock. It's time to go home.")
                 
 def check_date(userdate):
     try:
@@ -242,7 +243,7 @@ def convert_date(mm, dd, yyyy):
 
 def check_date2(userdate):
     try:
-        month, dd, yyyy = userdate.split(", ")
+        month, dd, yyyy = userdate.replace(",", "").split(" ")
         month = month.lower()
         dd = int(dd)
         yyyy = int(yyyy)
