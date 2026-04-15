@@ -125,8 +125,8 @@ def fuel_management():
         userfuel = input("User:     ").strip()
         try:   
             left, tank = userfuel.split("/")
-            left = int(left)
-            tank = int(tank)
+            left = float(left)
+            tank = float(tank)
         except ValueError:
             print("System:   Invalid. Please input the fuel level in the right format.")
             continue
@@ -140,14 +140,13 @@ def fuel_check(left, tank):
     if left <= tank:
         if left >= 0 and tank >= 0:
             try:
-                fuellevel = left / tank
+                level = left / tank
             except ZeroDivisionError:
                 print("System:   Invalid. The tank's capacity can't be 0.")
                 return False
             else:
-                print(fuellevel)
-                pass
-
+                fuel_convert(level)
+                return True
         else:
             print("System:   Invalid. Fuel can't be lower than 0.")
             return False
@@ -155,8 +154,18 @@ def fuel_check(left, tank):
         print("System:   Invalid. Remaining fuel must be lower than the tank's capacity.")
         return False
 
-
-
+def fuel_convert(level):
+    fuelpercent = level * 100
+    if fuelpercent >= 99:
+        print("Fuel:     Full")
+    elif fuelpercent <= 1:
+        print("Fuel:     Empty")
+    else:
+        print(f"Fuel:     {round(fuelpercent, 2)}% full")
+    if fuelpercent <= 30:
+        print("\n | You refill the truck and send it off for delivery.")
+    else:
+        print("\n | The truck's fuel is alright. You send it off for delivery.")
 
 def shipment_audit():
     pass
