@@ -1,8 +1,8 @@
 # Document: This python is my last application of CS50P Week 3.
 
 def main():
-    intro()
-    cargo_inventory()
+    # intro()
+    # cargo_inventory()
     canteen()
     fuel_management()
     shipment_audit()
@@ -84,7 +84,7 @@ def canteen():
             if usersnack == "menu":
                 print("\n <<< List of Snacks >>>")
                 for eachsnack in snacks:
-                    print(f" | {eachsnack.title()} - {snacks[eachsnack].get("price")} pesos")
+                    print(f" | {eachsnack.title()} - {snacks[eachsnack].get("price"):.2f} pesos")
                 print()
             else:
                 check_snack(usersnack)
@@ -92,9 +92,9 @@ def canteen():
 def receipt():
     print("\n <<< Order >>>")
     for eachorder in order:
-        print(f" | {order[eachorder].get("quantity")} {eachorder.title()} = {order[eachorder].get("quantity") * snacks[eachorder].get("price")}")
+        print(f" | {order[eachorder].get("quantity")} {eachorder.title()} = {order[eachorder].get("quantity") * snacks[eachorder].get("price"):.2f}")
     total = order_price()
-    print(f" = {total} pesos total")
+    print(f" = {total:.2f} pesos total")
 
 def check_snack(snack):
     if snack in snacks:
@@ -103,7 +103,7 @@ def check_snack(snack):
         else:
             order[snack]["quantity"] += 1
         total = order_price()
-        print(f"Total:    {total} pesos")
+        print(f"Total:    {total:.2f} pesos")
     else:
         print("Vendor:   Oops, we don't have that at the moment.")
 
@@ -166,7 +166,7 @@ def fuel_convert(level):
 
 dates = {
     1: {"month": "january", "days": 31},
-    2: {"month": "febraury", "days": 28},
+    2: {"month": "february", "days": 28},
     3: {"month": "march", "days": 31},
     4: {"month": "april", "days": 30},
     5: {"month": "may", "days": 31},
@@ -178,7 +178,7 @@ dates = {
     11: {"month": "november", "days": 30},
     12: {"month": "december", "days": 31},
     "january": {"month": 1, "days": 31},
-    "febraury": {"month": 2, "days": 28},
+    "february": {"month": 2, "days": 28},
     "march": {"month": 3, "days": 31},
     "april": {"month": 4, "days": 30},
     "may": {"month": 5, "days": 31},
@@ -225,21 +225,6 @@ def check_date(userdate):
         else:
             print("System:   Invalid. Months only range from 1-12.")
 
-def convert_date(mm, dd, yyyy):
-    if dd < 10:
-        dd = f"0{dd}"
-    if mm < 10:
-        mm = f"0{mm}"
-    if yyyy < 1:
-        yyyy = f"0000{yyyy}"
-    elif yyyy < 10:
-        yyyy = f"000{yyyy}"
-    elif yyyy < 100:
-        yyyy = f"00{yyyy}"
-    elif yyyy < 1000:
-        yyyy = f"0{yyyy}"
-    print(f"System:   Date of origin set to {yyyy}:{mm}:{dd}.")
-
 def check_date2(userdate):
     try:
         month, dd, yyyy = userdate.replace(",", "").split(" ")
@@ -252,7 +237,8 @@ def check_date2(userdate):
         if month in dates:
             if 0 < dd <= dates[month]["days"]:
                 if yyyy >= 0:
-                    convert_date2(month, dd, yyyy)
+                    mm = dates[month]["month"]
+                    convert_date(mm, dd, yyyy)
                     return True
                 else:
                     print(f"System:   Invalid. There can't be negative years.")
@@ -261,21 +247,8 @@ def check_date2(userdate):
         else:
             print(f"System:   Invalid. {month.title()} isn't a valid month.")
 
-def convert_date2(month, dd, yyyy):
-    if dd < 10:
-        dd = f"0{dd}"
-    mm = dates[month]["month"]
-    if mm < 10:
-        mm = f"0{mm}"
-    if yyyy < 1:
-        yyyy = f"0000{yyyy}"
-    elif yyyy < 10:
-        yyyy = f"000{yyyy}"
-    elif yyyy < 100:
-        yyyy = f"00{yyyy}"
-    elif yyyy < 1000:
-        yyyy = f"0{yyyy}"
-    print(f"System:   Date of origin set to {yyyy}:{mm}:{dd}.")
+def convert_date(mm, dd, yyyy):
+    print(f"System:   Date of origin set to {yyyy:04d}:{mm:02d}:{dd:02d}.")
 
 
 
