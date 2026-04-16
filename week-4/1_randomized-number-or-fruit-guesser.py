@@ -4,8 +4,8 @@ import random
 
 
 def main():
-    print("\nSystem:   Would you like to guess a number or a fruit? Enter 1 or 2.\n          Enter 'ctrl-z' to leave.")
     while True:
+        print("\nSystem:   Would you like to guess a number or a fruit? Enter 1 or 2.\n          Enter 'ctrl-z' to leave.")
         try:
             whichgame = input("User:     ").strip().lower()
         except EOFError:
@@ -22,12 +22,11 @@ def main():
                 print("System:   Invalid. Please try again.")
                 continue
             guess(game, userguess)
-            break
 
 
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-fruits = ["Apple", "Banana", "Orange", "Grapes", "Strawberry", "Pineapple", "Mango", "Watermelon", "Blueberry", "Peach"]
+fruits = ["apple", "banana", "orange", "grapes", "strawberry", "pineapple", "mango", "watermelon", "blueberry", "peach"]
 
 
 def get_number():
@@ -49,7 +48,7 @@ def get_fruit():
     for eachfruit in fruits:
         print(f" | {eachfruit.title()}")
     while True:
-        userguess = input("User:     ").strip().title()
+        userguess = input("User:     ").strip().lower()
         if userguess in fruits:
             return userguess
         else:
@@ -58,11 +57,11 @@ def get_fruit():
 
 def guess(game, userguess):
     correct = random.choice(game)
-    print(f"System:   The answer was {correct.lower()}.", end=" ")
+    print(f"System:   The answer was {correct}.", end=" ")
     if userguess == correct:
-        print("You won, congratulations!\n")
+        print("You won, congratulations!")
     else:
-        print("You lost, better luck next time!\n")
+        print("You lost, better luck next time!")
 
 
 main()

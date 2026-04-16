@@ -24,9 +24,11 @@ weeks = [[
     "Simple word slicer",
     "Master Challenge - LRT-2 Digital Commuter Hub" 
 ], [
-    "Better Calculator",
-    "Simple Fruit Guesser",
+    "Better calculator",
+    "Simple fruit guesser",
     "Master Challenge - Balikbayan Logistics"
+], [
+    "Randomized number or fruit guesser"
 ]]
 
 print("\nFull Project List")
