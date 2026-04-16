@@ -15,8 +15,22 @@ def main():
         else:
             if whichgame == "1":
                 game = "number"
+                userguess = get_number()
             elif whichgame == "2":
                 game = "fruit"
+            else:
+                print("System:   Invalid. Please try again.")
+                continue
+            guess(game, userguess)
+
+def get_number():
+    while True:
+        try:
+            userguess = int(input("\nSystem:   Enter a number from 1-10.\nUser:     ").strip())
+        except ValueError:
+            print("System:   Invalid. Please enter a valid number.")
+        else:
+            return userguess
 
 def guess(game, userguess):
     pass
