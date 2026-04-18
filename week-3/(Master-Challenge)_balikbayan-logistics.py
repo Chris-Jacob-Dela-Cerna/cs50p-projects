@@ -1,8 +1,8 @@
 # Document: This python is my last application of CS50P Week 3.
 
 def main():
-    # intro()
-    # cargo_inventory()
+    intro()
+    cargo_inventory()
     canteen()
     fuel_management()
     shipment_audit()
