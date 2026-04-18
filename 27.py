@@ -17,7 +17,9 @@ def start():
 
 def character_ui():
     page = 0
-    character_list(page)
+    while True:
+        character_list(page)
+        page = int(input("\nSystem:   Enter a page.\nUser:     ").strip())
 
 def character_list(page):
     pages = 0
@@ -25,7 +27,6 @@ def character_list(page):
 
     print("\nList of Characters:")
     for eachid in range(10):
-        print(eachid + 1, store["items"][pages + eachid].get("name"))
-    print("")
+        print((eachid + pages) + 1, store["items"][eachid + pages].get("name"))
 
 main()
