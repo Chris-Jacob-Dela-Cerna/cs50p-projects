@@ -11,13 +11,21 @@ def main():
 def start():
     userinput = input("System:   Enter 'characters' to see the list of characters.\nUsers:    ").strip().lower()
     if userinput == "characters":
-        character_list()
+        character_ui()
     else:
         pass
 
-def character_list():
+def character_ui():
+    page = 0
+    character_list(page)
+
+def character_list(page):
+    pages = 0
+    pages += 10 * page
+
     print("\nList of Characters:")
-    for eachid in range(len(store["items"])):
-        print(eachid + 1, store["items"][eachid].get("name"))
+    for eachid in range(10):
+        print(eachid + 1, store["items"][pages + eachid].get("name"))
+    print("")
 
 main()
