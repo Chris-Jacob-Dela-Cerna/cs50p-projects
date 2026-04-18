@@ -1,10 +1,11 @@
 # Document: This python is my 3rd application of CS50P Week 4.
 
 import requests
-import json
 
-userartist = input("System:   Please enter an artist.\nUser:     ").strip().lower()
 
-artist = requests.get(f"https://itunes.apple.com/search?entity=song&limit=50&term={userartist}")
+characters = requests.get("https://dragonball-api.com/api/characters")
 
-print(json.dumps(artist.json(), indent=4))
+store = characters.json()
+
+for eachid in range(len(store["items"])):
+    print(eachid + 1, store["items"][eachid].get("name"))
