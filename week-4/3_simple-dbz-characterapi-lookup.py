@@ -13,7 +13,7 @@ character_keys = ["name", "ki", "maxKi", "race", "gender", "affiliation"]
 
 
 
-def start():
+def main():
     while True:
         userinput = input("\nSystem:   Enter a characterid to see their info.\n          Enter 'characters' to see the list of characterids.\nUsers:    ").strip().lower()
         if userinput == "characters":
@@ -54,4 +54,4 @@ def selected_character(id):
     for eachkey in character_keys:
         print(f" | {eachkey.title()}: {api["items"][id].get(eachkey)}")
 
-start()
+main()

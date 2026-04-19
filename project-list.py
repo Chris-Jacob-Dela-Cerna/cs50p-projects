@@ -29,7 +29,8 @@ weeks = [[
     "Master Challenge - Balikbayan Logistics"
 ], [
     "Randomized number or fruit guesser",
-    "Simple red or blue guesser"
+    "Simple red or blue guesser",
+    "Simple Dragon Ball Z character API lookup"
 ]]
 
 print("\nFull Project List")
