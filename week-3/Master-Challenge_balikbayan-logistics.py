@@ -19,7 +19,7 @@ def cargo_inventory():
     print("\n | You head to the packing station. You are tasked to pack items inside a Balikbayan Box.")
     print("\nSystem:   Enter the name of the items 1 by 1.\n          Enter 'ctrl-z' to finish packing items.")
     while True:
-        try:    
+        try:
             useritem = input("User:     ").strip().lower()
         except EOFError:
             sort_items()
@@ -78,8 +78,7 @@ def canteen():
             if pay == "yes":
                 print("Vendor:   Lovely! Thank you and have a nice day.")
                 break
-            else:
-                print("Vendor:   Take your time user!")
+            print("Vendor:   Take your time user!")
         else:
             if usersnack == "menu":
                 print("\n <<< List of Snacks >>>")
@@ -110,7 +109,7 @@ def check_snack(snack):
 def order_price():
     total = 0
     for eachsnack in order:
-        total += order[eachsnack].get("quantity") * snacks[eachsnack].get("price") 
+        total += order[eachsnack].get("quantity") * snacks[eachsnack].get("price")
     return total
 
 
@@ -120,7 +119,7 @@ def fuel_management():
     print("\nSystem:   Enter the fuel level in fraction form.\n          Use this format: [remaining/capacity].")
     while True:
         userfuel = input("User:     ").strip()
-        try:   
+        try:
             left, tank = userfuel.split("/")
             left = float(left)
             tank = float(tank)
@@ -139,9 +138,8 @@ def fuel_check(left, tank):
             except ZeroDivisionError:
                 print("System:   Invalid. The tank's capacity can't be 0.")
                 return False
-            else:
-                fuel_convert(level)
-                return True
+            fuel_convert(level)
+            return True
         else:
             print("System:   Invalid. Fuel can't be lower than 0.")
             return False
@@ -203,7 +201,7 @@ def shipment_audit():
             if check_date2(userdate):
                 break
     print("\n | The clock hits 5 o'clock. It's time to go home.\n")
-                
+
 def check_date(userdate):
     try:
         mm, dd, yyyy = userdate.split("/")
@@ -218,8 +216,7 @@ def check_date(userdate):
                 if yyyy >= 0:
                     convert_date(mm, dd, yyyy)
                     return True
-                else:
-                    print(f"System:   Invalid. There can't be negative years.")
+                print("System:   Invalid. There can't be negative years.")
             else:
                 print(f"System:   Invalid. {dates[mm]["month"].title()} only has 1-{dates[mm]["days"]} days.")
         else:
@@ -241,7 +238,7 @@ def check_date2(userdate):
                     convert_date(mm, dd, yyyy)
                     return True
                 else:
-                    print(f"System:   Invalid. There can't be negative years.")
+                    print("System:   Invalid. There can't be negative years.")
             else:
                 print(f"System:   Invalid. {month.title()} only has 1-{dates[month]["days"]} days.")
         else:
