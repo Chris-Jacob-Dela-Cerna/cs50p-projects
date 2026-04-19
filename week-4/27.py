@@ -18,13 +18,21 @@ def start():
 def character_ui():
     userpage = 0
     while True:
-        character_list(userpage)
-        userpage = int(input("\nSystem:   Enter a page.\nUser:     ").strip())
+        uipage = userpage + 1
+        if 0 <= userpage < 6:
+            character_list(userpage)
+            try:
+                userpage = int(input(f"Current page: {uipage}/6\n>>> ").strip())
+            except ValueError:
+                continue
+            else:
+                userpage = userpage - 1
+        else:
+            userpage = 0
 
 def character_list(userpage):
-    page = 10 * userpage
-
     print("\nList of Characters:")
+    page = 10 * userpage
     for number in range(10):
         id = page + number
         if id < 58:
