@@ -9,8 +9,9 @@ idlist = []
 for number in range(58):
     idlist.append(str(number))
 
-def main():
-    start()
+character_keys = ["name", "ki", "maxKi", "race", "gender", "affiliation"]
+
+
 
 def start():
     while True:
@@ -19,7 +20,8 @@ def start():
             character_ui()
         else:
             if userinput in idlist:
-                pass
+                selected_character(int(userinput) - 1)
+                break
             else:
                 print(f"System:   characterid [{userinput}] is invalid.")
 
@@ -48,4 +50,8 @@ def character_list(userpage):
         if id < 58:
             print(id + 1, api["items"][id].get("name"))
 
-main()
+def selected_character(id):
+    for eachkey in character_keys:
+        print(f" | {eachkey.title()}: {api["items"][id].get(eachkey)}")
+
+start()
