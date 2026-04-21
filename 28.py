@@ -7,10 +7,27 @@ api_key = "secret"
 
 
 def main():
-    if check_net():
+    arg_result = check_args()
+    if arg_result == 0:
+        airport()
+    if arg_result == 1:
+        if check_net():
+            sys.exit()
+        destination()
+    else:
         sys.exit()
-    if check_args():
-        sys.exit()
+        
+        
+def check_args():
+    try:
+        if sys.argv[1] == "-f" or sys.argv[1] == "--font":
+            return 0
+        elif sys.argv[1].isdigit():
+            return 1 
+        else:
+            raise IndexError
+    except IndexError:
+        print("System:   Invalid command-line argument.")
 
 
 def check_net():
@@ -24,21 +41,14 @@ def check_net():
         return True
     else:
         print("System:   [Connection established]")
-        
-        
+    
+
+def airport():
+    print("Airport")
 
 
-def check_args():
-    try:
-        if sys.argv[1] == "-f" or sys.argv[1] == "--font":
-            return # 
-        elif sys.argv[1].isdigit():
-            return # 
-        else:
-            raise IndexError
-    except IndexError:
-        print("System:   Invalid command-line argument.")
-        return True
+def destination():
+    print("Destination")
 
 
 if __name__ == "__main__":
