@@ -2,15 +2,17 @@
 
 import sys
 import requests
+import pyfiglet
 
 api_key = "secret"
+figlet_fonts = pyfiglet.FigletFont.getFonts()
 
 
 def main():
     arg_result = check_args()
     if arg_result == 0:
         airport()
-    if arg_result == 1:
+    elif arg_result == 1:
         if check_net():
             sys.exit()
         destination()
@@ -27,7 +29,10 @@ def check_args():
         else:
             raise IndexError
     except IndexError:
-        print("System:   Invalid command-line argument.")
+        print(
+            "System:   Invalid command-line argument."
+            f"\n          >>> python {sys.argv[0]} [input] <<<"
+        )
 
 
 def check_net():
@@ -44,7 +49,18 @@ def check_net():
     
 
 def airport():
-    print("Airport")
+    identity_banner()
+
+
+def identity_banner():
+    try:
+        if sys.argv[2] not in figlet_fonts:
+            raise IndexError
+    except IndexError:
+        print(
+            "System:   Invalid command-line argument."
+            f"\n          >>> python {sys.argv[0]} {sys.argv[1]} [input] <<<"
+        )
 
 
 def destination():
