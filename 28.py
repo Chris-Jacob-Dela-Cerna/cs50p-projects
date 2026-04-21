@@ -35,6 +35,33 @@ def check_args():
         )
 
 
+def airport():
+    if check_font():
+        sys.exit()
+    identity_banner()
+
+
+def check_font():
+    try:
+        if sys.argv[2] not in figlet_fonts:
+            raise IndexError
+    except IndexError:
+        print(
+            "System:   Invalid command-line argument."
+            f"\n          >>> python {sys.argv[0]} {sys.argv[1]} [input] <<<"
+        )
+        return True
+
+        
+def identity_banner():
+    print(
+        "\n< While waiting for your plane at the airport, you spot a font dashboard >"
+        "\n< The dashboard lets you enter text and convert it into a font you select >"
+    )
+    user_text = input("\nUser:     ").strip()
+    print(pyfiglet.figlet_format(user_text, font=sys.argv[2]))
+
+
 def check_net():
     try:
         bitcoin_api = requests.get(
@@ -46,21 +73,6 @@ def check_net():
         return True
     else:
         print("System:   [Connection established]")
-    
-
-def airport():
-    identity_banner()
-
-
-def identity_banner():
-    try:
-        if sys.argv[2] not in figlet_fonts:
-            raise IndexError
-    except IndexError:
-        print(
-            "System:   Invalid command-line argument."
-            f"\n          >>> python {sys.argv[0]} {sys.argv[1]} [input] <<<"
-        )
 
 
 def destination():
