@@ -41,6 +41,7 @@ def airport():
 #        sys.exit()
 #    identity_banner()
     review()
+    flight_delay()
 
 
 def check_font():
@@ -57,7 +58,8 @@ def check_font():
         
 def identity_banner():
     print(
-        "\n< While waiting for your plane at the airport, you spot a font dashboard >"
+        "\n< With a flight heading to the Philippines, your group arrives at the airport >"
+        "\n< While waiting for your plane, you spot a font dashboard >"
         "\n< The dashboard lets you enter text and convert it into the font you selected >"
     )
     user_text = input("\nUser:     ").strip()
@@ -75,6 +77,15 @@ def review():
     user_text = input("\nUser:     ").strip()
     message = emoji.emojize(user_text)
     print("Review:   " + message)
+
+
+def flight_delay():
+    print(
+        "\n< The service crew called out everyone with a flight to the Philippines >"
+        "\n< You are informed that the flight is currently delayed >"
+        "\n< To pass the time, your group decides to play a game >"
+    )
+
 
 def check_net():
     try:
