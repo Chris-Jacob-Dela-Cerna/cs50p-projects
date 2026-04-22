@@ -41,15 +41,15 @@ def check_args():
 
 
 def airport():
-    user_font = check_font()
-    if not user_font:
-        print(
-            "System:   Invalid font."
-            f"\n          >>> python {sys.argv[0]} {sys.argv[1]} [input]"
-        )
-        sys.exit()
-    identity_banner(user_font)
-    review()
+#    user_font = check_font()
+#    if not user_font:
+#        print(
+#            "System:   Invalid font."
+#            f"\n          >>> python {sys.argv[0]} {sys.argv[1]} [input]"
+#        )
+#        sys.exit()
+#    identity_banner(user_font)
+#    review()
     flight_delay()
 
 
@@ -91,7 +91,7 @@ def flight_delay():
         "\n< You are informed that the flight is currently delayed >"
         "\n< To pass the time, your group decides to play a game >"
     )
-    adieu()
+#    adieu()
     print(
         "\n< The plane will arrive in 30 minutes >"
         "\n< Your friend opened their pocket console and started a game >"
@@ -122,8 +122,17 @@ def adieu():
 
 
 def guessing_game():
-    pass
-    
+    print("\nSystem:   Enter a level from 1-100.")
+    while True:
+        try:
+            user_level = int(input("Enter a level: ").strip())
+            if not 0 < user_level <= 100:
+                raise ValueError
+        except ValueError:
+            pass
+        else:
+            break
+
 
 def check_net():
     try:
