@@ -9,6 +9,7 @@ import inflect
 # The api_key is hidden to protect my data when pushing to github
 api_key = "secret"
 figlet_fonts = pyfiglet.FigletFont.getFonts()
+pyinflect = inflect.engine()
 
 
 def main():
@@ -97,18 +98,19 @@ def adieu():
     )
     names = []
     while True:
-        name = input("User:     ").strip()
         try:
-            names.append(name.title())
-            if len(names) == 0:
-                raise ValueError
+            name = input("User:     ").strip()
         except EOFError:
-            names.sort()
-            break
-        except ValueError:
-            print("System:   Invalid. There must be atleast 1 name.")
-
-            
+            if len(names) != 0:
+                names.sort()
+                break
+            print("System:   Invalid amount of names.")
+        else:
+            if name != "":
+                names.append(name.title())
+    message = pyinflect.join(names)
+    print(f"System:   Adieu, adieu, to {message}.")
+    
 
 def check_net():
     try:
