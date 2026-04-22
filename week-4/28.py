@@ -3,6 +3,7 @@
 import sys
 import requests
 import pyfiglet
+import random
 import emoji
 import inflect
 
@@ -40,23 +41,21 @@ def check_args():
 
 
 def airport():
-#    if check_font():
-#        sys.exit()
-#    identity_banner()
-#    review()
+    if check_font():
+        print("Too short")
+        sys.exit()
+    identity_banner()
+    review()
     flight_delay()
 
 
 def check_font():
-    try:
-        if sys.argv[2] not in figlet_fonts:
-            raise IndexError
-    except IndexError:
-        print(
-            "System:   Invalid command-line argument."
-            f"\n          >>> python {sys.argv[0]} {sys.argv[1]} [input]"
-        )
+    if len(sys.argv) < 3:
         return True
+    elif sys.argv[2] in figlet_fonts:
+        user_font = sys.argv[2]
+    else:
+        user_font = random.choice(figlet_fonts)
 
         
 def identity_banner():
