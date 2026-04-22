@@ -125,13 +125,20 @@ def guessing_game():
     print("\nSystem:   Enter a level from 1-100.")
     while True:
         try:
-            user_level = int(input("Enter a level: ").strip())
+            user_level = int(input("User:     ").strip())
             if not 0 < user_level <= 100:
                 raise ValueError
         except ValueError:
             pass
         else:
             break
+    random.seed(user_level)
+    max_integers = random.randint(2, 1000)
+    correct = random.randint(1, 100)
+    print(
+        f"\nSystem:   Level {user_level}:"
+        f"\n          Guess the number from 1-{max_integers}."
+    )
 
 
 def check_net():
