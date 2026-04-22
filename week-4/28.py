@@ -91,16 +91,24 @@ def flight_delay():
 
 
 def adieu():
+    print(
+        "\nSystem:   Enter the names of your travel buddies 1 by 1."
+        "\n          Enter 'ctrl-z' to finish."
+    )
     names = []
     while True:
+        name = input("User:     ").strip()
         try:
-            name = input("System:   ").strip()
+            names.append(name.title())
+            if len(names) == 0:
+                raise ValueError
         except EOFError:
             names.sort()
             break
-        else:
-            names.append(name.title())
+        except ValueError:
+            print("System:   Invalid. There must be atleast 1 name.")
 
+            
 
 def check_net():
     try:
