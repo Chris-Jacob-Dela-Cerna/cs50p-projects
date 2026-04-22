@@ -40,7 +40,7 @@ def airport():
 #    if check_font():
 #        sys.exit()
 #    identity_banner()
-    expression()
+    review()
 
 
 def check_font():
@@ -67,13 +67,14 @@ def identity_banner():
     print(message, end="")
 
 
-def expression():
+def review():
     print(
         "\n< A service personnel approached you and asked how was your experience at the airport >"
         "\n< Express your thoughts with the help of emojis >"
     )
     user_text = input("\nUser:     ").strip()
-
+    message = emoji.emojize(user_text)
+    print("Review:   " + message)
 
 def check_net():
     try:
