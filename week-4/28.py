@@ -129,9 +129,10 @@ def guessing_game():
             if not 0 < user_level <= 100:
                 raise ValueError
         except ValueError:
-            pass
+            print("System:   Invalid number.")
         else:
             break
+
     random.seed(user_level)
     max_integers = random.randint(2, 1000)
     correct = random.randint(1, 100)
@@ -139,6 +140,22 @@ def guessing_game():
         f"\nSystem:   Level {user_level}:"
         f"\n          Guess the number from 1-{max_integers}."
     )
+    
+    while True:
+        try:
+            user_number = int(input("User:     ").strip())
+            if not 0 < user_number <= max_integers:
+                raise ValueError
+        except ValueError:
+            print("System:   Invalid number.")
+        else:
+            if user_number > correct:
+                print("System:   Too large!")
+            elif user_number < correct:
+                print("System:   Too small!")
+            else:
+                print(f"System:   Correct! Congratulations for guessing the number {correct}.")
+                break
 
 
 def check_net():
