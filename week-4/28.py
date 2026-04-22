@@ -41,24 +41,28 @@ def check_args():
 
 
 def airport():
-    if check_font():
-        print("Too short")
+    user_font = check_font()
+    if not user_font:
+        print(
+            "System:   Invalid font."
+            f"\n          >>> python {sys.argv[0]} {sys.argv[1]} [input]"
+        )
         sys.exit()
-    identity_banner()
+    identity_banner(user_font)
     review()
     flight_delay()
 
 
 def check_font():
     if len(sys.argv) < 3:
-        return True
+        return random.choice(figlet_fonts)
     elif sys.argv[2] in figlet_fonts:
-        user_font = sys.argv[2]
+        return sys.argv[2]
     else:
-        user_font = random.choice(figlet_fonts)
+        return None
 
         
-def identity_banner():
+def identity_banner(user_font):
     print(
         "\n< With a flight heading to the Philippines, your group arrives at the airport >"
         "\n< While waiting for your plane, you spot a font dashboard >"
@@ -66,7 +70,7 @@ def identity_banner():
     )
     user_text = input("\nUser:     ").strip()
     header = pyfiglet.figlet_format("Welcome Traveller!", font="mini")
-    message = pyfiglet.figlet_format(user_text, font=sys.argv[2])
+    message = pyfiglet.figlet_format(user_text, font=user_font)
     print(header, end="")
     print(message, end="")
 
