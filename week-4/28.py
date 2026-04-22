@@ -89,6 +89,12 @@ def flight_delay():
         "\n< To pass the time, your group decides to play a game >"
     )
     adieu()
+    print(
+        "\n< The plane will arrive in 30 minutes >"
+        "\n< Your friend opened their pocket console and started a game >"
+        "\n< He wants you to play a number guessing game >"
+    )
+    guessing_game()
 
 
 def adieu():
@@ -110,6 +116,10 @@ def adieu():
                 names.append(name.title())
     message = pyinflect.join(names)
     print(f"System:   Adieu, adieu, to {message}.")
+
+
+def guessing_game():
+    pass
     
 
 def check_net():
