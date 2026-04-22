@@ -3,6 +3,7 @@
 import sys
 import requests
 import pyfiglet
+import emoji
 
 api_key = "secret"
 figlet_fonts = pyfiglet.FigletFont.getFonts()
@@ -36,10 +37,10 @@ def check_args():
 
 
 def airport():
-    if check_font():
-        sys.exit()
-    identity_banner()
-
+#    if check_font():
+#        sys.exit()
+#    identity_banner()
+    expression()
 
 
 def check_font():
@@ -57,13 +58,21 @@ def check_font():
 def identity_banner():
     print(
         "\n< While waiting for your plane at the airport, you spot a font dashboard >"
-        "\n< The dashboard lets you enter text and convert it into a font you select >"
+        "\n< The dashboard lets you enter text and convert it into the font you selected >"
     )
     user_text = input("\nUser:     ").strip()
     header = pyfiglet.figlet_format("Welcome Traveller!", font="mini")
     message = pyfiglet.figlet_format(user_text, font=sys.argv[2])
     print(header, end="")
     print(message, end="")
+
+
+def expression():
+    print(
+        "\n< A service personnel approached you and asked how was your experience at the airport >"
+        "\n< Express your thoughts with the help of emojis >"
+    )
+    user_text = input("\nUser:     ").strip()
 
 
 def check_net():
