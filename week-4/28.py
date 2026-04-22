@@ -4,7 +4,9 @@ import sys
 import requests
 import pyfiglet
 import emoji
+import inflect
 
+# The api_key is hidden to protect my data when pushing to github
 api_key = "secret"
 figlet_fonts = pyfiglet.FigletFont.getFonts()
 
@@ -40,7 +42,7 @@ def airport():
 #    if check_font():
 #        sys.exit()
 #    identity_banner()
-    review()
+#    review()
     flight_delay()
 
 
@@ -85,6 +87,19 @@ def flight_delay():
         "\n< You are informed that the flight is currently delayed >"
         "\n< To pass the time, your group decides to play a game >"
     )
+    adieu()
+
+
+def adieu():
+    names = []
+    while True:
+        try:
+            name = input("System:   ").strip()
+        except EOFError:
+            names.sort()
+            break
+        else:
+            names.append(name.title())
 
 
 def check_net():
