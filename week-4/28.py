@@ -31,7 +31,7 @@ def check_args():
     except IndexError:
         print(
             "System:   Invalid command-line argument."
-            f"\n          >>> python {sys.argv[0]} [input] <<<"
+            f"\n          >>> python {sys.argv[0]} [input]"
         )
 
 
@@ -41,6 +41,7 @@ def airport():
     identity_banner()
 
 
+
 def check_font():
     try:
         if sys.argv[2] not in figlet_fonts:
@@ -48,7 +49,7 @@ def check_font():
     except IndexError:
         print(
             "System:   Invalid command-line argument."
-            f"\n          >>> python {sys.argv[0]} {sys.argv[1]} [input] <<<"
+            f"\n          >>> python {sys.argv[0]} {sys.argv[1]} [input]"
         )
         return True
 
@@ -59,7 +60,10 @@ def identity_banner():
         "\n< The dashboard lets you enter text and convert it into a font you select >"
     )
     user_text = input("\nUser:     ").strip()
-    print(pyfiglet.figlet_format(user_text, font=sys.argv[2]))
+    header = pyfiglet.figlet_format("Welcome Traveller!", font="mini")
+    message = pyfiglet.figlet_format(user_text, font=sys.argv[2])
+    print(header, end="")
+    print(message, end="")
 
 
 def check_net():
