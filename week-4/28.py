@@ -6,10 +6,9 @@ import pyfiglet
 import random
 import emoji
 import inflect
-import json
 
 # The coincap api_key is hidden to protect my data when pushing to github
-api_key = ""
+api_key = "512495085853f13f24c1eb39837390f5b09b129ea787bbc0dd56486d53086901"
 figlet_fonts = pyfiglet.FigletFont.getFonts()
 pyinflect = inflect.engine()
 
@@ -233,16 +232,17 @@ def quiz():
                     correct += 1
                     break
                 lives -= 1
+    
+    print(f"Score:    {correct}/{problems}")
             
 
 def convert_life(lives):
     heart = emoji.emojize(":blue_heart:")
     hearts = []
-    for each_life in range(lives):
+    for _ in range(lives):
         hearts.append(heart)
     return "".join(hearts)
                 
 
 if __name__ == "__main__":
-    quiz()
     main()
