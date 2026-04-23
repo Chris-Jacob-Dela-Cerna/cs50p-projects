@@ -8,7 +8,7 @@ import emoji
 import inflect
 
 # The coincap api_key is hidden to protect my data when pushing to github
-api_key = "512495085853f13f24c1eb39837390f5b09b129ea787bbc0dd56486d53086901"
+api_key = ""
 figlet_fonts = pyfiglet.FigletFont.getFonts()
 pyinflect = inflect.engine()
 
