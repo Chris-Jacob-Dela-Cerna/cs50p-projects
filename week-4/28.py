@@ -6,9 +6,10 @@ import pyfiglet
 import random
 import emoji
 import inflect
+import json
 
 # The api_key is hidden to protect my data when pushing to github
-api_key = "secret"
+api_key = "hidden"
 figlet_fonts = pyfiglet.FigletFont.getFonts()
 pyinflect = inflect.engine()
 
@@ -18,9 +19,10 @@ def main():
     if arg_result == 0:
         airport()
     elif arg_result == 1:
-        if check_net():
+        bitcoin_api = check_net()
+        if not bitcoin_api:
             sys.exit()
-        destination()
+        destination(bitcoin_api)
     else:
         sys.exit()
         
@@ -161,18 +163,21 @@ def guessing_game():
 def check_net():
     try:
         bitcoin_api = requests.get(
-            "https://rest.coincap.io/v3/assets/bitcoin?apiKey=", api_key
+            f"https://rest.coincap.io/v3/assets/bitcoin?apiKey={api_key}"
             )
-        bitcoin_api.raise_for_status()
     except requests.RequestException:
         print("System:   [Connection timeout]")
-        return True
+        return None
     else:
         print("System:   [Connection established]")
+        return bitcoin_api.json()
 
 
-def destination():
-    print("Destination")
+def destination(bitcoin_api):
+    hotel(bitcoin_api)
+
+def hotel(bitcoin_api):
+    pass
 
 
 if __name__ == "__main__":
