@@ -124,16 +124,8 @@ def adieu():
 
 
 def guessing_game():
-    print("\nSystem:   Enter a level from 1-100.")
-    while True:
-        try:
-            user_level = int(input("User:     ").strip())
-            if not 0 < user_level <= 100:
-                raise ValueError
-        except ValueError:
-            print("System:   Invalid number.")
-        else:
-            break
+    max_level = 100
+    user_level = get_level(max_level)
 
     random.seed(user_level)
     max_integers = random.randint(2, 1000)
@@ -160,6 +152,20 @@ def guessing_game():
                 break
 
 
+def get_level(max_level):
+    print(f"\nSystem:   Enter a level from 1-{max_level}.")
+    while True:
+        try:
+            user_level = int(input("User:     ").strip())
+            if not 0 < user_level <= max_level:
+                raise ValueError
+        except ValueError:
+            print("System:   Invalid number.")
+        else:
+            break
+    return user_level
+
+
 def check_net():
     try:
         bitcoin_api = requests.get(
@@ -180,11 +186,11 @@ def destination(bitcoin_api):
     )
     crypto(bitcoin_api)
     print(
-        "\n< You asked a local where the nearest hotel is located >"
-        "\n< The local informed that your group must ride a jeepney >"
-        "\n< The group enters a jeepney and asked how much is the fair >"
+        "\n< A local student researcher approached your group >"
+        "\n< He asks for you to answer a math literacy quiz >"
+        "\n< You take the quiz to help them with their study >"
     )
-    jeepney()
+    quiz()
 
 
 def crypto(bitcoin_api):
@@ -195,9 +201,11 @@ def crypto(bitcoin_api):
     print(f"In USD:   ${usd_balance:,.4f}")
 
 
-def jeepney():
-    pass
+def quiz():
+    max_level = 100
+    user_level = get_level(max_level)
 
 
 if __name__ == "__main__":
+    guessing_game()
     main()
