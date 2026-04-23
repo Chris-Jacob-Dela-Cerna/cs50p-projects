@@ -9,7 +9,7 @@ import inflect
 import json
 
 # The api_key is hidden to protect my data when pushing to github
-api_key = "hidden"
+api_key = ""
 figlet_fonts = pyfiglet.FigletFont.getFonts()
 pyinflect = inflect.engine()
 
@@ -174,9 +174,24 @@ def check_net():
 
 
 def destination(bitcoin_api):
-    hotel(bitcoin_api)
+    print(
+        "\n< The plane just arrived in the Philippines >"
+        "\n< You open your phone to check your Bitcoin balance >"
+    )
+    crypto(bitcoin_api)
+    print(
+        "\n< You asked a local where the nearest hotel is located >"
+        "\n< The local informed that your group must ride a jeepney >"
+        "\n< The group enters a jeepney and asked how much is the fair >"
+    )
+    jeepney()
 
-def hotel(bitcoin_api):
+
+def crypto(bitcoin_api):
+    pass
+
+
+def jeepney():
     pass
 
 
