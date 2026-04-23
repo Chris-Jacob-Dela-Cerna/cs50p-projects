@@ -127,7 +127,7 @@ def guessing_game():
     max_level = 100
     user_level = get_level(max_level)
     random.seed(user_level)
-    
+
     max_integers = random.randint(2, 1000)
     correct = random.randint(1, max_integers)
     print(
@@ -218,8 +218,10 @@ def quiz():
 
         print()
         while True:
+            if lives == 0:
+                break
             print(
-                f"Lives:    {lives}"
+                f"Lives:    {convert_life(lives)}"
                 f"\nSystem:   {x} + {y}?"
             )
             try:
@@ -231,10 +233,14 @@ def quiz():
                     correct += 1
                     break
                 lives -= 1
-            if lives == 0:
-                break
+            
 
-    print(correct)
+def convert_life(lives):
+    heart = emoji.emojize(":blue_heart:")
+    hearts = []
+    for each_life in range(lives):
+        hearts.append(heart)
+    return "".join(hearts)
                 
 
 if __name__ == "__main__":
