@@ -126,8 +126,8 @@ def adieu():
 def guessing_game():
     max_level = 100
     user_level = get_level(max_level)
-
     random.seed(user_level)
+    
     max_integers = random.randint(2, 1000)
     correct = random.randint(1, max_integers)
     print(
@@ -204,19 +204,38 @@ def crypto(bitcoin_api):
 def quiz():
     max_level = 3
     user_level = get_level(max_level)
-
     random.seed(user_level)
+
     problems = 10
+    minimum, maximum = 0, 42
+    correct = 0
 
     for _ in range(problems):
-        x = random.randint(0, 42)
-        y = random.randint(0, 42)
-        correct = x + y
+        x = random.randint(minimum, maximum)
+        y = random.randint(minimum, maximum)
+        answer = x + y
         lives = 3
-        while True:
-            print(f"System:   {x} + {y}?")
-            user_answer = input("User:     ").strip()
 
+        print()
+        while True:
+            print(
+                f"Lives:    {lives}"
+                f"\nSystem:   {x} + {y}?"
+            )
+            try:
+                user_answer = int(input("User:     ").strip())
+            except ValueError:
+                lives -= 1
+            else:
+                if user_answer == answer:
+                    correct += 1
+                    break
+                lives -= 1
+            if lives == 0:
+                break
+
+    print(correct)
+                
 
 if __name__ == "__main__":
     quiz()
