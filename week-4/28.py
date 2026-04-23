@@ -8,7 +8,7 @@ import emoji
 import inflect
 import json
 
-# The api_key is hidden to protect my data when pushing to github
+# The coincap api_key is hidden to protect my data when pushing to github
 api_key = ""
 figlet_fonts = pyfiglet.FigletFont.getFonts()
 pyinflect = inflect.engine()
@@ -202,10 +202,22 @@ def crypto(bitcoin_api):
 
 
 def quiz():
-    max_level = 100
+    max_level = 3
     user_level = get_level(max_level)
+
+    random.seed(user_level)
+    problems = 10
+
+    for _ in range(problems):
+        x = random.randint(0, 42)
+        y = random.randint(0, 42)
+        correct = x + y
+        lives = 3
+        while True:
+            print(f"System:   {x} + {y}?")
+            user_answer = input("User:     ").strip()
 
 
 if __name__ == "__main__":
-    guessing_game()
+    quiz()
     main()
