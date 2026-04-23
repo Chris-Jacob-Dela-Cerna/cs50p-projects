@@ -31,11 +31,11 @@ def check_args():
     try:
         if sys.argv[1] == "-f" or sys.argv[1] == "--font":
             return 0
-        elif sys.argv[1].isdigit():
-            return 1 
         else:
-            raise IndexError
-    except IndexError:
+            if float(sys.argv[1]) < 0:
+                raise ValueError
+            return 1
+    except IndexError, ValueError:
         print(
             "System:   Invalid command-line argument."
             f"\n          >>> python {sys.argv[0]} [input]"
@@ -170,7 +170,8 @@ def check_net():
         return None
     else:
         print("System:   [Connection established]")
-        return bitcoin_api.json()
+        bitcoin_api = bitcoin_api.json()
+        return bitcoin_api
 
 
 def destination(bitcoin_api):
@@ -188,7 +189,11 @@ def destination(bitcoin_api):
 
 
 def crypto(bitcoin_api):
-    pass
+    balance = float(sys.argv[1])
+    bitcoin_usd = float(bitcoin_api["data"].get("priceUsd"))
+    print(f"{bitcoin_usd}")
+    print(f"\nBalance:   {balance}")
+
 
 
 def jeepney():
