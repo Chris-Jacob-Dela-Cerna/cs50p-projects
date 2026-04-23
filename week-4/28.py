@@ -169,7 +169,6 @@ def check_net():
         print("System:   [Connection timeout]")
         return None
     else:
-        print("System:   [Connection established]")
         bitcoin_api = bitcoin_api.json()
         return bitcoin_api
 
@@ -191,9 +190,9 @@ def destination(bitcoin_api):
 def crypto(bitcoin_api):
     balance = float(sys.argv[1])
     bitcoin_usd = float(bitcoin_api["data"].get("priceUsd"))
-    print(f"{bitcoin_usd}")
-    print(f"\nBalance:   {balance}")
-
+    usd_balance = balance * bitcoin_usd
+    print(f"\nBalance:  {balance:,.4f}")
+    print(f"In USD:   ${usd_balance:,.4f}")
 
 
 def jeepney():
