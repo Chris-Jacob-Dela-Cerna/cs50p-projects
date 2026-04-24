@@ -13,4 +13,4 @@ def test_multiply():
     assert n29.multiply(3, 3) == 9
 
 def test_divide():
-    assert n29.divide(6, 3) == 9
+    assert n29.divide(6, 3) == 2
