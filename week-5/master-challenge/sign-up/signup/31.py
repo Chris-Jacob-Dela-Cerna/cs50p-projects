@@ -7,12 +7,18 @@ def main():
         "\n  ==================="
         "\n\nSystem:   Enter your display name to create a username."
     )
-    display_name = input("User:     ").strip()
-    username(display_name)
-
+    display_name = input("User:     ")
+    name = username(display_name)
+    print(name)
+    
 
 def username(display_name):
-    pass
+    vowels = "aeiouAEIOU"
+    name = ""
+    for character in display_name.strip():
+        if character not in vowels:
+            name += character
+    return name
 
 
 def verify_username():
