@@ -9,7 +9,7 @@ def main():
     )
     display_name = input("User:     ")
     name = username(display_name)
-    print(name)
+    verify_username(name)
     
 
 def username(display_name):
