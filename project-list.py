@@ -32,6 +32,8 @@ weeks = [[
     "Simple red or blue guesser",
     "Simple Dragon Ball Z character API lookup"
     "Master Challenge - Digital Traveller"
+], [
+    "Calculator with tests"
 ]]
 
 print("\nFull Project List")
