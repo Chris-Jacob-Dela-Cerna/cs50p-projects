@@ -29,8 +29,9 @@ def main():
         user_password = input("User:     ").strip()
         status, data = check_password(user_password)
         if status:
-            verify_password(data)
-            break
+            status, data = verify_password(data)
+            if status:
+                break
         print(f"System:   {data}")
 
 
@@ -86,6 +87,7 @@ def check_password(user_password):
         return False, "Invalid. There must be 9 or more characters."
     if " " in user_password:
         return False, "Invalid. There must be no spaces."
+    
     letters = 0
     uppercase = 0
     lowercase = 0
@@ -102,17 +104,6 @@ def check_password(user_password):
             numbers += 1
         else:
             symbols += 1
-
-    if letters < 4:
-        return False, "Invalid. There must be 4 or more letters."
-    if uppercase < 1:
-        return False, "Invalid. There must be 1 or more uppercase letters."
-    if lowercase < 1: 
-        return False, "Invalid. There must be 1 or more lowercase letters."
-    if numbers < 1:
-        return False, "Invalid. There must be 1 or more numbers."
-    if symbols < 1:
-        return False, "Invalid. There must be 1 or more symbols."
     
     character_data = {}
     character_data.update(
@@ -129,8 +120,20 @@ def check_password(user_password):
 
 
 def verify_password(data):
-    print(data)
+    if data["letters"] < 4:
+        return False, "Invalid. There must be 4 or more letters."
+    if data["uppercase"] < 1:
+        return False, "Invalid. There must be 1 or more uppercase letters."
+    if data["lowercase"] < 1: 
+        return False, "Invalid. There must be 1 or more lowercase letters."
+    if data["numbers"] < 1:
+        return False, "Invalid. There must be 1 or more numbers."
+    if data["symbols"] < 1:
+        return False, "Invalid. There must be 1 or more symbols."
+    
 
+    return True, None
+    
 
 if __name__ == "__main__":
     main()
