@@ -45,6 +45,8 @@ def convert_username(display_name):
 
 
 def verify_username(user_name):
+    if len(user_name) < 3:
+        return False, "Invalid. There must be 3 or more characters."
     if not user_name.isalnum():
         return False, "Invalid. There must only be letters and numbers."
     for number in range(3):
