@@ -1,8 +1,9 @@
 # Document: This python is my last application of CS50P Week 5.
 
 def main():
+    input()
     print(
-        "\n  ==================="
+        "  ==================="
         "\n   Sign-up and login"
         "\n  ==================="
         "\n\nSystem:   Enter your display name to create a username."
@@ -11,17 +12,18 @@ def main():
         display_name = input("User:     ").strip()
         username = convert_username(display_name)
         status, message = verify_username(username)
-        input(f"System:   {message} ")
+        print(f"System:   {message} ")
         if status:
             break
+    input()
     print(
-        "\n  ====================="
+        "  ====================="
         "\n   Setup your password"
         "\n  ====================="
         "\n\nSystem:   Enter your desired password."
     )
     user_password = input("User:     ").strip()
-    check_password(user_password)
+    password = check_password(user_password)
 
 
 def convert_username(display_name):
@@ -34,9 +36,8 @@ def convert_username(display_name):
 
 
 def verify_username(user_name):
-    for character in user_name:
-        if not character.isalnum():
-            return False, "Invalid. There must only be letters and numbers."
+    if not user_name.isalnum():
+        return False, "Invalid. There must only be letters and numbers."
     for number in range(3):
         if not user_name[number].isalpha():
             return False, "Invalid. The first 3 characters should be letters."
@@ -64,8 +65,9 @@ def verify_username(user_name):
         return True, f"Username [{user_name}] saved successfully."
 
 
-def check_password():
+def check_password(user_password):
     pass
+    
 
 
 def verify_password():
