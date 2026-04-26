@@ -25,8 +25,13 @@ def main():
         "\n  ====================="
         "\n\nSystem:   Enter your desired password."
     )
-    user_password = input("User:     ").strip()
-    password = check_password(user_password)
+    while True:
+        user_password = input("User:     ").strip()
+        status, message = check_password(user_password)
+        print(f"System:   {message}")
+        if status:
+            break
+
 
 
 def convert_username(display_name):
@@ -76,7 +81,9 @@ def check_password(user_password):
     for character in user_password:
         if character == " ":
             return False, "Invalid. There must be no spaces."
-
+    if len(user_password) < 9:
+        return False, "Invalid. There must be 9 or more characters."
+    return True, None
 
 
 def verify_password():
