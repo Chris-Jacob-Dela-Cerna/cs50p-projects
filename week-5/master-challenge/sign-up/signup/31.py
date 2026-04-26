@@ -131,6 +131,12 @@ def verify_password(data):
     if data["symbols"] < 1:
         return False, "Invalid. There must be 1 or more symbols."
     
+    total = 100
+    p_uppercase = round((data["uppercase"]/data["characters"]) * 100, 2)
+    p_lowercase = round((data["lowercase"]/data["characters"]) * 100, 2)
+    p_numbers = round((data["numbers"]/data["characters"]) * 100, 2)
+    p_symbols = round((data["symbols"]/data["characters"]) * 100, 2)
+    print(total, p_uppercase, p_lowercase, p_numbers, p_symbols)
 
     return True, None
     
