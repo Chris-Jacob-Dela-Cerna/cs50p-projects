@@ -11,9 +11,15 @@ def main():
         display_name = input("User:     ")
         user_name = username(display_name)
         status, message = verify_username(user_name)
-        print(f"System:   {message}")
+        input(f"System:   {message} ")
         if status:
             break
+    print(
+        "\n  ====================="
+        "\n   Setup your password"
+        "\n  ====================="
+        "\n\nSystem:   Enter your desired password."
+    )
 
 
 def username(display_name):
@@ -32,6 +38,14 @@ def verify_username(user_name):
     for number in range(3):
         if not user_name[number].isalpha():
             return False, "Invalid. The first 3 characters should be letters."
+    digit = 0
+    for number in range(len(user_name)):
+        if user_name[number].isdigit():
+            digit += number
+            break
+    if digit != 0:
+        if not user_name[digit:].isdigit():
+            return False, "Invalid. After the 1st number, the rest should be numbers."
         
     code = ""
     for character in user_name:
