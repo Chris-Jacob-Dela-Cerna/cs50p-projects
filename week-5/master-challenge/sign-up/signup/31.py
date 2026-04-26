@@ -8,9 +8,9 @@ def main():
         "\n\nSystem:   Enter your display name to create a username."
     )
     while True:
-        display_name = input("User:     ")
-        user_name = username(display_name)
-        status, message = verify_username(user_name)
+        display_name = input("User:     ").strip()
+        username = convert_username(display_name)
+        status, message = verify_username(username)
         input(f"System:   {message} ")
         if status:
             break
@@ -20,15 +20,17 @@ def main():
         "\n  ====================="
         "\n\nSystem:   Enter your desired password."
     )
+    user_password = input("User:     ").strip()
+    check_password(user_password)
 
 
-def username(display_name):
+def convert_username(display_name):
     vowels = "aeiouAEIOU"
-    user_name = ""
-    for character in display_name.strip():
+    username = ""
+    for character in display_name:
         if character not in vowels:
-            user_name += character
-    return user_name
+            username += character
+    return username
 
 
 def verify_username(user_name):
@@ -62,7 +64,7 @@ def verify_username(user_name):
         return True, f"Username [{user_name}] saved successfully."
 
 
-def password():
+def check_password():
     pass
 
 
