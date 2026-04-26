@@ -14,6 +14,9 @@ def main():
         status, message = verify_username(username)
         print(f"System:   {message} ")
         if status:
+            status, message = check_admin(username)
+            if status:
+                print(f"System:   {message}")
             break
     input()
     print(
@@ -50,6 +53,10 @@ def verify_username(user_name):
         if not user_name[digit:].isdigit():
             return False, "Invalid. After the 1st number, the rest should be numbers."
         
+    return True, f"Username [{user_name}] saved successfully."
+        
+
+def check_admin(user_name):
     code = ""
     for character in user_name:
         if code == "":
@@ -60,14 +67,16 @@ def verify_username(user_name):
                 code += "2"
 
     if code == "52":
-        return True, f"Admin [{user_name}] saved successfully."
+        return True, f"Admin permissions granted."
     else:
-        return True, f"Username [{user_name}] saved successfully."
-
+        return False, None
+        
 
 def check_password(user_password):
-    pass
-    
+    for character in user_password:
+        if character == " ":
+            return False, "Invalid. There must be no spaces."
+
 
 
 def verify_password():
