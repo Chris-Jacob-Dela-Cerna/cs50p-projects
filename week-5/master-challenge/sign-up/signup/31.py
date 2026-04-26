@@ -131,7 +131,6 @@ def verify_password(data):
     if data["symbols"] < 1:
         return False, "Invalid. There must be 1 or more symbols."
     
-    total = 100
     percentage = {
         "uppercase": round((data["uppercase"]/data["characters"]) * 100, 2),
         "lowercase": round((data["lowercase"]/data["characters"]) * 100, 2),
@@ -139,6 +138,18 @@ def verify_password(data):
         "symbols": round((data["symbols"]/data["characters"]) * 100, 2),
     }
     print(percentage)
+
+    score = 0
+    for key in percentage.keys():
+        if 26 >= percentage[key] >= 24:
+            score += 10
+        elif 35 >= percentage[key] >= 15:
+            score += 9
+        elif 40 >= percentage[key] >= 10:
+            score += 7
+        else:
+            score += 4
+    print(score)
 
     return True, None
     
