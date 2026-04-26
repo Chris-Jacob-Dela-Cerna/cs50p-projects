@@ -7,13 +7,16 @@ def main():
         "\n  ==================="
         "\n\nSystem:   Enter your display name to create a username."
     )
-    display_name = input("User:     ")
-    user_name = username(display_name)
+    while True:
+        display_name = input("User:     ")
+        user_name = username(display_name)
+        status, message = verify_username(user_name)
+        print(f"System:   {message}")
+        if not status:
+            continue
+        else:
+            break
 
-    status = verify_username(user_name)
-    if not status:
-        print("System:   Invalid input.")
-    
 
 def username(display_name):
     vowels = "aeiouAEIOU"
@@ -27,10 +30,10 @@ def username(display_name):
 def verify_username(user_name):
     for character in user_name:
         if not character.isalnum():
-            return False
+            return False, "Invalid. There must only be letters and numbers."
     for number in range(3):
         if not user_name[number].isalpha():
-            return False
+            return False, "Invalid. The first 3 characters should be letters."
     digit = 0
     for number in range(len(user_name)):
         if user_name[number].isdigit():
@@ -38,8 +41,9 @@ def verify_username(user_name):
             break
     if digit != 0:
         if not user_name[digit:].isdigit():
-            return False
-    return True
+            return False, "Invalid. After the first number, the rest should be numbers."
+    return True, "Username saved successfully."
+
 
 def password():
     pass
