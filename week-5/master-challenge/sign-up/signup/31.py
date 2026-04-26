@@ -12,9 +12,7 @@ def main():
         user_name = username(display_name)
         status, message = verify_username(user_name)
         print(f"System:   {message}")
-        if not status:
-            continue
-        else:
+        if status:
             break
 
 
@@ -40,7 +38,7 @@ def verify_username(user_name):
         if code == "":
             if character == "5":
                 code += "5"
-        if code == "5":
+        elif code == "5":
             if character == "2":
                 code += "2"
 
