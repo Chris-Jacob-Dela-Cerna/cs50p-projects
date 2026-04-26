@@ -78,11 +78,28 @@ def check_admin(user_name):
         
 
 def check_password(user_password):
-    for character in user_password:
-        if character == " ":
-            return False, "Invalid. There must be no spaces."
     if len(user_password) < 9:
         return False, "Invalid. There must be 9 or more characters."
+    if " " in user_password:
+        return False, "Invalid. There must be no spaces."
+    letters = 0
+    uppercase = 0
+    lowercase = 0
+    numbers = 0
+    symbols = 0
+    for character in user_password:
+        if character.isalpha():
+            letters += 1
+            if character.isupper():
+                uppercase += 1
+            elif character.islower():
+                lowercase += 1
+        elif character.isdigit():
+            numbers += 1
+        else:
+            symbols += 1
+
+    print(letters, uppercase, lowercase, numbers, symbols)
     return True, None
 
 
