@@ -49,6 +49,7 @@ def verify_username(user_name):
     for number in range(3):
         if not user_name[number].isalpha():
             return False, "Invalid. The first 3 characters should be letters."
+    
     digit = 0
     for number in range(len(user_name)):
         if user_name[number].isdigit():
@@ -57,7 +58,6 @@ def verify_username(user_name):
     if digit != 0:
         if not user_name[digit:].isdigit():
             return False, "Invalid. After the 1st number, the rest should be numbers."
-        
     return True, f"Username [{user_name}] saved successfully."
         
 
@@ -99,7 +99,16 @@ def check_password(user_password):
         else:
             symbols += 1
 
-    print(letters, uppercase, lowercase, numbers, symbols)
+    if letters < 4:
+        return False, "Invalid. There must be 4 or more letters."
+    if uppercase < 1:
+        return False, "Invalid. There must be 1 or more uppercase letters."
+    if lowercase < 1: 
+        return False, "Invalid. There must be 1 or more lowercase letters."
+    if numbers < 1:
+        return False, "Invalid. There must be 1 or more numbers."
+    if symbols < 1:
+        return False, "Invalid. There must be 1 or more symbols."
     return True, None
 
 
