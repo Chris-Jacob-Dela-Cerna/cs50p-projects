@@ -11,12 +11,12 @@ def main():
     while True:
         display_name = input("User:     ").strip()
         username = convert_username(display_name)
-        status, message = verify_username(username)
-        print(f"System:   {message} ")
+        status, data = verify_username(username)
+        print(f"System:   {data} ")
         if status:
-            status, message = check_admin(username)
+            status, data = check_admin(username)
             if status:
-                print(f"System:   {message}")
+                print(f"System:   {data}")
             break
     input()
     print(
@@ -27,10 +27,11 @@ def main():
     )
     while True:
         user_password = input("User:     ").strip()
-        status, message = check_password(user_password)
-        print(f"System:   {message}")
+        status, data = check_password(user_password)
         if status:
+            verify_password(data)
             break
+        print(f"System:   {data}")
 
 
 
@@ -78,7 +79,8 @@ def check_admin(user_name):
         
 
 def check_password(user_password):
-    if len(user_password) < 9:
+    characters = len(user_password)
+    if characters < 9:
         return False, "Invalid. There must be 9 or more characters."
     if " " in user_password:
         return False, "Invalid. There must be no spaces."
@@ -109,11 +111,23 @@ def check_password(user_password):
         return False, "Invalid. There must be 1 or more numbers."
     if symbols < 1:
         return False, "Invalid. There must be 1 or more symbols."
-    return True, None
+    
+    character_data = {}
+    character_data.update(
+        {
+        "characters": characters,
+        "letters": letters,
+        "uppercase": uppercase,
+        "lowercase": lowercase,
+        "numbers": numbers,
+        "symbols": symbols,
+        }
+    )
+    return True, character_data
 
 
-def verify_password():
-    pass
+def verify_password(data):
+    print(data)
 
 
 if __name__ == "__main__":
