@@ -34,15 +34,20 @@ def verify_username(user_name):
     for number in range(3):
         if not user_name[number].isalpha():
             return False, "Invalid. The first 3 characters should be letters."
-    digit = 0
-    for number in range(len(user_name)):
-        if user_name[number].isdigit():
-            digit = number
-            break
-    if digit != 0:
-        if not user_name[digit:].isdigit():
-            return False, "Invalid. After the first number, the rest should be numbers."
-    return True, "Username saved successfully."
+        
+    code = ""
+    for character in user_name:
+        if code == "":
+            if character == "5":
+                code += "5"
+        if code == "5":
+            if character == "2":
+                code += "2"
+
+    if code == "52":
+        return True, f"Admin [{user_name}] saved successfully."
+    else:
+        return True, f"Username [{user_name}] saved successfully."
 
 
 def password():
