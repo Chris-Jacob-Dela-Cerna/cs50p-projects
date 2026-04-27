@@ -1,6 +1,17 @@
 # Document: This python is my last application of CS50P Week 5.
 
 def main():
+    while True:
+        user_password = input("User:     ").strip()
+        status, data = check_password(user_password)
+        if status:
+            status, data = verify_password(data)
+            if status:
+                break
+        print(f"System:   {data}")
+
+
+
     input()
     print(
         "  ==================="
@@ -25,14 +36,7 @@ def main():
         "\n  ====================="
         "\n\nSystem:   Enter your desired password."
     )
-    while True:
-        user_password = input("User:     ").strip()
-        status, data = check_password(user_password)
-        if status:
-            status, data = verify_password(data)
-            if status:
-                break
-        print(f"System:   {data}")
+    # Temporarily move password for testing
 
 
 
@@ -120,17 +124,6 @@ def check_password(user_password):
 
 
 def verify_password(data):
-    if data["letters"] < 4:
-        return False, "Invalid. There must be 4 or more letters."
-    if data["uppercase"] < 1:
-        return False, "Invalid. There must be 1 or more uppercase letters."
-    if data["lowercase"] < 1: 
-        return False, "Invalid. There must be 1 or more lowercase letters."
-    if data["numbers"] < 1:
-        return False, "Invalid. There must be 1 or more numbers."
-    if data["symbols"] < 1:
-        return False, "Invalid. There must be 1 or more symbols."
-    
     percentage = {
         "uppercase": round((data["uppercase"]/data["characters"]) * 100, 2),
         "lowercase": round((data["lowercase"]/data["characters"]) * 100, 2),
