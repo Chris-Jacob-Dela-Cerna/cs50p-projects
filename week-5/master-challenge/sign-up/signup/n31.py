@@ -9,7 +9,7 @@ def main():
         "\n\nSystem:   Enter your display name to create a username."
     )
     while True:
-        display_name = input("User:     ").strip()
+        display_name = input("User:     ")
         username = convert_username(display_name)
         status, data = verify_username(username)
         print(f"System:   {data} ")
@@ -27,7 +27,7 @@ def main():
         "\n\nSystem:   Enter your desired password."
     )
     while True:
-        user_password = input("User:     ").strip()
+        user_password = input("User:     ")
         status, data = check_password(user_password)
         if status:
             status, data = verify_password(data)
@@ -38,6 +38,7 @@ def main():
 
 
 def convert_username(display_name):
+    display_name = display_name.strip()
     vowels = "aeiouAEIOU"
     username = ""
     for character in display_name:
@@ -83,6 +84,7 @@ def check_admin(user_name):
         
 
 def check_password(user_password):
+    user_password = user_password.strip()
     characters = len(user_password)
     if characters < 9:
         return False, "Invalid. There must be 9 or more characters."
