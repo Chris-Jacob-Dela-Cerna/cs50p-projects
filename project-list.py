@@ -34,6 +34,7 @@ weeks = [[
     "Master Challenge - Digital Traveller"
 ], [
     "Calculator with tests"
+    "Sign-up with username and password"
 ]]
 
 print("\nFull Project List")
