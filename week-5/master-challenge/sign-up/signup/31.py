@@ -1,17 +1,6 @@
 # Document: This python is my last application of CS50P Week 5.
 
 def main():
-    while True:
-        user_password = input("User:     ").strip()
-        status, data = check_password(user_password)
-        if status:
-            status, data = verify_password(data)
-#            if status:
-#                break
-        print(f"System:   {data}")
-
-
-
     input()
     print(
         "  ==================="
@@ -29,6 +18,7 @@ def main():
             if status:
                 print(f"System:   {data}")
             break
+
     input()
     print(
         "  ====================="
@@ -36,8 +26,15 @@ def main():
         "\n  ====================="
         "\n\nSystem:   Enter your desired password."
     )
-    # Temporarily move password for testing
-
+    while True:
+        user_password = input("User:     ").strip()
+        status, data = check_password(user_password)
+        if status:
+            status, data = verify_password(data)
+            if status:
+                print(f"System:   {data}")
+                break
+        print(f"System:   {data}")
 
 
 def convert_username(display_name):
@@ -130,7 +127,6 @@ def verify_password(data):
         "numbers": round((data["numbers"]/data["characters"]) * 100),
         "symbols": round((data["symbols"]/data["characters"]) * 100),
     }
-    print(percentage)
 
     score = 0
     for key in percentage.keys():
@@ -146,7 +142,6 @@ def verify_password(data):
             score += 2
         else:
             score += 0
-    print(score)
 
     if score == 40:
         return True, "Your password is very strong."
