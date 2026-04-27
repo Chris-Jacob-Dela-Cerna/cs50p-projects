@@ -6,8 +6,8 @@ def main():
         status, data = check_password(user_password)
         if status:
             status, data = verify_password(data)
-            if status:
-                break
+#            if status:
+#                break
         print(f"System:   {data}")
 
 
@@ -125,10 +125,10 @@ def check_password(user_password):
 
 def verify_password(data):
     percentage = {
-        "uppercase": round((data["uppercase"]/data["characters"]) * 100, 2),
-        "lowercase": round((data["lowercase"]/data["characters"]) * 100, 2),
-        "numbers": round((data["numbers"]/data["characters"]) * 100, 2),
-        "symbols": round((data["symbols"]/data["characters"]) * 100, 2),
+        "uppercase": round((data["uppercase"]/data["characters"]) * 100),
+        "lowercase": round((data["lowercase"]/data["characters"]) * 100),
+        "numbers": round((data["numbers"]/data["characters"]) * 100),
+        "symbols": round((data["symbols"]/data["characters"]) * 100),
     }
     print(percentage)
 
@@ -136,16 +136,27 @@ def verify_password(data):
     for key in percentage.keys():
         if 26 >= percentage[key] >= 24:
             score += 10
-        elif 35 >= percentage[key] >= 15:
-            score += 9
-        elif 40 >= percentage[key] >= 10:
-            score += 7
-        else:
+        elif 35 >= percentage[key] >= 20:
+            score += 8
+        elif 50 >= percentage[key] >= 15:
+            score += 6
+        elif 75 >= percentage[key] >= 10:
             score += 4
+        elif 100 >= percentage[key] >= 0.1:
+            score += 2
+        else:
+            score += 0
     print(score)
 
-    return True, None
-    
+    if score == 40:
+        return True, "Your password is very strong."
+    elif score >= 30:
+        return True, "Your password is strong."
+    elif score >= 20:
+        return True, "Your password is decent."
+    else:
+        return False, "Your password is too weak."
+
 
 if __name__ == "__main__":
     main()
