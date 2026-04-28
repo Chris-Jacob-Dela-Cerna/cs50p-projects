@@ -8,5 +8,10 @@ questions = {
     "Employment Status": "Are you currently employed or no?",
 }
 
-for question in questions:
-    demo = input(f"System:   {question}").strip().title()
+user = {}
+for demographic, question in questions.items():
+    user_demo = input(f"System:   {question}").strip().title()
+    user.update({demographic: user_demo})
+
+with open("recent_demo.txt", "w") as stored:
+    stored.write()
