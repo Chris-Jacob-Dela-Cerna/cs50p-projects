@@ -1,4 +1,5 @@
 # This python will be used to track my .py projects.
+
 weeks = [[
     "Simple conversation",
     "Trial conversation",
@@ -10,38 +11,37 @@ weeks = [[
     "Simple structured calculator",
     "Simple inside voice converter",
     "Simple word counter",
-    "Master Challenge - Einstein's Formatter"
+    "Master Challenge - Einstein's Formatter",
 ], [
     "Simple odd or even checker",
     "10-item Quiz",
     "Simple color sorter",
     "Game recommender",
-    "Master Challenge - Hitchhiker's Digital Cafe"
+    "Master Challenge - Hitchhiker's Digital Cafe",
 ], [
     "Calculator or match",
     "Simple fruit dictionary",
     "Lists and dictionaries",
     "Simple word slicer",
-    "Master Challenge - LRT-2 Digital Commuter Hub" 
+    "Master Challenge - LRT-2 Digital Commuter Hub",
 ], [
     "Better calculator",
     "Simple fruit guesser",
-    "Master Challenge - Balikbayan Logistics"
+    "Master Challenge - Balikbayan Logistics",
 ], [
     "Randomized number or fruit guesser",
     "Simple red or blue guesser",
-    "Simple Dragon Ball Z character API lookup"
-    "Master Challenge - Digital Traveller"
+    "Simple Dragon Ball Z character API lookup",
+    "Master Challenge - Digital Traveller",
 ], [
-    "Calculator with tests"
-    "Master Challenge - Sign-up with username and password"
+    "Calculator with tests",
+    "Master Challenge - Sign-up with username and password",
 ], [
-    "Simple demographics data interpreter"
+    "Simple demographics data interpreter",
 ]]
 
 
 print("\nFull Project List")
-
 for eachweek in range(len(weeks)):
     print(f"\nWeek {eachweek}:")
     for eachproject in range(len(weeks[eachweek])):
