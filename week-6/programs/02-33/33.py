@@ -16,24 +16,26 @@ def main():
     while True:
         user_mode = input("User:     ")
         result = check_mode(user_mode)
-        if result == "Create Quiz":
-            if create_quiz():
-                break
-        elif result == "Start Quiz":
-            if start_quiz():
-                break
-        else:
-            print("System:   {result}")
+        match result:
+            case "Create Quiz":
+                if create_quiz():
+                    break
+            case "Start Quiz":
+                if start_quiz():
+                    break
+            case _:
+                print(f"System:   {result}")
 
 
 def check_mode(user_mode):
     mode = user_mode.strip().lower()
-    if mode == "a":
-        return "Create Quiz"
-    elif mode == "b":
-        return "Start Quiz"
-    else:
-        return "Invalid. Please enter a valid mode."
+    match mode:
+        case "a":
+            return "Create Quiz"
+        case "b":
+            return "Start Quiz"
+        case _:
+            return "Invalid. Please enter a valid mode."
 
 
 def create_quiz():
