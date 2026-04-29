@@ -9,19 +9,21 @@ def main():
     )
     input()
     print(
-        "Quizpin:"
+        "Select a mode:"
         "\n | a - create a quiz"
         "\n | b - start a quiz"
     )
     while True:
-        user_mode = input("User:   ")
-        mode = check_mode(user_mode)
-        if mode == "Create Quiz":
-            create_quiz()
-            break
-        elif mode == "Start Quiz":
-            start_quiz()
-            break
+        user_mode = input("User:     ")
+        result = check_mode(user_mode)
+        if result == "Create Quiz":
+            if create_quiz():
+                break
+        elif result == "Start Quiz":
+            if start_quiz():
+                break
+        else:
+            print("System:   {result}")
 
 
 def check_mode(user_mode):
@@ -31,7 +33,7 @@ def check_mode(user_mode):
     elif mode == "b":
         return "Start Quiz"
     else:
-        return False
+        return "Invalid. Please enter a valid mode."
 
 
 def create_quiz():
