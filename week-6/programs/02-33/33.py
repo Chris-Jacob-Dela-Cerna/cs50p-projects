@@ -1,6 +1,5 @@
 # Document: This python is my 2nd application of CS50P Week 6.
 
-
 def main():
     print(
         "====================="
@@ -39,7 +38,25 @@ def check_mode(user_mode):
 
 
 def create_quiz():
-    pass
+    print("\nQuizpin:  Give me a number of items.")
+    user_items = input("User:     ")
+    result = check_items(user_items)
+    match result:
+        case "Invalid. Please enter a valid number.":
+            print(f"System:   {result}")
+            return False
+        case _:
+            print(result)
+            return True
+
+
+def check_items(user_items="10"):
+    try:
+        items = int(user_items)
+    except ValueError:
+        return "Invalid. Please enter a valid number."
+    else:
+        return items
 
 
 def start_quiz():
