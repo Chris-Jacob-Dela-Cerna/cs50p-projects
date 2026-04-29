@@ -35,7 +35,10 @@ weeks = [[
 ], [
     "Calculator with tests"
     "Master Challenge - Sign-up with username and password"
+], [
+    "Simple demographics data interpreter"
 ]]
+
 
 print("\nFull Project List")
 
