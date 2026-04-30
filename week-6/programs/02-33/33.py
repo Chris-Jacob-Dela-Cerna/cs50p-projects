@@ -9,25 +9,29 @@ def main():
         "\n Welcome to Quizpin!"
         "\n====================="
     )
-    print(
-        "\nQuizpin:  Select a mode:"
-        "\n          a) create a quiz"
-        "\n          b) start a quiz"
-    )
+
     while True:
+        print(
+            "\nQuizpin:  Select a mode:"
+            "\n          a) create a quiz"
+            "\n          b) start a quiz"
+        )
         while True:
-            user_mode = input("User:     ")
-            result = check_mode(user_mode)
-            if result in modes:
-                break
-            else:
-                print(f"System:   {result}")
-        if result == modes[0]:
-            if create_quiz():
-                break
-        elif result == modes[1]:
-            if create_quiz():
-                break
+
+            while True:
+                user_mode = input("User:     ")
+                result = check_mode(user_mode)
+                if result in modes:
+                    break
+                else:
+                    print(f"System:   {result}")
+
+            if result == modes[0]:
+                if create_quiz():
+                    break
+            elif result == modes[1]:
+                if create_quiz():
+                    break
 
 
 def check_mode(user_mode):
@@ -46,22 +50,26 @@ def create_quiz():
         "\n================"
         "\n Create a mode!"
         "\n================"
+    )
+    print(
         "\nQuizpin:  Give me a number of items."
     )
-    user_items = input("User:     ")
-    result = check_items(user_items)
-    match result:
-        case "Invalid. Please enter a valid number.":
-            print(f"System:   {result}")
-            return False
-        case _:
-            print(result)
-            return True
+    while True:
+        user_items = input("User:     ")
+        result = check_items(user_items)
+        match result:
+            case "Invalid. Please enter a valid number.":
+                print(f"System:   {result}")
+            case _:
+                print(result)
+                break
 
 
-def check_items(user_items="10"):
+def check_items(user_items):
     try:
         items = int(user_items)
+        if items < 1:
+            raise ValueError
     except ValueError:
         return "Invalid. Please enter a valid number."
     else:
