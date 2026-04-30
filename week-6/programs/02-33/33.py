@@ -1,6 +1,6 @@
 # Document: This python is my 2nd application of CS50P Week 6.
 
-modes = ["Create Quiz", "Create Quiz"]
+modes = ["Create Quiz", "Start Quiz"]
 
 
 def main():
@@ -66,6 +66,21 @@ def create_quiz():
         f"\nQuizpin:  For each of the {result} items."
         "\n          Give me the term and definition."
     )
+
+    for number in range(result):
+        term = input(
+            f"\n(Term {number + 1})"
+            "\nUser:     "
+        )
+        definition = input(
+            f"(Definition {number + 1})"
+            "\nUser:     "
+        )
+        insert_items(term, definition)
+
+
+def insert_items(term, definition):
+    pass
 
 
 def check_items(user_items):
