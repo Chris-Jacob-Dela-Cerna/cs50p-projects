@@ -14,9 +14,9 @@ def main():
 
     while True:
         print(
-            "\nQuizpin:  Select a mode."
-            "\n          a) create quiz items"
-            "\n          b) start a quiz"
+            "\nQuizpin:  Choose a mode:"
+            "\n          a) Create Quiz Items"
+            "\n          b) Start a Quiz"
         )
         
         while True:
@@ -52,7 +52,7 @@ def create_items():
         "\n Create a quiz!"
         "\n================"
         "\n"
-        "\nQuizpin:  Give me the number of items."
+        "\nQuizpin:  Give me the number of items for your quiz."
     )
 
     while True:
@@ -65,9 +65,8 @@ def create_items():
                 break
 
     print(
-        "\nQuizpin:  For each of the items."
-        "\n          Give me its term and definition in this format:"
-        "\n          [Term - Definition]"
+        "\nQuizpin:  For each item. Give me its term and definition"
+        "\n          in this format: [Term - Definition]"
     )
 
     items = []
@@ -78,8 +77,13 @@ def create_items():
                 break
             else:
                 print("Quizpin:   Invalid. Please use the right format.")
-    print(items)
+    
     store_items(items)
+    print(
+        "Quizpin:  Choose a quiz type:"
+        "\n          a) Multiple Choice"
+        "\n          b) Identification"
+    )
 
 
 def check_number(user_items):
