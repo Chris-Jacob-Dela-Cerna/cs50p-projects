@@ -44,12 +44,16 @@ def check_mode(user_mode):
             return "Invalid. Please enter a valid mode."
 
 
+items = []
+
+
 def create_items():
     print(
         "\n================"
         "\n Create a mode!"
         "\n================"
-        "\n\nQuizpin:  Give me a number of items."
+        "\n"
+        "\nQuizpin:  Give me a number of items."
     )
 
     while True:
@@ -59,27 +63,30 @@ def create_items():
             case "Invalid. Please enter a valid number.":
                 print(f"Quizpin:  {result}")
             case _:
-                print(result)
                 break
 
     print(
         f"\nQuizpin:  For each of the {result} items."
-        "\n          Give me the term and definition."
+        "\n          Give me the term and definition in this format:"
+        "\n          >>> Term - Definition"
     )
 
-    add_items(result)
+    while True:
+        for number in range(result):
+            user_item = input(f"\n{number + 1}) ")
+        if add_items(user_item):
+            break
 
 
-def add_items(result):
-    items = []
-    for number in range(result):
-        term = input(f"\n(Term {number + 1}): ")
-        definition = input(f"(Definition {number + 1}): ")
-        items.append(f"{term},{definition}")
-    
+def add_items(user_item):
+    term, definition = user_item.split(" - ")
+    item = f"{term},{definition}"
+    items.append(item)
+
     with open("items.csv", "w") as quiz_items:
         for item in items:
             quiz_items.write(f"{item}\n")
+    return True
 
 
 def check_items(user_items):
