@@ -6,15 +6,16 @@ import csv
 modes = ["Create Items", "Start Quiz"]
 
 def main():
-    print(
+    input(
         "\n====================="
         "\n Welcome to Quizpin!"
         "\n====================="
+        "\n"
     )
 
     while True:
         print(
-            "\nQuizpin:  Choose a mode:"
+            "Quizpin:  Choose a mode:"
             "\n          a) Create Quiz Items"
             "\n          b) Start a Quiz"
         )
@@ -49,7 +50,7 @@ def check_mode(user_mode):
 def create_items():
     print(
         "\n================"
-        "\n Create a quiz!"
+        "\n Creating quiz!"
         "\n================"
         "\n"
         "\nQuizpin:  Give me the number of items for your quiz."
@@ -79,10 +80,10 @@ def create_items():
                 print("Quizpin:   Invalid. Please use the right format.")
     
     store_items(items)
-    print(
-        "Quizpin:  Choose a quiz type:"
-        "\n          a) Multiple Choice"
-        "\n          b) Identification"
+    input(
+        "\nQuizpin:  Items saved successfully."
+        "\n          Select b) to start your quiz!"
+        "\n"
     )
 
 
@@ -117,7 +118,17 @@ def store_items(items):
 
 
 def start_quiz():
-    pass
+    input(
+        "\n================"
+        "\n Starting quiz!"
+        "\n================"
+        "\n"
+    )
+    print(
+        "Quizpin:  Choose a quiz type:"
+        "\n          a) Multiple Choice"
+        "\n          b) Identification"
+    )
 
 
 if __name__ == "__main__":
