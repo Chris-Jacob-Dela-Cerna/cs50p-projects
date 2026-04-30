@@ -16,22 +16,21 @@ def main():
             "\n          a) create a quiz"
             "\n          b) start a quiz"
         )
+        
         while True:
+            user_mode = input("User:     ")
+            result = check_mode(user_mode)
+            if result in modes:
+                break
+            else:
+                print(f"Quizpin:  {result}")
 
-            while True:
-                user_mode = input("User:     ")
-                result = check_mode(user_mode)
-                if result in modes:
-                    break
-                else:
-                    print(f"System:   {result}")
-
-            if result == modes[0]:
-                if create_quiz():
-                    break
-            elif result == modes[1]:
-                if create_quiz():
-                    break
+        if result == modes[0]:
+            if create_quiz():
+                break
+        elif result == modes[1]:
+            if create_quiz():
+                break
 
 
 def check_mode(user_mode):
@@ -50,19 +49,23 @@ def create_quiz():
         "\n================"
         "\n Create a mode!"
         "\n================"
+        "\n\nQuizpin:  Give me a number of items."
     )
-    print(
-        "\nQuizpin:  Give me a number of items."
-    )
+
     while True:
         user_items = input("User:     ")
         result = check_items(user_items)
         match result:
             case "Invalid. Please enter a valid number.":
-                print(f"System:   {result}")
+                print(f"Quizpin:  {result}")
             case _:
                 print(result)
                 break
+
+    print(
+        f"\nQuizpin:  For each of the {result} items."
+        "\n          Give me the term and definition."
+    )
 
 
 def check_items(user_items):
@@ -80,4 +83,5 @@ def start_quiz():
     pass
 
 
-main()
+if __name__ == "__main__":
+    main()
