@@ -44,9 +44,6 @@ def check_mode(user_mode):
             return "Invalid. Please enter a valid mode."
 
 
-items = []
-
-
 def create_items():
     print(
         "\n================"
@@ -58,7 +55,7 @@ def create_items():
 
     while True:
         user_items = input("User:     ")
-        result = check_items(user_items)
+        result = check_number(user_items)
         match result:
             case "Invalid. Please enter a valid number.":
                 print(f"Quizpin:  {result}")
@@ -71,18 +68,29 @@ def create_items():
         "\n          [Term - Definition]"
     )
 
+    items = []
     for number in range(result):
         while True:
             user_item = input(f"{number + 1}) ")
-            if add_item(user_item):
+            if add_item(items, user_item):
                 break
             else:
                 print("Quizpin:   Invalid. Please use the right format.")
-    
-    store_items()
+    store_items(items)
 
 
-def add_item(user_item):
+def check_number(user_items):
+    try:
+        items = int(user_items)
+        if items < 1:
+            raise ValueError
+    except ValueError:
+        return "Invalid. Please enter a valid number."
+    else:
+        return items
+
+
+def add_item(items, user_item):
     try:
         term, definition = user_item.split(" - ")
         if term.strip() == "" or definition.strip() == "":
@@ -95,21 +103,10 @@ def add_item(user_item):
         return True
 
 
-def store_items():
+def store_items(items):
     with open("items.csv", "w") as quiz_items:
         for item in items:
             quiz_items.write(f"{item}\n")
-
-
-def check_items(user_items):
-    try:
-        items = int(user_items)
-        if items < 1:
-            raise ValueError
-    except ValueError:
-        return "Invalid. Please enter a valid number."
-    else:
-        return items
 
 
 def start_quiz():
