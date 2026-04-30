@@ -1,7 +1,9 @@
 # Document: This python is my 2nd application of CS50P Week 6.
 
-modes = ["Create Items", "Start Quiz"]
+import csv
 
+
+modes = ["Create Items", "Start Quiz"]
 
 def main():
     print(
@@ -76,6 +78,7 @@ def create_items():
                 break
             else:
                 print("Quizpin:   Invalid. Please use the right format.")
+    print(items)
     store_items(items)
 
 
@@ -98,15 +101,15 @@ def add_item(items, user_item):
     except ValueError:
         return False
     else:
-        item = f"{term},{definition}"
-        items.append(item)
+        items.append({"term": term, "definition": definition})
         return True
 
 
 def store_items(items):
-    with open("items.csv", "w") as quiz_items:
-        for item in items:
-            quiz_items.write(f"{item}\n")
+    with open("quiz_items.csv", "w", newline="") as quiz_items:
+        writer = csv.DictWriter(quiz_items, fieldnames=["term", "definition"])
+        writer.writeheader()
+        writer.writerows(items)
 
 
 def start_quiz():
