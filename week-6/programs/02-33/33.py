@@ -50,10 +50,10 @@ items = []
 def create_items():
     print(
         "\n================"
-        "\n Create a mode!"
+        "\n Create a quiz!"
         "\n================"
         "\n"
-        "\nQuizpin:  Give me a number of items."
+        "\nQuizpin:  Give me the number of items."
     )
 
     while True:
@@ -66,27 +66,39 @@ def create_items():
                 break
 
     print(
-        f"\nQuizpin:  For each of the {result} items."
-        "\n          Give me the term and definition in this format:"
-        "\n          >>> Term - Definition"
+        "\nQuizpin:  For each of the items."
+        "\n          Give me its term and definition in this format:"
+        "\n          [Term - Definition]"
     )
 
-    while True:
-        for number in range(result):
-            user_item = input(f"\n{number + 1}) ")
-        if add_items(user_item):
-            break
+    for number in range(result):
+        while True:
+            user_item = input(f"{number + 1}) ")
+            if add_item(user_item):
+                break
+            else:
+                print("Quizpin:   Invalid. Please use the right format.")
+    
+    store_items()
 
 
-def add_items(user_item):
-    term, definition = user_item.split(" - ")
-    item = f"{term},{definition}"
-    items.append(item)
+def add_item(user_item):
+    try:
+        term, definition = user_item.split(" - ")
+        if term.strip() == "" or definition.strip() == "":
+            raise ValueError
+    except ValueError:
+        return False
+    else:
+        item = f"{term},{definition}"
+        items.append(item)
+        return True
 
+
+def store_items():
     with open("items.csv", "w") as quiz_items:
         for item in items:
             quiz_items.write(f"{item}\n")
-    return True
 
 
 def check_items(user_items):
