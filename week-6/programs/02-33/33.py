@@ -1,6 +1,6 @@
 # Document: This python is my 2nd application of CS50P Week 6.
 
-modes = ["Create Quiz", "Start Quiz"]
+modes = ["Create Items", "Start Quiz"]
 
 
 def main():
@@ -12,8 +12,8 @@ def main():
 
     while True:
         print(
-            "\nQuizpin:  Select a mode:"
-            "\n          a) create a quiz"
+            "\nQuizpin:  Select a mode."
+            "\n          a) create quiz items"
             "\n          b) start a quiz"
         )
         
@@ -26,10 +26,10 @@ def main():
                 print(f"Quizpin:  {result}")
 
         if result == modes[0]:
-            if create_quiz():
+            if create_items():
                 break
         elif result == modes[1]:
-            if create_quiz():
+            if start_quiz():
                 break
 
 
@@ -44,7 +44,7 @@ def check_mode(user_mode):
             return "Invalid. Please enter a valid mode."
 
 
-def create_quiz():
+def create_items():
     print(
         "\n================"
         "\n Create a mode!"
@@ -67,20 +67,19 @@ def create_quiz():
         "\n          Give me the term and definition."
     )
 
+    add_items(result)
+
+
+def add_items(result):
+    items = []
     for number in range(result):
-        term = input(
-            f"\n(Term {number + 1})"
-            "\nUser:     "
-        )
-        definition = input(
-            f"(Definition {number + 1})"
-            "\nUser:     "
-        )
-        insert_items(term, definition)
-
-
-def insert_items(term, definition):
-    pass
+        term = input(f"\n(Term {number + 1}): ")
+        definition = input(f"(Definition {number + 1}): ")
+        items.append(f"{term},{definition}")
+    
+    with open("items.csv", "w") as quiz_items:
+        for item in items:
+            quiz_items.write(f"{item}\n")
 
 
 def check_items(user_items):
