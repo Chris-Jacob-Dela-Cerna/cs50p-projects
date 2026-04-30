@@ -4,6 +4,8 @@ import csv
 
 
 modes = ["Create Items", "Start Quiz"]
+quiz_types = ["Multiple Choice", "Identification"]
+
 
 def main():
     input(
@@ -29,11 +31,9 @@ def main():
                 print(f"Quizpin:  {result}")
 
         if result == modes[0]:
-            if create_items():
-                break
+            create_items()
         elif result == modes[1]:
-            if start_quiz():
-                break
+            start_quiz()
 
 
 def check_mode(user_mode):
@@ -48,14 +48,16 @@ def check_mode(user_mode):
 
 
 def create_items():
-    print(
+    input(
         "\n================"
         "\n Creating quiz!"
         "\n================"
         "\n"
-        "\nQuizpin:  Give me the number of items for your quiz."
     )
 
+    print(
+        "Quizpin:  Give me the number of items for your quiz."
+    )
     while True:
         user_items = input("User:     ")
         result = check_number(user_items)
@@ -69,7 +71,6 @@ def create_items():
         "\nQuizpin:  For each item. Give me its term and definition"
         "\n          in this format: [Term - Definition]"
     )
-
     items = []
     for number in range(result):
         while True:
@@ -124,11 +125,43 @@ def start_quiz():
         "\n================"
         "\n"
     )
+
     print(
         "Quizpin:  Choose a quiz type:"
         "\n          a) Multiple Choice"
         "\n          b) Identification"
     )
+    while True:
+        user_type = input("User:     ")
+        result = check_type(user_type)
+        if result in quiz_types:
+            break
+        else:
+            print(f"Quizpin:  {result}")
+
+    if result == quiz_types[0]:
+        multiple_choice()
+    elif result == quiz_types[1]:
+        identification()
+
+
+def check_type(user_type):
+    type = user_type.strip().lower()
+    match type:
+        case "a":
+            return quiz_types[0]
+        case "b":
+            return quiz_types[1]
+        case _:
+            return "Invalid. Please enter a valid quiz type."
+        
+
+def multiple_choice():
+    pass
+
+
+def identification():
+    pass
 
 
 if __name__ == "__main__":
