@@ -175,18 +175,18 @@ def multiple_choice(quiz_items):
     random.shuffle(quiz)
 
     score = 0
-    for idx in range(len(quiz)):
-        print(f"\n{idx + 1}) {quiz[idx]['question']}")
-        for letter, choice in quiz[idx]["choices"].items():
+    idx = 0
+    for item in quiz:
+        idx += 1
+        print(f"\n{idx}) {item['question']}")
+        for letter, choice in item["choices"].items():
             print(f"{letter}. {choice}")
         user_answer = input("User:     ").strip().lower()
         try:
-            if quiz[idx]["choices"][user_answer] == quiz[idx]["answer"]:
+            if item["choices"][user_answer] == item["answer"]:
                 score += 1
         except KeyError:
             pass
-
-    print(score)
 
 
 def convert_multiple_choice(quiz_items):
@@ -209,15 +209,9 @@ def convert_multiple_choice(quiz_items):
     return quiz
 
 
-
-        
-
-
-
 def identification(quiz_items):
     pass
 
 
 if __name__ == "__main__":
-    start_quiz()
-#    main()
+    main()
