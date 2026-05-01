@@ -171,7 +171,6 @@ def compile_file():
 
 
 def multiple_choice(quiz_items):
-    
     quiz = []
     for item in quiz_items:
         question = item["definition"]
@@ -189,31 +188,14 @@ def multiple_choice(quiz_items):
         random.shuffle(choices)
 
         letters = "abcd"
-        for idx in range(4):
-            problem["choices"].update({letters[idx]: choices[idx]})
+        problem["choices"].update(zip(letters, choices))
         quiz.append(problem)
-
-        
-    for _ in quiz:
-        print(_)
+    
 
 
 
         
-"""
-quiz = [
-    {
-        "question": "It is a yellow fruit.",
-        "choices": {
-            "a": "Apple",
-            "b": "Banana",
-            "c": "Orange",
-            "d": "Grapes",
-        },
-        "correct": "b",
-    },
-]
-"""
+
 
 
 def identification(quiz_items):
