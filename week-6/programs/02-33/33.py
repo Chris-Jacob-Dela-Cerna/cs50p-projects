@@ -28,7 +28,7 @@ def main():
             if result in modes:
                 break
             else:
-                print(f"Quizpin:  {result}")
+                print(f"Quizpin:  Invalid. Please enter a valid mode.")
 
         if result == modes[0]:
             create_items()
@@ -44,7 +44,7 @@ def check_mode(user_mode):
         case "b":
             return modes[1]
         case _:
-            return "Invalid. Please enter a valid mode."
+            return None
 
 
 def create_items():
@@ -62,10 +62,10 @@ def create_items():
         user_items = input("User:     ")
         result = check_number(user_items)
         match result:
-            case "Invalid. Please enter a valid number.":
-                print(f"Quizpin:  {result}")
+            case None:
+                print(f"Quizpin:  Invalid. Please enter a valid number.")
             case _:
-                break
+                break   
 
     print(
         "\nQuizpin:  For each item. Give me its term and definition"
@@ -94,7 +94,7 @@ def check_number(user_items):
         if items < 1:
             raise ValueError
     except ValueError:
-        return "Invalid. Please enter a valid number."
+        return None
     else:
         return items
 
@@ -137,7 +137,7 @@ def start_quiz():
         if result in quiz_types:
             break
         else:
-            print(f"Quizpin:  {result}")
+            print(f"Quizpin:  Invalid. Please enter a valid quiz type.")
 
     if result == quiz_types[0]:
         multiple_choice()
@@ -153,7 +153,7 @@ def check_type(user_type):
         case "b":
             return quiz_types[1]
         case _:
-            return "Invalid. Please enter a valid quiz type."
+            return None
         
 
 def multiple_choice():
