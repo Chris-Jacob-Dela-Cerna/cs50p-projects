@@ -171,12 +171,12 @@ def compile_file():
 
 
 def multiple_choice(quiz_items):
-
+    
     quiz = []
     for item in quiz_items:
         question = item["definition"]
         answer = item["term"]
-        quiz.append({"question": question, "answer": answer})
+        problem = {"question": question, "answer": answer, "choices": {}}
 
         terms = []
         for item in quiz_items:
@@ -186,6 +186,12 @@ def multiple_choice(quiz_items):
         
         choices = [answer]
         choices.extend(random.sample(terms, 3))
+        random.shuffle(choices)
+
+        letters = "abcd"
+        for idx in range(4):
+            problem["choices"].update({letters[idx]: choices[idx]})
+        quiz.append(problem)
 
         
     for _ in quiz:
