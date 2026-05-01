@@ -1,6 +1,7 @@
 # Document: This python is my 2nd application of CS50P Week 6.
 
 import csv
+import sys
 
 
 def main():
@@ -123,6 +124,13 @@ def start_quiz():
         "\n"
     )
 
+    if not check_file():
+        print(
+            "Quizpin:  You have not created a quiz yet."
+            "\n"
+        )
+        return None
+
     print(
         "Quizpin:  Choose a quiz type:"
         "\n          a) Multiple Choice"
@@ -143,8 +151,20 @@ def start_quiz():
         identification()
         
 
+def check_file():
+    try:
+        open("quiz_items.csv")
+    except FileNotFoundError:
+        return False
+    else:
+        return True
+
+
 def multiple_choice():
-    pass
+    if not check_file():
+        print("Quizpin:  You have not created a quiz yet.")
+        return None
+    print("Baller")
 
 
 def identification():
