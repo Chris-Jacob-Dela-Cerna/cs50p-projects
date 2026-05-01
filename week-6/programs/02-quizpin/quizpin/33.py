@@ -171,17 +171,17 @@ def compile_file():
 
 
 def multiple_choice(quiz_items):
+    quiz = convert_quiz_items(quiz_items)
+
+def convert_quiz_items(quiz_items):
     quiz = []
+    all_terms = [item["term"] for item in quiz_items if item["term"]]
     for item in quiz_items:
         question = item["definition"]
         answer = item["term"]
         problem = {"question": question, "answer": answer, "choices": {}}
 
-        terms = []
-        for item in quiz_items:
-            term = item["term"]
-            if term != answer:
-                terms.append(term)
+        terms = [term for term in all_terms if term != answer]
         
         choices = [answer]
         choices.extend(random.sample(terms, 3))
@@ -190,7 +190,7 @@ def multiple_choice(quiz_items):
         letters = "abcd"
         problem["choices"].update(zip(letters, choices))
         quiz.append(problem)
-    
+    return quiz
 
 
 
