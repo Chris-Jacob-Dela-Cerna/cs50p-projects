@@ -172,16 +172,33 @@ def compile_file():
 
 
 def multiple_choice(quiz_items):
-    total_items = len(quiz_items)
-    order = random.sample(range(total_items), total_items)
+    total = len(quiz_items)
+    order = random.sample(range(total), total)
     letters = "abcd"
     
-    for item in range(total_items):
-        print(f"\n{item + 1}. {quiz_items[order[item]]["definition"]}.")
-        choices = random.sample(range(total_items), 4)
+    for item in range(total):
+        question = quiz_items[order[item]]
+        print(f"\n{item + 1}. {question["definition"]}.")
         
+        choices = random.sample(range(total), 4)
         for letter in range(len(letters)):
-            print(f"{letters[letter]}) {quiz_items[choices[letter]]["term"]}")
+            pass
+
+
+"""
+quiz = [
+    {
+        "question": "It is a yellow fruit.",
+        "choices": {
+            "a": "Apple",
+            "b": "Banana",
+            "c": "Orange",
+            "d": "Grapes",
+        },
+        "correct": "b",
+    },
+]
+"""
 
 
 def identification(quiz_items):
