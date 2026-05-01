@@ -3,10 +3,6 @@
 import csv
 
 
-modes = ["Create Items", "Start Quiz"]
-quiz_types = ["Multiple Choice", "Identification"]
-
-
 def main():
     input(
         "\n====================="
@@ -22,9 +18,10 @@ def main():
             "\n          b) Start a Quiz"
         )
         
+        modes = ["Create Items", "Start Quiz"]
         while True:
             user_mode = input("User:     ")
-            result = check_mode(user_mode)
+            result = checker(user_mode, modes)
             if result in modes:
                 break
             else:
@@ -34,15 +31,15 @@ def main():
             create_items()
         elif result == modes[1]:
             start_quiz()
+        
 
-
-def check_mode(user_mode):
-    mode = user_mode.strip().lower()
-    match mode:
+def checker(user, options):
+    chosen = user.strip().lower()
+    match chosen:
         case "a":
-            return modes[0]
+            return options[0]
         case "b":
-            return modes[1]
+            return options[1]
         case _:
             return None
 
@@ -131,9 +128,10 @@ def start_quiz():
         "\n          a) Multiple Choice"
         "\n          b) Identification"
     )
+    quiz_types = ["Multiple Choice", "Identification"]
     while True:
         user_type = input("User:     ")
-        result = check_type(user_type)
+        result = checker(user_type, quiz_types)
         if result in quiz_types:
             break
         else:
@@ -143,17 +141,6 @@ def start_quiz():
         multiple_choice()
     elif result == quiz_types[1]:
         identification()
-
-
-def check_type(user_type):
-    type = user_type.strip().lower()
-    match type:
-        case "a":
-            return quiz_types[0]
-        case "b":
-            return quiz_types[1]
-        case _:
-            return None
         
 
 def multiple_choice():
