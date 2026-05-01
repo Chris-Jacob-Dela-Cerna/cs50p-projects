@@ -174,16 +174,12 @@ def compile_file():
 def multiple_choice(quiz_items):
     total = len(quiz_items)
     order = random.sample(range(total), total)
-    letters = "abcd"
+    quiz = []
     
-    for item in range(total):
-        question = quiz_items[order[item]]
-        print(f"\n{item + 1}. {question["definition"]}.")
-        
-        choices = random.sample(range(total), 4)
-        for letter in range(len(letters)):
-            pass
+    for num in range(total):
+        quiz.append({"question": quiz_items[order[num]]["definition"]})
 
+    print(quiz)
 
 """
 quiz = [
