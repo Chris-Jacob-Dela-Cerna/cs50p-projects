@@ -97,7 +97,7 @@ def check_number(user_items):
         return items
 
 
-def add_item(user_item, items):
+def add_item(items, user_item):
     try:
         term, definition = user_item.split(" - ")
         if term.strip() == "" or definition.strip() == "":
@@ -194,6 +194,10 @@ def multiple_choice(quiz_items):
         choices.append(answer)
         random.shuffle(choices)
 
+        letters = "abcd"
+        quiz[num].update({"choices": {}})
+        for nu in range(4):
+            quiz[num]["choices"].update({letters[nu]: choices[nu]})
 
         
 """
