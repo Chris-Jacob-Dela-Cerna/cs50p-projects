@@ -97,7 +97,7 @@ def check_number(user_items):
         return items
 
 
-def add_item(items, user_item):
+def add_item(user_item, items):
     try:
         term, definition = user_item.split(" - ")
         if term.strip() == "" or definition.strip() == "":
@@ -130,7 +130,7 @@ def start_quiz():
             "\n"
         )
         return None
-    compile_file()
+    items = compile_file()
 
     print(
         "Quizpin:  Choose a quiz type:"
@@ -147,9 +147,9 @@ def start_quiz():
             print(f"Quizpin:  Invalid. Please enter a valid quiz type.")
 
     if result == quiz_types[0]:
-        multiple_choice()
+        multiple_choice(items)
     elif result == quiz_types[1]:
-        identification()
+        identification(items)
         
 
 def check_file():
@@ -162,19 +162,19 @@ def check_file():
     
 
 def compile_file():
-    file = []
+    items = []
     with open("quiz_items.csv") as quiz_items:
         reader = csv.DictReader(quiz_items)
         for row in reader:
-            file.append({"term": row['term'], "definition": row['definition']})
-    print(file)
+            items.append({"term": row['term'], "definition": row['definition']})
+    return items
 
 
-def multiple_choice():
+def multiple_choice(items):
     pass
 
 
-def identification():
+def identification(items):
     pass
 
 
