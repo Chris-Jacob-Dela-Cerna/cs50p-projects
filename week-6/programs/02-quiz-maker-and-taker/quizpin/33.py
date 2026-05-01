@@ -130,6 +130,7 @@ def start_quiz():
             "\n"
         )
         return None
+    compile_file()
 
     print(
         "Quizpin:  Choose a quiz type:"
@@ -158,13 +159,19 @@ def check_file():
         return False
     else:
         return True
+    
+
+def compile_file():
+    file = []
+    with open("quiz_items.csv") as quiz_items:
+        reader = csv.DictReader(quiz_items)
+        for row in reader:
+            file.append({"term": row['term'], "definition": row['definition']})
+    print(file)
 
 
 def multiple_choice():
-    if not check_file():
-        print("Quizpin:  You have not created a quiz yet.")
-        return None
-    print("Baller")
+    pass
 
 
 def identification():
