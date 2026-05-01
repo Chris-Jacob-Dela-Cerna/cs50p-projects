@@ -178,11 +178,24 @@ def multiple_choice(quiz_items):
     quiz = []
     for num in range(total):
         quiz.append({"question": quiz_items[order[num]]["definition"]})
-        quiz[num].update({"answer": quiz_items[order[num]]["term"]})
+        
+        answer = quiz_items[order[num]]["term"]
+        quiz[num].update({"answer": answer})
+        
+        set_choices = []
+        for item in quiz_items:
+            set_choices.append(item["term"])
+        set_choices.remove(answer)
 
-    for item in quiz:
-        print(item)
+        wrong_answers = random.sample(range(len(set_choices)), 3)
+        choices = []
+        for wrong in wrong_answers:
+            choices.append(set_choices[wrong])
+        choices.append(answer)
+        random.shuffle(choices)
 
+
+        
 """
 quiz = [
     {
