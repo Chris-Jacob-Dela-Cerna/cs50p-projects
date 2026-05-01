@@ -22,7 +22,7 @@ def main():
         while True:
             user_mode = input("User:     ")
             result = checker(user_mode, modes)
-            if result in modes:
+            if result:
                 break
             else:
                 print(f"Quizpin:  Invalid. Please enter a valid mode.")
@@ -132,7 +132,7 @@ def start_quiz():
     while True:
         user_type = input("User:     ")
         result = checker(user_type, quiz_types)
-        if result in quiz_types:
+        if result:
             break
         else:
             print(f"Quizpin:  Invalid. Please enter a valid quiz type.")
