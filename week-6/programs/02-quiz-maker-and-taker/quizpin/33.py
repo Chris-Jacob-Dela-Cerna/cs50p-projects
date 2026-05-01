@@ -1,7 +1,7 @@
 # Document: This python is my 2nd application of CS50P Week 6.
 
 import csv
-import sys
+import random
 
 
 def main():
@@ -167,11 +167,13 @@ def compile_file():
         reader = csv.DictReader(quiz_items)
         for row in reader:
             items.append({"term": row['term'], "definition": row['definition']})
+    print(items)
     return items
 
 
 def multiple_choice(items):
-    pass
+    limit = len(items)
+    random.sample(range(limit), limit)
 
 
 def identification(items):
