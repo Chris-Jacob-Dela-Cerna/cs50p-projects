@@ -171,12 +171,20 @@ def compile_file():
     return items
 
 
-def multiple_choice(items):
-    limit = len(items)
-    random.sample(range(limit), limit)
+def multiple_choice(quiz_items):
+    total_items = len(quiz_items)
+    order = random.sample(range(total_items), total_items)
+    letters = "abcd"
+    
+    for item in range(total_items):
+        print(f"\n{item + 1}. {quiz_items[order[item]]["definition"]}.")
+        choices = random.sample(range(total_items), 4)
+        
+        for letter in range(len(letters)):
+            print(f"{letters[letter]}) {quiz_items[choices[letter]]["term"]}")
 
 
-def identification(items):
+def identification(quiz_items):
     pass
 
 
