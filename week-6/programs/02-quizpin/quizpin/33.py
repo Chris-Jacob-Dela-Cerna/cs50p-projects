@@ -171,9 +171,16 @@ def compile_file():
 
 
 def multiple_choice(quiz_items):
-    quiz = convert_quiz_items(quiz_items)
+    quiz = convert_multiple_choice(quiz_items)
+    random.shuffle(quiz)
 
-def convert_quiz_items(quiz_items):
+    for idx in range(len(quiz)):
+        print(f"\n{idx + 1}) {quiz[idx]["question"]}")
+        for letter, choice in quiz[idx]["choices"].items():
+            print(f"{letter}. {choice}")
+
+
+def convert_multiple_choice(quiz_items):
     quiz = []
     all_terms = [item["term"] for item in quiz_items if item["term"]]
     for item in quiz_items:
@@ -182,7 +189,7 @@ def convert_quiz_items(quiz_items):
         problem = {"question": question, "answer": answer, "choices": {}}
 
         terms = [term for term in all_terms if term != answer]
-        
+
         choices = [answer]
         choices.extend(random.sample(terms, 3))
         random.shuffle(choices)
