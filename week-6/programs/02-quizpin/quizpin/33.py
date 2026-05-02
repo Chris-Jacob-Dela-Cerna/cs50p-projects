@@ -174,6 +174,8 @@ def multiple_choice(quiz_items):
     quiz = convert_multiple_choice(quiz_items)
     random.shuffle(quiz)
 
+    # Move quizzing system to function and create dialogue for instructions
+
     score = 0
     idx = 0
     for item in quiz:
@@ -187,6 +189,11 @@ def multiple_choice(quiz_items):
                 score += 1
         except KeyError:
             pass
+
+    print(
+        f"Congratulations! You've got a score of {score}/{idx}."
+        "\n"
+    )
 
 
 def convert_multiple_choice(quiz_items):
