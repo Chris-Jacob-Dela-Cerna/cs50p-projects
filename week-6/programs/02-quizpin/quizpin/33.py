@@ -234,6 +234,17 @@ def identification(quiz_items):
         "\n"
     )
 
+    score = 0
+    idx = 0
+    for item in quiz:
+        idx += 1
+        print(f"{idx}) {item['question']}")
+        user_answer = input("User:     ").strip().lower()
+        if user_answer == item["answer"].strip().lower():
+            score += 1
+
+    
+
 
 def convert_identification(quiz_items):
     quiz = []
