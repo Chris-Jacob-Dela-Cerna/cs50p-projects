@@ -118,20 +118,21 @@ def store_items(items):
 
 
 def start_quiz():
+    if not check_file():
+        print(
+            "Quizpin:  You have not created a quiz yet."
+            "\n          Select a) to create a quiz!"
+            "\n"
+        )
+        return None
+    items = compile_file()
+
     input(
         "\n================"
         "\n Starting quiz!"
         "\n================"
         "\n"
     )
-
-    if not check_file():
-        print(
-            "Quizpin:  You have not created a quiz yet."
-            "\n"
-        )
-        return None
-    items = compile_file()
 
     print(
         "Quizpin:  Choose a quiz type:"
@@ -175,7 +176,7 @@ def multiple_choice(quiz_items):
     quiz = convert_multiple_choice(quiz_items)
     random.shuffle(quiz)
 
-    print(
+    input(
         "\nInstructions: Read each item carefully."
         "\nChoose the letter of the correct/best answer."
         "\nWrite only the letter that corresponds to your choice"
