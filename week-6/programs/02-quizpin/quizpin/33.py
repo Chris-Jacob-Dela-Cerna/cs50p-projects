@@ -224,7 +224,15 @@ def convert_multiple_choice(quiz_items):
 
 
 def identification(quiz_items):
-    pass
+    quiz = convert_multiple_choice(quiz_items)
+    random.shuffle(quiz)
+
+    input(
+        "\nQuizpin:  Read each statement carefully."
+        "\n          Identify the term or concept being described "
+        "\n          and write your answer in the space provided."
+        "\n"
+    )
 
 
 def convert_identification(quiz_items):
