@@ -93,12 +93,10 @@ def create_items():
         user_file = input("User:     ")
         result = check_name(user_file)
         if result:
+            csv_path = os.path.join(quiz_path, result + ".csv")
             break
-    
 
-
-
-    store_items(items)
+    store_items(items, csv_path)
     input(
         "\nQuizpin:  Items saved successfully."
         "\n          Select b) to start your quiz!"
@@ -134,8 +132,8 @@ def check_name(user_file):
     return file_name
 
 
-def store_items(items):
-    with open("quiz_items.csv", "w", newline="") as quiz_items:
+def store_items(items, csv_path):
+    with open(csv_path, "w", newline="") as quiz_items:
         writer = csv.DictWriter(quiz_items, fieldnames=["term", "definition"])
         writer.writeheader()
         writer.writerows(items)
