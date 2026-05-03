@@ -197,8 +197,11 @@ def multiple_choice(quiz_items):
         except KeyError:
             pass
 
-    print(
-        f"Congratulations! You've got a score of {score}/{idx}."
+    input(
+        "\n=================="
+        "\n Congratulations!"
+        f"\n You got {score}/{idx}."
+        "\n=================="
         "\n"
     )
 
@@ -243,7 +246,13 @@ def identification(quiz_items):
         if user_answer == item["answer"].strip().lower():
             score += 1
 
-    
+    input(
+        "\n=================="
+        "\n Congratulations!"
+        f"\n You got {score}/{idx}."
+        "\n=================="
+        "\n"
+    )
 
 
 def convert_identification(quiz_items):
