@@ -177,9 +177,9 @@ def multiple_choice(quiz_items):
     random.shuffle(quiz)
 
     input(
-        "\nInstructions: Read each item carefully."
-        "\nChoose the letter of the correct/best answer."
-        "\nWrite only the letter that corresponds to your choice"
+        "\nQuizpin:  Read each item carefully."
+        "\n          Choose the letter of the correct/best answer."
+        "\n          Write only the letter that corresponds to your choice."
         "\n"
     )
 
@@ -225,6 +225,16 @@ def convert_multiple_choice(quiz_items):
 
 def identification(quiz_items):
     pass
+
+
+def convert_identification(quiz_items):
+    quiz = []
+    for item in quiz_items:
+        question = item["definition"]
+        answer = item["term"]
+        problem = {"question": question, "answer": answer}
+        quiz.append(problem)
+    return quiz
 
 
 if __name__ == "__main__":
