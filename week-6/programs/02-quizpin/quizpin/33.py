@@ -9,6 +9,7 @@ abs_filedir = os.path.abspath(__file__)
 filedir = os.path.dirname(abs_filedir)
 quiz_path = os.path.join(filedir, "quizzes")
 os.makedirs(quiz_path, exist_ok=True)
+quizzes = os.listdir(quiz_path)
 
 
 def main():
@@ -140,14 +141,24 @@ def store_items(items, csv_path):
 
 
 def start_quiz():
-    if not check_file():
+    if not check_quizzes():
         print(
             "Quizpin:  You have not created a quiz yet."
             "\n          Select a) to create a quiz!"
             "\n"
         )
         return None
-    items = compile_file()
+    
+    print(
+        "\nQuizpin:  Select a quiz to start. Type the"
+        "\n          corresponding number for that quiz."
+    )
+    number = 0
+    for quiz in quizzes:
+        number += 1
+        print(f"          {number}) {quiz}")
+
+    items = decompile_file()
 
     input(
         "\n================"
@@ -176,16 +187,14 @@ def start_quiz():
         identification(items)
         
 
-def check_file():
-    try:
-        open("quiz_items.csv")
-    except FileNotFoundError:
+def check_quizzes():
+    if len(quizzes) == 0:
         return False
     else:
         return True
     
 
-def compile_file():
+def decompile_file():
     items = []
     with open("quiz_items.csv") as quiz_items:
         reader = csv.DictReader(quiz_items)
