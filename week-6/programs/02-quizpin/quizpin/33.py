@@ -154,11 +154,20 @@ def start_quiz():
         "\n          corresponding number for that quiz."
     )
     number = 0
+    quiz_list = []
     for quiz in quizzes:
         number += 1
+        quiz_list.append({"number": str(number), "quiz_file": quiz})
         print(f"          {number}) {quiz}")
+    while True:
+        selected = input("User:     ")
+        result = check_selected(selected, quiz_list)
+        if result:
+            break
+        else:
+            print("Quizpin:  Invalid. Please select a valid quiz number.")
 
-    items = decompile_file()
+    items = decompile_file(result)
 
     input(
         "\n================"
@@ -192,11 +201,19 @@ def check_quizzes():
         return False
     else:
         return True
+
+
+def check_selected(selected, quiz_list):
+    for quiz in quiz_list:
+        if selected == quiz["number"]:
+            return quiz["quiz_file"]
+    return None
     
 
-def decompile_file():
+def decompile_file(result):
     items = []
-    with open("quiz_items.csv") as quiz_items:
+    quiz = os.path.join(quiz_path, result)
+    with open(quiz) as quiz_items:
         reader = csv.DictReader(quiz_items)
         for row in reader:
             items.append({"term": row['term'], "definition": row['definition']})
