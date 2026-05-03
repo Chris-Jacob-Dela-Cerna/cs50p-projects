@@ -5,6 +5,12 @@ import random
 import os
 
 
+abs_filedir = os.path.abspath(__file__)
+filedir = os.path.dirname(abs_filedir)
+quiz_path = os.path.join(filedir, "quizzes")
+os.makedirs(quiz_path, exist_ok=True)
+
+
 def main():
     input(
         "\n====================="
@@ -88,12 +94,11 @@ def create_items():
         result = check_name(user_file)
         if result:
             break
+    
+
+
 
     store_items(items)
-
-
-
-
     input(
         "\nQuizpin:  Items saved successfully."
         "\n          Select b) to start your quiz!"
