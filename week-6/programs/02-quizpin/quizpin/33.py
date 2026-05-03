@@ -227,7 +227,7 @@ def convert_multiple_choice(quiz_items):
 
 
 def identification(quiz_items):
-    quiz = convert_multiple_choice(quiz_items)
+    quiz = convert_identification(quiz_items)
     random.shuffle(quiz)
 
     input(
