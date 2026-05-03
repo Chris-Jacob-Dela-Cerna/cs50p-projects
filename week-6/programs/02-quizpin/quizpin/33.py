@@ -174,13 +174,18 @@ def multiple_choice(quiz_items):
     quiz = convert_multiple_choice(quiz_items)
     random.shuffle(quiz)
 
-    # Move quizzing system to function and create dialogue for instructions
+    print(
+        "\nInstructions: Read each item carefully."
+        "\nChoose the letter of the correct/best answer."
+        "\nWrite only the letter that corresponds to your choice"
+        "\n"
+    )
 
     score = 0
     idx = 0
     for item in quiz:
         idx += 1
-        print(f"\n{idx}) {item['question']}")
+        print(f"{idx}) {item['question']}")
         for letter, choice in item["choices"].items():
             print(f"{letter}. {choice}")
         user_answer = input("User:     ").strip().lower()
