@@ -55,6 +55,7 @@ def create_items():
 
     print(
         "Quizpin:  Give me the number of items for your quiz."
+        "\n          Minimum: 4"
     )
     while True:
         user_items = input("User:     ")
@@ -63,7 +64,7 @@ def create_items():
             case None:
                 print(f"Quizpin:  Invalid. Please enter a valid number.")
             case _:
-                break   
+                break
 
     print(
         "\nQuizpin:  For each item. Give me its term and definition"
@@ -89,7 +90,7 @@ def create_items():
 def check_number(user_items):
     try:
         items = int(user_items)
-        if items < 1:
+        if items < 4:
             raise ValueError
     except ValueError:
         return None
