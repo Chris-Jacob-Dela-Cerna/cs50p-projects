@@ -2,6 +2,7 @@
 
 import csv
 import random
+import os
 
 
 def main():
@@ -79,7 +80,20 @@ def create_items():
             else:
                 print("Quizpin:   Invalid. Please use the right format.")
     
+    print(
+        "\nQuizpin:  Name the file you'll be storing your items in."
+    )
+    while True:
+        user_file = input("User:     ")
+        result = check_name(user_file)
+        if result:
+            break
+
     store_items(items)
+
+
+
+
     input(
         "\nQuizpin:  Items saved successfully."
         "\n          Select b) to start your quiz!"
@@ -108,6 +122,11 @@ def add_item(items, user_item):
     else:
         items.append({"term": term, "definition": definition})
         return True
+    
+
+def check_name(user_file):
+    file_name = user_file.strip().replace(" ", "_")
+    return file_name
 
 
 def store_items(items):
