@@ -27,15 +27,15 @@ def start_quiz():
         "\n          corresponding number for that quiz."
     )
     number = 0
-    quiz_list = []
+    quiz_list = {}
     for quiz in quizzes:
         number += 1
-        quiz_list.append({"number": str(number), "quiz_file": quiz})
+        quiz_list.update({str(number): quiz})
         print(f"          {number}) {quiz}")
     
     while True:
         chosen = input("User:     ")
-        result = check_selected(chosen, quiz_list)
+        result = checker(chosen, quiz_list)
         if result:
             break
         else:
@@ -76,13 +76,6 @@ def check_quizzes():
         return False
     else:
         return True
-
-
-def check_selected(chosen, quiz_list):
-    for quiz in quiz_list:
-        if chosen == quiz["number"]:
-            return quiz["quiz_file"]
-    return None
     
 
 def decompile_file(result):
