@@ -4,11 +4,6 @@ import csv
 import os
 
 
-abs_filedir = os.path.abspath(__file__)
-filedir = os.path.dirname(abs_filedir)
-quiz_path = os.path.join(filedir, "quizzes")
-
-
 def create_items():
     input(
         "\n================"
@@ -19,7 +14,7 @@ def create_items():
 
     print(
         "Quizpin:  Give me the number of items for your quiz."
-        "\n          Minimum: 4"
+        "\n          Note: Minimum of 4 items."
     )
     while True:
         user_items = input("User:     ")
@@ -41,11 +36,14 @@ def create_items():
             if add_item(items, user_item):
                 break
             else:
-                print("Quizpin:   Invalid. Please use the right format.")
+                print("Quizpin:  Invalid. Please use the right format.")
     
     print(
         "\nQuizpin:  Name the file you'll be storing your items in."
     )
+    abs_filedir = os.path.abspath(__file__)
+    filedir = os.path.dirname(abs_filedir)
+    quiz_path = os.path.join(filedir, "quizzes")
     while True:
         user_file = input("User:     ")
         result = check_name(user_file)
