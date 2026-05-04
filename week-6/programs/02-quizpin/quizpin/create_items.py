@@ -23,7 +23,8 @@ def create_items():
     )
     while True:
         user_items = input("User:     ")
-        if check_number(user_items):
+        result = check_number(user_items)
+        if result:
             break
         else:
             print(f"Quizpin:  Invalid. Please enter a valid number.")
@@ -83,8 +84,7 @@ def add_item(items, user_item):
     
 
 def check_name(user_file):
-    file_name = user_file.strip().replace(" ", "_")
-    return file_name
+    return user_file.strip().replace(" ", "_")
 
 
 def store_items(items, csv_path):
