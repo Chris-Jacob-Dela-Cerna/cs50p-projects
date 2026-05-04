@@ -2,7 +2,6 @@
 
 import csv
 import os
-from checker import checker
 
 
 abs_filedir = os.path.abspath(__file__)
@@ -24,13 +23,11 @@ def create_items():
     )
     while True:
         user_items = input("User:     ")
-        result = check_number(user_items)
-        match result:
-            case None:
-                print(f"Quizpin:  Invalid. Please enter a valid number.")
-            case _:
-                break
-
+        if check_number(user_items):
+            break
+        else:
+            print(f"Quizpin:  Invalid. Please enter a valid number.")
+                
     print(
         "\nQuizpin:  For each item. Give me its term and definition"
         "\n          in this format: [Term - Definition]"
