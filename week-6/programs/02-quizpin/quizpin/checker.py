@@ -1,8 +1,8 @@
 
 
-def checker(user, modes):
+def checker(user, options):
     chosen = user.strip().lower()
-    for letter, mode in modes.items():
-        if chosen == letter:
-            return mode
+    for item, option in options.items():
+        if chosen == item:
+            return option
     return None

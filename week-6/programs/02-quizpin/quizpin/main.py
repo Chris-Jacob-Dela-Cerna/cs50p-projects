@@ -23,8 +23,8 @@ def main():
             print(f"          {letter}) {mode}")
 
         while True:
-            user_mode = input("User:     ")
-            result = checker(user_mode, modes)
+            chosen = input("User:     ")
+            result = checker(chosen, modes)
             if result:
                 break
             else:

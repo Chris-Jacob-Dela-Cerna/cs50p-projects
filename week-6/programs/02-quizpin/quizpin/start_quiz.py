@@ -34,8 +34,8 @@ def start_quiz():
         print(f"          {number}) {quiz}")
     
     while True:
-        selected = input("User:     ")
-        result = check_selected(selected, quiz_list)
+        chosen = input("User:     ")
+        result = check_selected(chosen, quiz_list)
         if result:
             break
         else:
@@ -58,8 +58,8 @@ def start_quiz():
         print(f"          {letter}) {quiz_type}")
 
     while True:
-        user_type = input("User:     ")
-        result = checker(user_type, quiz_types)
+        chosen = input("User:     ")
+        result = checker(chosen, quiz_types)
         if result:
             break
         else:
@@ -78,9 +78,9 @@ def check_quizzes():
         return True
 
 
-def check_selected(selected, quiz_list):
+def check_selected(chosen, quiz_list):
     for quiz in quiz_list:
-        if selected == quiz["number"]:
+        if chosen == quiz["number"]:
             return quiz["quiz_file"]
     return None
     
