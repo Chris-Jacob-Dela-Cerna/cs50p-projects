@@ -6,15 +6,14 @@ import random
 from checker import checker
 
 
-abs_filedir = os.path.abspath(__file__)
-filedir = os.path.dirname(abs_filedir)
-quiz_path = os.path.join(filedir, "quizzes")
-os.makedirs(quiz_path, exist_ok=True)
-quizzes = os.listdir(quiz_path)
-
-
 def start_quiz():
-    if not check_quizzes():
+    abs_filedir = os.path.abspath(__file__)
+    filedir = os.path.dirname(abs_filedir)
+    quiz_path = os.path.join(filedir, "quizzes")
+    os.makedirs(quiz_path, exist_ok=True)
+    quizzes = os.listdir(quiz_path)
+
+    if not check_quizzes(quizzes):
         print(
             "Quizpin:  You have not created a quiz yet."
             "\n          Select a) to create a quiz!"
@@ -40,7 +39,7 @@ def start_quiz():
             break
         else:
             print("Quizpin:  Invalid. Please select a valid quiz number.")
-    items = decompile_file(result)
+    items = decompile_file(quiz_path, result)
 
     input(
         "\n================"
@@ -71,14 +70,14 @@ def start_quiz():
         identification(items)
         
 
-def check_quizzes():
+def check_quizzes(quizzes):
     if len(quizzes) == 0:
         return False
     else:
         return True
     
 
-def decompile_file(result):
+def decompile_file(quiz_path, result):
     items = []
     quiz = os.path.join(quiz_path, result)
     with open(quiz) as quiz_items:
