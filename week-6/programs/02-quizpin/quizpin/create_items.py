@@ -32,6 +32,7 @@ def create_items():
     print(
         "\nQuizpin:  For each item. Give me its term and definition"
         "\n          in this format: [Term - Definition]"
+        "\n          Note: You cannot repeat a term."
     )
     items = []
     for number in range(result):
@@ -76,6 +77,9 @@ def add_item(items, user_item):
         term, definition = user_item.split(" - ")
         if term.strip() == "" or definition.strip() == "":
             raise ValueError
+        for item in items:
+            if term.lower() == item["term"].lower():
+                raise ValueError
     except ValueError:
         return False
     else:
