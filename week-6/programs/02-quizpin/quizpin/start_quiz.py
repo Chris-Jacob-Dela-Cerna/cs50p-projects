@@ -93,9 +93,9 @@ def multiple_choice(quiz_items):
     random.shuffle(quiz)
 
     input(
-        "\nQuizpin:  Read each item carefully."
-        "\n          Choose the letter of the correct/best answer."
-        "\n          Write only the letter that corresponds to your choice."
+        "\nQ. Read each item carefully."
+        "\n   Choose the letter of the correct/best answer."
+        "\n   Write only the letter that corresponds to your choice."
         "\n"
     )
 
@@ -147,9 +147,9 @@ def identification(quiz_items):
     random.shuffle(quiz)
 
     input(
-        "\nQuizpin:  Read each statement carefully."
-        "\n          Identify the term or concept being described "
-        "\n          and write your answer in the space provided."
+        "\nQ. Read each statement carefully."
+        "\n   Identify the term or concept being described "
+        "\n   and write your answer in the space provided."
         "\n"
     )
 
