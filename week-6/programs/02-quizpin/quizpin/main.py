@@ -14,16 +14,14 @@ def main():
     )
 
     while True:
-        print(
-            "Quizpin:  Choose a mode:"
-            "\n          a) Create Quiz Items"
-            "\n          b) Start a Quiz"
-        )
-        
         modes = {
-            "a": "Create Items",
-            "b": "Start Quiz",
+            "a": "Create Quiz Items",
+            "b": "Start a Quiz",
         }
+        print("Quizpin:  Choose a mode:")
+        for letter, mode in modes.items():
+            print(f"          {letter}) {mode}")
+
         while True:
             user_mode = input("User:     ")
             result = checker(user_mode, modes)

@@ -32,6 +32,7 @@ def start_quiz():
         number += 1
         quiz_list.append({"number": str(number), "quiz_file": quiz})
         print(f"          {number}) {quiz}")
+    
     while True:
         selected = input("User:     ")
         result = check_selected(selected, quiz_list)
@@ -39,7 +40,6 @@ def start_quiz():
             break
         else:
             print("Quizpin:  Invalid. Please select a valid quiz number.")
-
     items = decompile_file(result)
 
     input(
@@ -49,15 +49,14 @@ def start_quiz():
         "\n"
     )
 
-    print(
-        "Quizpin:  Choose a quiz type:"
-        "\n          a) Multiple Choice"
-        "\n          b) Identification"
-    )
     quiz_types = {
         "a": "Multiple Choice",
         "b": "Identification",
     }
+    print("Quizpin:  Choose a quiz type:")
+    for letter, quiz_type in quiz_types.items():
+        print(f"          {letter}) {quiz_type}")
+
     while True:
         user_type = input("User:     ")
         result = checker(user_type, quiz_types)
