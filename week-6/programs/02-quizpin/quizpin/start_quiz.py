@@ -3,6 +3,7 @@
 import csv
 import os
 import random
+from checker import checker
 
 
 abs_filedir = os.path.abspath(__file__)
@@ -65,9 +66,9 @@ def start_quiz():
         else:
             print(f"Quizpin:  Invalid. Please enter a valid quiz type.")
 
-    if result == quiz_types[0]:
+    if result == quiz_types["a"]:
         multiple_choice(items)
-    elif result == quiz_types[1]:
+    elif result == quiz_types["b"]:
         identification(items)
         
 

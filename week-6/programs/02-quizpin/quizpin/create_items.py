@@ -2,6 +2,7 @@
 
 import csv
 import os
+from checker import checker
 
 
 abs_filedir = os.path.abspath(__file__)

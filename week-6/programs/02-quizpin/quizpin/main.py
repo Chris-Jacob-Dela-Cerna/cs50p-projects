@@ -1,15 +1,8 @@
 # Document: This python is my 2nd application of CS50P Week 6.
 
-import os
 from create_items import create_items
 from start_quiz import start_quiz
-
-
-abs_filedir = os.path.abspath(__file__)
-filedir = os.path.dirname(abs_filedir)
-quiz_path = os.path.join(filedir, "quizzes")
-os.makedirs(quiz_path, exist_ok=True)
-quizzes = os.listdir(quiz_path)
+from checker import checker
 
 
 def main():
@@ -39,22 +32,11 @@ def main():
             else:
                 print(f"Quizpin:  Invalid. Please enter a valid mode.")
 
-        if result == modes[0]:
+        if result == modes["a"]:
             create_items()
-        elif result == modes[1]:
+        elif result == modes["b"]:
             start_quiz()
 
-
-def checker(user, modes):
-    chosen = user.strip().lower()
-    match chosen:
-        case "a":
-            return modes[0]
-        case "b":
-            return modes[1]
-        case _:
-            return None
-        
 
 if __name__ == "__main__":
     main()
