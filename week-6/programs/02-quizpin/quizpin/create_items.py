@@ -47,7 +47,7 @@ def create_items():
     )
     while True:
         user_file = input("User:     ")
-        result = check_name(user_file)
+        result, file_name = check_name(user_file, quiz_path)
         if result:
             csv_path = os.path.join(quiz_path, result + ".csv")
             break
@@ -86,8 +86,15 @@ def add_item(user_item, items):
         return True
     
 
-def check_name(user_file):
-    return user_file.strip().replace(" ", "_")
+def check_name(user_file, quiz_path):
+    file_name = user_file.strip().replace(" ", "_")
+    for quiz in quiz_path:
+        if file_name == quiz_path[:-4]:
+            return False, file_name
+        elif file_name == "":
+            return None, None
+    return True, file_name
+
 
 
 def store_items(items, csv_path):
