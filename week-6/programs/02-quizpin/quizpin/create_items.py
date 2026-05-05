@@ -54,9 +54,8 @@ def create_items():
                 break
             case False:
                 print(
-                    f"Quizpin:  {file_name} already exists."
-                    "\n          Would you like to overwrite?"
-                    "\n          Enter y or n."
+                    f"Quizpin:  '{file_name}.csv' already exists."
+                    "\n          Would you like to overwrite? Enter y or n."
                 )
             case _:
                 print("Quizpin:  Invalid. Please enter a valid file name.")
@@ -99,8 +98,8 @@ def add_item(user_item, items):
 
 def check_name(user_file, quiz_path):
     file_name = user_file.strip().replace(" ", "_")
-    for quiz in quiz_path:
-        if f"{file_name}.csv" == quiz:
+    for quiz in os.listdir(quiz_path):
+        if file_name == quiz[:-4]:
             return False, file_name
         elif file_name == "":
             return None, None
