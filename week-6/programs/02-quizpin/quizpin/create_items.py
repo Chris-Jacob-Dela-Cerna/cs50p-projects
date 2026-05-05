@@ -50,15 +50,21 @@ def create_items():
         result, file_name = check_name(user_file, quiz_path)
         match result:
             case True:
-                csv_path = os.path.join(quiz_path, file_name + ".csv")
                 break
             case False:
                 print(
                     f"Quizpin:  '{file_name}.csv' already exists."
                     "\n          Would you like to overwrite? Enter y or n."
                 )
+                user_select = input("User:     ")
+                if not overwrite(user_select):
+                    print("Quizpin:  Name the file you'll be storing your items in.")
+                    continue
             case _:
                 print("Quizpin:  Invalid. Please enter a valid file name.")
+                continue
+        csv_path = os.path.join(quiz_path, file_name + ".csv")
+        break
 
     store_items(items, csv_path)
     input(
@@ -105,6 +111,12 @@ def check_name(user_file, quiz_path):
             return None, None
     return True, file_name
 
+
+def overwrite(user_select):
+    chosen = user_select.strip().lower()
+    if chosen == "y":
+        return True
+    return False
 
 def store_items(items, csv_path):
     with open(csv_path, "w", newline="") as quiz_items:
