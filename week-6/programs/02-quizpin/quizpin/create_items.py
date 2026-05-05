@@ -33,17 +33,18 @@ def create_items():
     for number in range(result):
         while True:
             user_item = input(f"{number + 1}) ")
-            if add_item(items, user_item):
+            if add_item(user_item, items):
                 break
             else:
                 print("Quizpin:  Invalid. Please use the right format.")
     
-    print(
-        "\nQuizpin:  Name the file you'll be storing your items in."
-    )
     abs_filedir = os.path.abspath(__file__)
     filedir = os.path.dirname(abs_filedir)
     quiz_path = os.path.join(filedir, "quizzes")
+    os.makedirs(quiz_path, exist_ok=True)
+    print(
+        "\nQuizpin:  Name the file you'll be storing your items in."
+    )
     while True:
         user_file = input("User:     ")
         result = check_name(user_file)
@@ -70,7 +71,7 @@ def check_number(user_items):
         return items
 
 
-def add_item(items, user_item):
+def add_item(user_item, items):
     try:
         term, definition = user_item.split(" - ")
         if term.strip() == "" or definition.strip() == "":
