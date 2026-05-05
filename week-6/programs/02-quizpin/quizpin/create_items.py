@@ -48,9 +48,18 @@ def create_items():
     while True:
         user_file = input("User:     ")
         result, file_name = check_name(user_file, quiz_path)
-        if result:
-            csv_path = os.path.join(quiz_path, result + ".csv")
-            break
+        match result:
+            case True:
+                csv_path = os.path.join(quiz_path, file_name + ".csv")
+                break
+            case False:
+                print(
+                    f"Quizpin:  {file_name} already exists."
+                    "\n          Would you like to overwrite?"
+                    "\n          Enter y or n."
+                )
+            case _:
+                print("Quizpin:  Invalid. Please enter a valid file name.")
 
     store_items(items, csv_path)
     input(
@@ -74,7 +83,9 @@ def check_number(user_items):
 def add_item(user_item, items):
     try:
         term, definition = user_item.split(" - ")
-        if term.strip() == "" or definition.strip() == "":
+        term = term.strip()
+        definition = definition.strip()
+        if term == "" or definition == "":
             raise ValueError
         for item in items:
             if term.lower() == item["term"].lower():
@@ -89,12 +100,11 @@ def add_item(user_item, items):
 def check_name(user_file, quiz_path):
     file_name = user_file.strip().replace(" ", "_")
     for quiz in quiz_path:
-        if file_name == quiz_path[:-4]:
+        if f"{file_name}.csv" == quiz:
             return False, file_name
         elif file_name == "":
             return None, None
     return True, file_name
-
 
 
 def store_items(items, csv_path):
