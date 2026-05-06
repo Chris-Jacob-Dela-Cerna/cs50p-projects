@@ -71,12 +71,13 @@ def start_quiz():
         quiz = identification(items)
     
     print(
-        "\nQuizpin:  Would you like to see the correct answers?"
+        "Quizpin:  Would you like to see the correct answers?"
         "\n          Enter y or n."
     )
     user = input("User:     ")
     if if_yes(user):
         show_results(quiz)
+    input()
         
 
 def check_quizzes(quizzes):
@@ -126,6 +127,7 @@ def multiple_choice(quiz_items):
         "\n Congratulations!"
         f"\n You got {score}/{idx}."
         "\n=================="
+        "\n"
     )
     return quiz
 
@@ -175,6 +177,7 @@ def identification(quiz_items):
         "\n Congratulations!"
         f"\n You got {score}/{idx}."
         "\n=================="
+        "\n"
     )
     return quiz
 
@@ -190,5 +193,14 @@ def convert_identification(quiz_items):
 
 
 def show_results(quiz):
+    print(
+        "A. Here are the following questions and answers."
+        "\n"
+    )
+    number = 0
     for item in quiz:
-        print(item)
+        number += 1
+        print(
+            f"{number}) {item['question']}"
+            f"\nAnswer: {item['answer']}"
+        )
