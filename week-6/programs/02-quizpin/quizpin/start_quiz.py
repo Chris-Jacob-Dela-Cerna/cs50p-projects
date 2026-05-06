@@ -66,17 +66,17 @@ def start_quiz():
             print(f"Quizpin:  Invalid. Please enter a valid quiz type.")
 
     if result == quiz_types["a"]:
-        multiple_choice(items)
+        quiz = multiple_choice(items)
     elif result == quiz_types["b"]:
-        identification(items)
+        quiz = identification(items)
     
     print(
-        "Quizpin:  Would you like to see the correct answers?"
+        "\nQuizpin:  Would you like to see the correct answers?"
         "\n          Enter y or n."
     )
-    user = input("User     ")
+    user = input("User:     ")
     if if_yes(user):
-        show_results()
+        show_results(quiz)
         
 
 def check_quizzes(quizzes):
@@ -126,8 +126,8 @@ def multiple_choice(quiz_items):
         "\n Congratulations!"
         f"\n You got {score}/{idx}."
         "\n=================="
-        "\n"
     )
+    return quiz
 
 
 def convert_multiple_choice(quiz_items):
@@ -176,6 +176,7 @@ def identification(quiz_items):
         f"\n You got {score}/{idx}."
         "\n=================="
     )
+    return quiz
 
 
 def convert_identification(quiz_items):
@@ -188,5 +189,6 @@ def convert_identification(quiz_items):
     return quiz
 
 
-def show_results():
-    pass
+def show_results(quiz):
+    for item in quiz:
+        print(item)
