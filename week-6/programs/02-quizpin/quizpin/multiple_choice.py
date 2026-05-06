@@ -28,11 +28,10 @@ def multiple_choice(quiz_items):
         except KeyError:
             pass
     
-    check_score(score, idx)
-
+    message = check_score(score, idx)
     input(
         "\n=================="
-        "\n Congratulations!"
+        f"\n {message}"
         f"\n You got {score}/{idx}."
         "\n=================="
         "\n"
@@ -63,10 +62,12 @@ def convert_multiple_choice(quiz_items):
 def check_score(score, total):
     percentage = score / total * 100
     if percentage == 100:
-        return 4
+        return "A perfect score, bravo!"
     elif percentage >= 75:
-        return 3
-    elif percentage == 100:
-        return 2
-    elif percentage >= 75:
-        return 1
+        return "What a great run!"
+    elif percentage == 50:
+        return "Well done! Solid work."
+    elif percentage >= 25:
+        return "You're getting there!"
+    else:
+        return "A tough result, but a great learning opportunity."
