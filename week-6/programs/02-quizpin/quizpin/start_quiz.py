@@ -70,11 +70,11 @@ def start_quiz():
         identification(items)
     
     print(
-        "\nQuizpin:  Would you like to see the correct answers?"
+        "Quizpin:  Would you like to see the correct answers?"
         "\n          Enter y or n."
     )
-    chosen = input("User     ")
-    if if_results(chosen):
+    user = input("User     ")
+    if if_results(user):
         show_results()
         
 
@@ -185,3 +185,15 @@ def convert_identification(quiz_items):
         problem = {"question": question, "answer": answer}
         quiz.append(problem)
     return quiz
+
+
+def if_results(user):
+    chosen = user.strip().lower()
+    if chosen == "y":
+        return True
+    else:
+        return False
+
+
+def show_results():
+    pass
