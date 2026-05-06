@@ -2,6 +2,7 @@
 
 import csv
 import os
+from checker import if_yes
 
 
 def create_items():
@@ -56,8 +57,8 @@ def create_items():
                     f"Quizpin:  '{file_name}.csv' already exists."
                     "\n          Would you like to overwrite? Enter y or n."
                 )
-                user_select = input("User:     ")
-                if not overwrite(user_select):
+                user = input("User:     ")
+                if not if_yes(user):
                     print("Quizpin:  Name the file you'll be storing your items in.")
                     continue
             case _:
@@ -111,12 +112,6 @@ def check_name(user_file, quiz_path):
             return None, None
     return True, file_name
 
-
-def overwrite(user_select):
-    chosen = user_select.strip().lower()
-    if chosen == "y":
-        return True
-    return False
 
 def store_items(items, csv_path):
     with open(csv_path, "w", newline="") as quiz_items:

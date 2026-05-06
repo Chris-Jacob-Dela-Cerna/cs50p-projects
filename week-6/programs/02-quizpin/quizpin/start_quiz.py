@@ -4,6 +4,7 @@ import csv
 import os
 import random
 from checker import checker
+from checker import if_yes
 
 
 def start_quiz():
@@ -74,7 +75,7 @@ def start_quiz():
         "\n          Enter y or n."
     )
     user = input("User     ")
-    if if_results(user):
+    if if_yes(user):
         show_results()
         
 
@@ -185,14 +186,6 @@ def convert_identification(quiz_items):
         problem = {"question": question, "answer": answer}
         quiz.append(problem)
     return quiz
-
-
-def if_results(user):
-    chosen = user.strip().lower()
-    if chosen == "y":
-        return True
-    else:
-        return False
 
 
 def show_results():
