@@ -27,6 +27,8 @@ def multiple_choice(quiz_items):
                 score += 1
         except KeyError:
             pass
+    
+    check_score(score, idx)
 
     input(
         "\n=================="
@@ -56,3 +58,15 @@ def convert_multiple_choice(quiz_items):
         problem["choices"].update(zip(letters, choices))
         quiz.append(problem)
     return quiz
+
+
+def check_score(score, total):
+    percentage = score / total * 100
+    if percentage == 100:
+        return 4
+    elif percentage >= 75:
+        return 3
+    elif percentage == 100:
+        return 2
+    elif percentage >= 75:
+        return 1
