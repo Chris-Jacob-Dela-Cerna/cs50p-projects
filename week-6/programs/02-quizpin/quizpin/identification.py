@@ -1,6 +1,7 @@
 
 
 import random
+from checker import check_score
 
 
 def identification(quiz_items):
@@ -23,11 +24,13 @@ def identification(quiz_items):
         if user_answer == item["answer"].strip().lower():
             score += 1
 
+    message, outline = check_score(score, idx)
+
     input(
-        "\n=================="
-        "\n Congratulations!"
+        f"\n{outline}"
+        f"\n {message}"
         f"\n You got {score}/{idx}."
-        "\n=================="
+        f"\n{outline}"
         "\n"
     )
     return quiz
