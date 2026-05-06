@@ -50,7 +50,7 @@ def create_items():
         result, file_name = check_name(user_file, quiz_path)
         match result:
             case True:
-                break
+                pass
             case False:
                 print(
                     f"Quizpin:  '{file_name}.csv' already exists."
