@@ -68,6 +68,14 @@ def start_quiz():
         multiple_choice(items)
     elif result == quiz_types["b"]:
         identification(items)
+    
+    print(
+        "\nQuizpin:  Would you like to see the correct answers?"
+        "\n          Enter y or n."
+    )
+    chosen = input("User     ")
+    if if_results(chosen):
+        show_results()
         
 
 def check_quizzes(quizzes):
@@ -166,7 +174,6 @@ def identification(quiz_items):
         "\n Congratulations!"
         f"\n You got {score}/{idx}."
         "\n=================="
-        "\n"
     )
 
 
