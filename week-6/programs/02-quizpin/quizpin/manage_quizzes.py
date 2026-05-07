@@ -4,6 +4,7 @@ import os
 from checker import checker
 from checker import check_prefix
 from checker import check_name
+from checker import check_quizzes
 
 
 def manage_quizzes():
@@ -13,9 +14,18 @@ def manage_quizzes():
     os.makedirs(quiz_path, exist_ok=True)
     quizzes = os.listdir(quiz_path)
 
+    if not check_quizzes(quizzes):
+        input(
+            "Quizpin:  You have not created a quiz yet."
+            "\n          Select a) to create a quiz!"
+            "\n"
+        )
+        return None
+
     input(
         "\nQuizpin:  Type r-[number] to rename the quiz."
         "\n          Type d-[number] to delete the quiz."
+        "\n          Type l- to leave."
         "\n          Example: r-2"
         "\n"
     )
@@ -33,16 +43,20 @@ def manage_quizzes():
     tools = {
         "r-": "rename",
         "d-": "delete",
+        "l-": "leave",
     }
     while True:
         user = input("User:     ")
         chosen, tool = check_prefix(user, tools)
         if chosen:
-            selected_quiz = checker(chosen[2:], quiz_list)
-            if selected_quiz:
+            if tool == tools["l-"]:
                 break
             else:
-                print("Quizpin:  Invalid. Please select a valid quiz.")
+                selected_quiz = checker(chosen[2:], quiz_list)
+                if selected_quiz:
+                    break
+                else:
+                    print("Quizpin:  Invalid. Please select a valid quiz.")
         else:
             print("Quizpin:  Invalid. Please use the right format.")
 
@@ -50,6 +64,8 @@ def manage_quizzes():
         rename_file(quiz_path, selected_quiz)
     elif tool == tools["d-"]:
         delete_quiz(quiz_path, selected_quiz)
+    else:
+        input()
 
 
 def rename_file(quiz_path, selected_quiz):

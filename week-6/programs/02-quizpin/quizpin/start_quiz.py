@@ -4,6 +4,7 @@ import csv
 import os
 from checker import checker
 from checker import if_yes
+from checker import check_quizzes
 from multiple_choice import multiple_choice
 from identification import identification
 
@@ -78,14 +79,7 @@ def start_quiz():
     user = input("User:     ")
     if if_yes(user):
         show_results(quiz)
-        
 
-def check_quizzes(quizzes):
-    if len(quizzes) == 0:
-        return False
-    else:
-        return True
-    
 
 def decompile_file(quiz_path, result):
     items = []

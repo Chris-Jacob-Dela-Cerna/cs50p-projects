@@ -15,6 +15,10 @@ def if_yes(user_select):
     return False
 
 
+def check_quizzes(quizzes):
+    return bool(quizzes)
+
+
 def check_score(score, total):
     percentage = score / total * 100
     if percentage == 100:
