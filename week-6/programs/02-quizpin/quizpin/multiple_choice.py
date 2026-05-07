@@ -30,7 +30,6 @@ def multiple_choice(quiz_items):
             pass
     
     message, outline = check_score(score, idx)
-
     input(
         f"\n{outline}"
         f"\n {message}"

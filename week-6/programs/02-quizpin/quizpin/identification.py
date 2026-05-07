@@ -25,7 +25,6 @@ def identification(quiz_items):
             score += 1
 
     message, outline = check_score(score, idx)
-
     input(
         f"\n{outline}"
         f"\n {message}"

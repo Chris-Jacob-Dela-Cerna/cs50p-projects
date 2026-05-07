@@ -48,29 +48,15 @@ def manage_quizzes():
 
     if tool == tools["r-"]:
         rename_file(quiz_path, selected_quiz)
-        input(
-            "\n==============="
-            "\n File renamed."
-            "\n==============="
-            "\n"
-        )
     elif tool == tools["d-"]:
         delete_quiz(quiz_path, selected_quiz)
-        input(
-            "\n==============="
-            "\n File deleted."
-            "\n==============="
-            "\n"
-        )
 
 
 def rename_file(quiz_path, selected_quiz):
     quizzes = os.listdir(quiz_path)
     quizzes.remove(selected_quiz)
     
-    print(
-        f"Quizpin:  Enter the new name for '{selected_quiz}'."
-    )
+    print(f"Quizpin:  Enter the new name for '{selected_quiz}'.")
     while True:
         user_file = input("User:     ")
         result, file_name = check_name(user_file, quiz_path)
@@ -87,8 +73,20 @@ def rename_file(quiz_path, selected_quiz):
     old_quiz = os.path.join(quiz_path, selected_quiz)
     new_quiz = os.path.join(quiz_path, file_name + ".csv")
     os.rename(old_quiz, new_quiz)
+    input(
+        "\n==============="
+        "\n File renamed."
+        "\n==============="
+        "\n"
+    )
 
 
 def delete_quiz(quiz_path, selected_quiz):
     quiz = os.path.join(quiz_path, selected_quiz)
     os.remove(quiz)
+    input(
+        "\n==============="
+        "\n File deleted."
+        "\n==============="
+        "\n"
+    )

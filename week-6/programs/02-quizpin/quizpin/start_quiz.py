@@ -16,7 +16,7 @@ def start_quiz():
     quizzes = os.listdir(quiz_path)
 
     if not check_quizzes(quizzes):
-        print(
+        input(
             "Quizpin:  You have not created a quiz yet."
             "\n          Select a) to create a quiz!"
             "\n"
@@ -33,7 +33,7 @@ def start_quiz():
         number += 1
         quiz_list.update({str(number): quiz})
         print(f"          {number}) {quiz}")
-    
+
     while True:
         chosen = input("User:     ")
         result = checker(chosen, quiz_list)
@@ -78,7 +78,6 @@ def start_quiz():
     user = input("User:     ")
     if if_yes(user):
         show_results(quiz)
-    input()
         
 
 def check_quizzes(quizzes):
@@ -107,3 +106,4 @@ def show_results(quiz):
             f"{number}) {item['question']}"
             f"\nAnswer: {item['answer']}"
         )
+    input()

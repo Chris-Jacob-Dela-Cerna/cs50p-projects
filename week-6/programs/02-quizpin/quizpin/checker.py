@@ -1,8 +1,5 @@
 
 
-import os
-
-
 def checker(user, options):
     chosen = user.strip().lower()
     for item, option in options.items():
@@ -29,7 +26,7 @@ def check_score(score, total):
     elif percentage >= 25:
         message = "You're getting there!"
     else:
-        message = "A tough result, but a great learning opportunity."
+        message = "A great learning opportunity!"
     length = len(message) + 2
     outline = ""
     for _ in range(length):
@@ -44,7 +41,7 @@ def check_prefix(user, tools):
             return chosen, tool
     else:
         return None, None
-    
+
 
 def check_name(user_file, quizzes):
     file_name = user_file.strip().replace(" ", "_")

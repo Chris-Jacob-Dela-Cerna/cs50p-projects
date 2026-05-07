@@ -46,9 +46,7 @@ def create_quiz():
     os.makedirs(quiz_path, exist_ok=True)
     quizzes = os.listdir(quiz_path)
     
-    print(
-        "\nQuizpin:  Name the file you'll be storing your items in."
-    )
+    print("\nQuizpin:  Name the file you'll be storing your items in.")
     while True:
         user_file = input("User:     ")
         result, file_name = check_name(user_file, quizzes)
@@ -64,7 +62,7 @@ def create_quiz():
                 if not if_yes(user):
                     print("Quizpin:  Name the file you'll be storing your items in.")
                     continue
-            case _:
+            case None:
                 print("Quizpin:  Invalid. Please enter a valid file name.")
                 continue
         csv_path = os.path.join(quiz_path, file_name + ".csv")
@@ -72,8 +70,9 @@ def create_quiz():
 
     store_items(items, csv_path)
     input(
-        "\nQuizpin:  Items saved successfully."
-        "\n          Select b) to start your quiz!"
+        "\n========================="
+        "\n Quiz saved succesfully."
+        "\n========================="
         "\n"
     )
 
