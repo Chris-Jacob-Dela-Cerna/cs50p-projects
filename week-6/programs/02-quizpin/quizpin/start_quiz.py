@@ -99,9 +99,7 @@ def decompile_file(quiz_path, result):
 
 
 def show_results(quiz):
-    print(
-        "A. Here are the following questions and answers."
-    )
+    print("\nA. Here are the following questions and answers.")
     number = 0
     for item in quiz:
         number += 1

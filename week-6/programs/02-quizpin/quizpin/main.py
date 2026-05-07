@@ -18,6 +18,7 @@ def main():
         modes = {
             "a": "Create Quiz Items",
             "b": "Start a Quiz",
+            "c": "Manage Quiz Items",
             "d": "Quit",
         }
         print("Quizpin:  Choose a mode:")
@@ -36,6 +37,8 @@ def main():
             create_items()
         elif result == modes["b"]:
             start_quiz()
+        elif result == modes["c"]:
+            pass
         elif result == modes["d"]:
             print(
                 "Quizpin:  Thank you for using Quizpin."
