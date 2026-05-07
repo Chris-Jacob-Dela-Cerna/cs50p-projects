@@ -40,7 +40,7 @@ def start_quiz():
         if result:
             break
         else:
-            print("Quizpin:  Invalid. Please select a valid quiz number.")
+            print("Quizpin:  Invalid. Please select a valid quiz.")
     items = decompile_file(quiz_path, result)
 
     input(
