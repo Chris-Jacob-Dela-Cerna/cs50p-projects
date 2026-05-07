@@ -47,7 +47,7 @@ def manage_quizzes():
             print("Quizpin:  Invalid. Please use the right format.")
 
     if tool == tools["r-"]:
-        rename_file(selected_quiz, quiz_path)
+        rename_file(quiz_path, selected_quiz)
         input(
             "\n==============="
             "\n File renamed."
@@ -55,10 +55,16 @@ def manage_quizzes():
             "\n"
         )
     elif tool == tools["d-"]:
-        pass
+        delete_quiz(quiz_path, selected_quiz)
+        input(
+            "\n==============="
+            "\n File deleted."
+            "\n==============="
+            "\n"
+        )
 
 
-def rename_file(selected_quiz, quiz_path):
+def rename_file(quiz_path, selected_quiz):
     quizzes = os.listdir(quiz_path)
     quizzes.remove(selected_quiz)
     
@@ -81,3 +87,8 @@ def rename_file(selected_quiz, quiz_path):
     old_quiz = os.path.join(quiz_path, selected_quiz)
     new_quiz = os.path.join(quiz_path, file_name + ".csv")
     os.rename(old_quiz, new_quiz)
+
+
+def delete_quiz(quiz_path, selected_quiz):
+    quiz = os.path.join(quiz_path, selected_quiz)
+    os.remove(quiz)
