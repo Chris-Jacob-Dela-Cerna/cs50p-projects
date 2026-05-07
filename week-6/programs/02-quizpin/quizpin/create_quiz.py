@@ -3,6 +3,7 @@
 import csv
 import os
 from checker import if_yes
+from checker import check_name
 
 
 def create_quiz():
@@ -101,16 +102,6 @@ def add_item(user_item, items):
     else:
         items.append({"term": term, "definition": definition})
         return True
-    
-
-def check_name(user_file, quiz_path):
-    file_name = user_file.strip().replace(" ", "_")
-    for quiz in os.listdir(quiz_path):
-        if file_name == quiz[:-4]:
-            return False, file_name
-        elif file_name == "":
-            return None, None
-    return True, file_name
 
 
 def store_items(items, csv_path):

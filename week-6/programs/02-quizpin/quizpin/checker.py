@@ -1,5 +1,8 @@
 
 
+import os
+
+
 def checker(user, options):
     chosen = user.strip().lower()
     for item, option in options.items():
@@ -32,3 +35,22 @@ def check_score(score, total):
     for _ in range(length):
         outline += "="
     return message, outline
+
+
+def check_prefix(user, tools):
+    chosen = user.strip().lower()
+    for key, tool in tools.items():
+        if chosen.startswith(key):
+            return chosen, tool
+    else:
+        return None, None
+    
+
+def check_name(user_file, quiz_path):
+    file_name = user_file.strip().replace(" ", "_")
+    for quiz in os.listdir(quiz_path):
+        if file_name == quiz[:-4]:
+            return False, file_name
+        elif file_name == "":
+            return None, None
+    return True, file_name

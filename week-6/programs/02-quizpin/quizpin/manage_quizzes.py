@@ -2,6 +2,8 @@
 
 import os
 from checker import checker
+from checker import check_prefix
+from checker import check_name
 
 
 def manage_quizzes():
@@ -34,10 +36,10 @@ def manage_quizzes():
     }
     while True:
         user = input("User:     ")
-        chosen, tool = check_manage(user, tools)
+        chosen, tool = check_prefix(user, tools)
         if chosen:
-            result = checker(chosen[2:], quiz_list)
-            if result:
+            selected_quiz = checker(chosen[2:], quiz_list)
+            if selected_quiz:
                 break
             else:
                 print("Quizpin:  Invalid. Please select a valid quiz.")
@@ -45,15 +47,24 @@ def manage_quizzes():
             print("Quizpin:  Invalid. Please use the right format.")
 
     if tool == tools["r-"]:
-        pass
+        rename_file(selected_quiz, quiz_path)
     elif tool == tools["d-"]:
         pass
 
 
-def check_manage(user, tools):
-    chosen = user.strip().lower()
-    for key, tool in tools.items():
-        if chosen.startswith(key):
-            return chosen, tool
-    else:
-        return None, None, None
+def rename_file(selected_quiz, quiz_path):
+    while True:
+        user_file = input("User:     ")
+        result, file_name = check_name(user_file, quiz_path)
+        match result:
+            case True:
+                break
+            case False:
+                print(f"Quizpin:  '{file_name}.csv' already exists.")
+                continue
+            case _:
+                print("Quizpin:  Invalid. Please enter a valid file name.")
+                continue
+
+    quiz = os.path.join(quiz_path, selected_quiz)
+    print(quiz)
