@@ -53,6 +53,11 @@ def manage_quizzes():
 
 
 def rename_file(selected_quiz, quiz_path):
+    quizzes = os.listdir(quiz_path)
+    quizzes.remove(selected_quiz)
+    print(
+        f"Quizpin:  Enter the new name for '{selected_quiz}'."
+    )
     while True:
         user_file = input("User:     ")
         result, file_name = check_name(user_file, quiz_path)
@@ -66,5 +71,5 @@ def rename_file(selected_quiz, quiz_path):
                 print("Quizpin:  Invalid. Please enter a valid file name.")
                 continue
 
-    quiz = os.path.join(quiz_path, selected_quiz)
-    print(quiz)
+    old_quiz = os.path.join(quiz_path, selected_quiz)
+    os.rename(old_quiz, file_name)

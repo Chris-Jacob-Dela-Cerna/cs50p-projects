@@ -46,9 +46,9 @@ def check_prefix(user, tools):
         return None, None
     
 
-def check_name(user_file, quiz_path):
+def check_name(user_file, quizzes):
     file_name = user_file.strip().replace(" ", "_")
-    for quiz in os.listdir(quiz_path):
+    for quiz in quizzes:
         if file_name == quiz[:-4]:
             return False, file_name
         elif file_name == "":
