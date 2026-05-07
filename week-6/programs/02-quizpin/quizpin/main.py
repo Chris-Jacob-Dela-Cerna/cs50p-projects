@@ -1,9 +1,10 @@
 # Document: This python is my 2nd application of CS50P Week 6.
 
 import sys
-from create_items import create_items
+from create_quiz import create_quiz
 from start_quiz import start_quiz
 from checker import checker
+from manage_quizzes import manage_quizzes
 
 
 def main():
@@ -18,7 +19,7 @@ def main():
         modes = {
             "a": "Create Quiz Items",
             "b": "Start a Quiz",
-            "c": "Manage Quiz Items",
+            "c": "Manage Quizzes",
             "d": "Quit",
         }
         print("Quizpin:  Choose a mode:")
@@ -34,11 +35,11 @@ def main():
                 print(f"Quizpin:  Invalid. Please enter a valid mode.")
 
         if result == modes["a"]:
-            create_items()
+            create_quiz()
         elif result == modes["b"]:
             start_quiz()
         elif result == modes["c"]:
-            pass
+            manage_quizzes()
         elif result == modes["d"]:
             print(
                 "Quizpin:  Thank you for using Quizpin."

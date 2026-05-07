@@ -5,7 +5,7 @@ import os
 from checker import if_yes
 
 
-def create_items():
+def create_quiz():
     input(
         "\n================"
         "\n Creating quiz!"
