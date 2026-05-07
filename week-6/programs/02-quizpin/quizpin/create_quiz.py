@@ -46,7 +46,10 @@ def create_quiz():
     os.makedirs(quiz_path, exist_ok=True)
     quizzes = os.listdir(quiz_path)
     
-    print("\nQuizpin:  Name the file you'll be storing your items in.")
+    print(
+        "\nQuizpin:  Name the file you'll be storing your items in."
+        "\n          Note: Spaces are replaced by '_'."
+    )
     while True:
         user_file = input("User:     ")
         result, file_name = check_name(user_file, quizzes)

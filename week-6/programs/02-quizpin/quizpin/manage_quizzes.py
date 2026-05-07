@@ -35,9 +35,8 @@ def manage_quizzes():
     print("List of Quizzes:")
     for quiz in quizzes:
         number += 1
-        quiz_name = quiz[:-4].replace("_", " ")
         quiz_list.update({str(number): quiz})
-        print(f"{number}) {quiz_name}")
+        print(f"{number}) {quiz}")
     print()
 
     tools = {
@@ -72,10 +71,13 @@ def rename_file(quiz_path, selected_quiz):
     quizzes = os.listdir(quiz_path)
     quizzes.remove(selected_quiz)
     
-    print(f"Quizpin:  Enter the new name for '{selected_quiz}'.")
+    print(
+        f"Quizpin:  Enter the new name for '{selected_quiz}'."
+        "\n          Note: Spaces are replaced by '_'."
+    )
     while True:
         user_file = input("User:     ")
-        result, file_name = check_name(user_file, quiz_path)
+        result, file_name = check_name(user_file, quizzes)
         match result:
             case True:
                 break
