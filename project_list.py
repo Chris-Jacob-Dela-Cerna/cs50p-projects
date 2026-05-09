@@ -38,6 +38,7 @@ weeks = [[
     "Master Challenge - Sign-up with username and password",
 ], [
     "Simple demographics data interpreter",
+    "Ambitious Project - Quizpin"
 ]]
 
 
