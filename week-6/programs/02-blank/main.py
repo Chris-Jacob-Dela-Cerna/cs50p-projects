@@ -6,7 +6,9 @@ lines = [
     "time.",
 ]
 
-with open("phrase.txt", "w") as wrt, open("phrase.txt", "a") as add:
-    wrt.write("Phrase down below:")
+with open("phrase.txt", "w") as wrt:
+    wrt.write("Phrase down below: \n")
+
+with open("phrase.txt", "a", newline="\n") as add:
     for line in lines:
-        add.write(line)
+        add.writelines(line + "\n")
