@@ -1,3 +1,4 @@
+# i/o scratch file - practicing txt and csv file handling
 
 lines = [
     "I",
