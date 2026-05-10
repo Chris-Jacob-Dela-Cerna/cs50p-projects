@@ -43,9 +43,8 @@ weeks = [[
 
 
 print("\nFull Project List")
-for eachweek in range(len(weeks)):
-    print(f"\nWeek {eachweek}:")
-    for eachproject in range(len(weeks[eachweek])):
-        print(f"{eachproject + 1}.", weeks[eachweek][eachproject])
-
+for num, week in enumerate(weeks):
+    print(f"\nWeek {num + 1}:")
+    for pnum, project in enumerate(weeks[num]):
+        print(f"{pnum + 1}) {project}")
 print()
