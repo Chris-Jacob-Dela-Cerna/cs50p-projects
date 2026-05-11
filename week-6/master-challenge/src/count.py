@@ -5,11 +5,13 @@ import sys
 
 
 def count_lines():
-    access_samples()
     file = retrieve_file()
     if not file:
         print("[Error  :  System] No python program selected.")
         sys.exit()
+
+    smpls_path, smpls_list = access_samples()
+    
     program = validate_file(file)
     if not program:
         print("[Error  :  System] Invalid file.")
@@ -22,7 +24,8 @@ def access_samples():
     smpls_path = os.path.join(root_path, "data", "samples")
     os.makedirs(smpls_path, exist_ok=True)
     smpls_list = os.listdir(smpls_path)
-    
+    return smpls_path, smpls_list
+
 
 def retrieve_file():
     try:
