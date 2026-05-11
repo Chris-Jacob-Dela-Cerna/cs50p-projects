@@ -11,8 +11,13 @@ def count_lines():
         sys.exit()
 
     smpls_path, smpls_list = access_samples()
-    
+
     program = validate_file(file)
+    if not program:
+        print("[Error  :  System] Invalid file.")
+        sys.exit()
+
+    program = check_file(file, smpls_list)
     if not program:
         print("[Error  :  System] Invalid file.")
         sys.exit()
@@ -36,7 +41,13 @@ def retrieve_file():
         return file
     
 
-def validate_file(program):
-    if not program.endswith(".py"):
+def validate_file(file):
+    if not file.endswith(".py"):
         return None
-    return program
+    return file
+
+
+def check_file(file, smpls_list):
+    if file not in smpls_list:
+        return None
+    return file
