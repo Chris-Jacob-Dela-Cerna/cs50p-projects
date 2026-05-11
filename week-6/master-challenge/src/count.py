@@ -1,3 +1,4 @@
 
 
-print("count")
+def count_lines():
+    pass

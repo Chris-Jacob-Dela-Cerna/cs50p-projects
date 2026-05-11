@@ -1,6 +1,10 @@
 
 
 import sys
+from src.count import count_lines
+from src.menu import show_menu
+from src.reformat import reformat_names
+from src.shirtify import shirtify
 
 
 def main():
@@ -11,13 +15,13 @@ def main():
     else:
         match mode:
             case "count":
-                pass
+                count_lines()
             case "menu":
-                pass
+                show_menu()
             case "reformat":
-                pass
+                reformat_names()
             case "shirtify":
-                pass
+                shirtify()
             case _:
                 print("[Error  :  System] Invalid mode.")
 

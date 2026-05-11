@@ -1,3 +1,4 @@
 
 
-print("menu")
+def show_menu():
+    pass
