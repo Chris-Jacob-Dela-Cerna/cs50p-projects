@@ -24,10 +24,10 @@ def count_lines():
 
     prgm_path = os.path.join(smpls_path, program)
     file = read_lines(prgm_path)
-    lines = extract_text(file)
+    lines = filter_lines(file)
+    num = count(lines)
 
-    for line in lines:
-        print(line, end="")
+    print(f"[Success  :  System] Total line count: {num}")
 
 
 def access_samples():
@@ -66,7 +66,7 @@ def read_lines(prgm_path):
         return reader
 
 
-def extract_text(file):
+def filter_lines(file):
     new_file = []
     for line in file:
         if line.strip() == "":
@@ -75,3 +75,10 @@ def extract_text(file):
             continue
         new_file.append(line)
     return new_file
+
+
+def count(lines):
+    total = 0
+    for _ in lines:
+        total += 1
+    return total
