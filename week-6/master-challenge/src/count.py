@@ -23,7 +23,11 @@ def count_lines():
         sys.exit(1)
 
     prgm_path = os.path.join(smpls_path, program)
-    extract_text(prgm_path)
+    file = read_lines(prgm_path)
+    lines = extract_text(file)
+
+    for line in lines:
+        print(line, end="")
 
 
 def access_samples():
@@ -56,6 +60,18 @@ def check_file(file, smpls_list):
     return file
 
 
-def extract_text(prgm_path):
+def read_lines(prgm_path):
     with open(prgm_path, "r") as file:
         reader = file.readlines()
+        return reader
+
+
+def extract_text(file):
+    new_file = []
+    for line in file:
+        if line.strip() == "":
+            continue
+        elif line.strip().startswith("#"):
+            continue
+        new_file.append(line)
+    return new_file
