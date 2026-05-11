@@ -9,7 +9,17 @@ def main():
     except IndexError:
         print("[Error  :  System] No mode selected.")
     else:
-        pass
+        match mode:
+            case "count":
+                pass
+            case "menu":
+                pass
+            case "reformat":
+                pass
+            case "shirtify":
+                pass
+            case _:
+                print("[Error  :  System] Invalid mode.")
 
 
 if __name__ == "__main__":
