@@ -19,7 +19,7 @@ def count_lines():
 
     program = check_file(file, smpls_list)
     if not program:
-        print("[Error  :  System] Invalid file.")
+        print("[Error  :  System] File does not exist.")
         sys.exit()
 
 
