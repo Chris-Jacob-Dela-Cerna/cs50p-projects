@@ -11,7 +11,7 @@ def count_lines():
         sys.exit()
 
     smpls_path, smpls_list = access_samples()
-
+    
     program = validate_file(file)
     if not program:
         print("[Error  :  System] Invalid file.")
@@ -21,6 +21,9 @@ def count_lines():
     if not program:
         print("[Error  :  System] File does not exist.")
         sys.exit()
+
+    prgm_path = os.path.join(smpls_path, program)
+    extract_text(prgm_path)
 
 
 def access_samples():
@@ -39,7 +42,7 @@ def retrieve_file():
         return None
     else:
         return file
-    
+
 
 def validate_file(file):
     if not file.endswith(".py"):
@@ -51,3 +54,10 @@ def check_file(file, smpls_list):
     if file not in smpls_list:
         return None
     return file
+
+
+def extract_text(prgm_path):
+    with open(prgm_path, "r") as file:
+        reader = file.readlines()
+        for line in reader:
+            print(line, end="")
