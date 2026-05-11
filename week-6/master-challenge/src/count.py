@@ -8,19 +8,19 @@ def count_lines():
     file = retrieve_file()
     if not file:
         print("[Error  :  System] No python program selected.")
-        sys.exit()
+        sys.exit(1)
 
     smpls_path, smpls_list = access_samples()
     
-    program = validate_file(file)
-    if not program:
+    valid_file = validate_file(file)
+    if not valid_file:
         print("[Error  :  System] Invalid file.")
-        sys.exit()
+        sys.exit(1)
 
-    program = check_file(file, smpls_list)
+    program = check_file(valid_file, smpls_list)
     if not program:
         print("[Error  :  System] File does not exist.")
-        sys.exit()
+        sys.exit(1)
 
     prgm_path = os.path.join(smpls_path, program)
     extract_text(prgm_path)
@@ -59,5 +59,3 @@ def check_file(file, smpls_list):
 def extract_text(prgm_path):
     with open(prgm_path, "r") as file:
         reader = file.readlines()
-        for line in reader:
-            print(line, end="")
