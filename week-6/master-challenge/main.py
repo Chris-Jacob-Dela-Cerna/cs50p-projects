@@ -13,18 +13,18 @@ def main():
     except IndexError:
         print("[Error  :  System] No mode selected.")
         sys.exit(1)
-    match mode:
-        case "count":
-            count_lines()
-        case "menu":
-            show_menu()
-        case "reformat":
-            reformat_names()
-        case "shirtify":
-            shirtify()
-        case _:
-            print("[Error  :  System] Invalid mode.")
-            sys.exit(1)
+
+    modes = {
+        "count": count_lines,
+        "menu": show_menu,
+        "reformat": reformat_names,
+        "shirtify": shirtify,
+    }
+
+    if mode not in modes:
+        print("[Error  :  System] Invalid mode.")
+        sys.exit(1)
+    modes[mode]()
 
 
 if __name__ == "__main__":
