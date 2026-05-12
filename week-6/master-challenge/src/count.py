@@ -2,17 +2,18 @@
 
 import os
 import sys
+from utils import validation as val
 
 
 def count_lines():
-    file = retrieve_file()
+    file = val.retrieve_file()
     if not file:
         print("[Error  :  System] No python file selected.")
         sys.exit(1)
 
     smpls_path, smpls_list = access_samples()
     
-    valid_file = validate_file(file)
+    valid_file = val.validate_file(file, ".py")
     if not valid_file:
         print("[Error  :  System] Invalid file.")
         sys.exit(1)
@@ -37,21 +38,6 @@ def access_samples():
     os.makedirs(smpls_path, exist_ok=True)
     smpls_list = os.listdir(smpls_path)
     return smpls_path, smpls_list
-
-
-def retrieve_file():
-    try:
-        file = sys.argv[2]
-    except IndexError:
-        return None
-    else:
-        return file
-
-
-def validate_file(file):
-    if not file.endswith(".py"):
-        return None
-    return file
 
 
 def check_file(file, smpls_list):
