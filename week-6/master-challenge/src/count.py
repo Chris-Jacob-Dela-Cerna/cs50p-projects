@@ -10,13 +10,13 @@ def count_lines():
     if not file:
         print("[Error  :  System] No python file selected.")
         sys.exit(1)
-
-    smpls_path, smpls_list = access_samples()
     
     valid_file = val.validate_file(file, ".py")
     if not valid_file:
         print("[Error  :  System] Invalid file.")
         sys.exit(1)
+
+    smpls_path, smpls_list = val.access_samples("samples")
 
     program = check_file(valid_file, smpls_list)
     if not program:
@@ -29,15 +29,6 @@ def count_lines():
     num = count(lines)
 
     print(f"[Success:  System] Total line count: {num}")
-
-
-def access_samples():
-    src_path = os.path.dirname(os.path.abspath(__file__))
-    root_path = os.path.dirname(src_path)
-    smpls_path = os.path.join(root_path, "data", "samples")
-    os.makedirs(smpls_path, exist_ok=True)
-    smpls_list = os.listdir(smpls_path)
-    return smpls_path, smpls_list
 
 
 def check_file(file, smpls_list):

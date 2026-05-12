@@ -14,3 +14,5 @@ def show_menu():
     if not valid_file:
         print("[Error  :  System] Invalid file.")
         sys.exit(1)
+
+    csvs_path, csvs_list = val.access_samples("csvs")
