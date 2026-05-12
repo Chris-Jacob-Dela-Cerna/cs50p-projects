@@ -8,17 +8,17 @@ from utils import validation as val
 def count_lines():
     file = val.retrieve_file()
     if not file:
-        print("[Error  :  System] No python file selected.")
+        print("[Error  :  System] No file selected.")
         sys.exit(1)
     
-    valid_file = val.validate_file(file, ".py")
+    valid_file = val.validate_extension(file, ".py")
     if not valid_file:
         print("[Error  :  System] Invalid file.")
         sys.exit(1)
 
-    smpls_path, smpls_list = val.access_samples("samples")
+    smpls_path, smpls_list = val.access_dir("samples")
 
-    program = check_file(valid_file, smpls_list)
+    program = val.check_file(valid_file, smpls_list)
     if not program:
         print("[Error  :  System] File does not exist.")
         sys.exit(1)
@@ -29,12 +29,6 @@ def count_lines():
     num = count(lines)
 
     print(f"[Success:  System] Total line count: {num}")
-
-
-def check_file(file, smpls_list):
-    if file not in smpls_list:
-        return None
-    return file
 
 
 def read_lines(prgm_path):
