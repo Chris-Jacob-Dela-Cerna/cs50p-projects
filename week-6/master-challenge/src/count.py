@@ -7,7 +7,7 @@ import sys
 def count_lines():
     file = retrieve_file()
     if not file:
-        print("[Error  :  System] No python program selected.")
+        print("[Error  :  System] No python file selected.")
         sys.exit(1)
 
     smpls_path, smpls_list = access_samples()
@@ -27,7 +27,7 @@ def count_lines():
     lines = filter_lines(file)
     num = count(lines)
 
-    print(f"[Success  :  System] Total line count: {num}")
+    print(f"[Success:  System] Total line count: {num}")
 
 
 def access_samples():
