@@ -1,6 +1,8 @@
 
 
+import csv
 import os
+import tabulate
 from utils import io
 from utils import validation as val
 
@@ -21,3 +23,11 @@ def show_menu():
         io.abort("File does not exist.")
     
     prgm_path = os.path.join(csvs_path, program)
+    with open(prgm_path, "r") as csv_:
+        reader = csv.reader(csv_)
+        table = []
+        for idx, line in enumerate(reader):
+            if idx == 0:
+                header = line
+            else:
+                table.append(line)
