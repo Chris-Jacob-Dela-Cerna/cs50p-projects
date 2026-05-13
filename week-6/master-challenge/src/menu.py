@@ -12,12 +12,10 @@ def show_menu():
     
     valid_file = val.validate_extension(file, ".csv")
     if not valid_file:
-        print("[Error  :  System] Invalid file.")
-        sys.exit(1)
+        io.abort("Invalid file.")
 
     csvs_path, csvs_list = val.access_dir("csvs")
 
     program = val.check_file(valid_file, csvs_list)
     if not program:
-        print("[Error  :  System] File does not exist.")
-        sys.exit(1)
+        io.abort("File does not exist.")

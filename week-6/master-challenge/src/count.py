@@ -2,26 +2,24 @@
 
 import os
 import sys
+from utils import io
 from utils import validation as val
 
 
 def count_lines():
     file = val.retrieve_file(2)
     if not file:
-        print("[Error  :  System] No file selected.")
-        sys.exit(1)
+        io.abort("No file selected.")
     
     valid_file = val.validate_extension(file, ".py")
     if not valid_file:
-        print("[Error  :  System] Invalid file.")
-        sys.exit(1)
+        io.abort("Invalid file.")
 
     smpls_path, smpls_list = val.access_dir("samples")
 
     program = val.check_file(valid_file, smpls_list)
     if not program:
-        print("[Error  :  System] File does not exist.")
-        sys.exit(1)
+        io.abort("File does not exist.")
 
     prgm_path = os.path.join(smpls_path, program)
     file = read_lines(prgm_path)
