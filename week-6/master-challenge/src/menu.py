@@ -1,5 +1,6 @@
 
 
+import os
 from utils import io
 from utils import validation as val
 
@@ -18,3 +19,5 @@ def show_menu():
     program = val.check_file(valid_file, csvs_list)
     if not program:
         io.abort("File does not exist.")
+    
+    prgm_path = os.path.join(csvs_path, program)

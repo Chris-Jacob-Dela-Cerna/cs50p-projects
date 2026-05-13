@@ -28,8 +28,8 @@ def count_lines():
     print(f"[Success:  System] Total line count: {num}")
 
 
-def read_lines(prgm_path):
-    with open(prgm_path, "r") as file:
+def read_lines(path):
+    with open(path, "r") as file:
         reader = file.readlines()
         return reader
 
