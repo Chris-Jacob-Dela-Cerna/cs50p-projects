@@ -6,7 +6,7 @@ from utils import validation as val
 
 
 def count_lines():
-    file = val.retrieve_file()
+    file = val.retrieve_file(2)
     if not file:
         print("[Error  :  System] No file selected.")
         sys.exit(1)

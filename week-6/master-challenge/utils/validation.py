@@ -4,9 +4,9 @@ import os
 import sys
 
 
-def retrieve_file():
+def retrieve_file(idx):
     try:
-        file = sys.argv[2]
+        file = sys.argv[idx]
     except IndexError:
         return None
     else:
