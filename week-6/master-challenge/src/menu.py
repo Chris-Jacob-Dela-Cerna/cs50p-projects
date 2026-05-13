@@ -2,7 +2,7 @@
 
 import csv
 import os
-from tabulate import tabulate
+import tabulate as tb
 from utils import io
 from utils import validation as val
 
@@ -23,7 +23,12 @@ def show_menu():
         io.abort("File does not exist.")
     
     prgm_path = os.path.join(csvs_path, program)
-    with open(prgm_path, "r") as csv_:
+    header, table = extract_table_data(prgm_path)
+    print(tb.tabulate(table, header, tablefmt="grid"))
+
+
+def extract_table_data(path):
+    with open(path, "r") as csv_:
         reader = csv.reader(csv_)
         table = []
         for idx, line in enumerate(reader):
@@ -31,4 +36,4 @@ def show_menu():
                 header = line
             else:
                 table.append(line)
-    print(tabulate(table, header, tablefmt="grid"))
+    return header, table
