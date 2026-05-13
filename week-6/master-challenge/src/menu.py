@@ -2,7 +2,7 @@
 
 import csv
 import os
-import tabulate
+from tabulate import tabulate
 from utils import io
 from utils import validation as val
 
@@ -31,3 +31,4 @@ def show_menu():
                 header = line
             else:
                 table.append(line)
+    print(tabulate(table, header, tablefmt="grid"))
