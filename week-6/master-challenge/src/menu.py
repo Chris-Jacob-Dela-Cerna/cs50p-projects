@@ -12,8 +12,7 @@ def show_menu():
     if not file: 
         io.abort("No file selected.")
 
-    extra = val.retrieve_sys(3)
-    if extra:
+    if val.retrieve_sys(3):
         io.abort("Too many arguments.")
     
     valid_file = val.validate_extension(file, ".csv")
