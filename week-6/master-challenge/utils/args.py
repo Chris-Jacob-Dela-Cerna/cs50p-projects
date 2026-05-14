@@ -4,12 +4,12 @@ from utils import io
 from utils import validation as val
 
 
-def validate_file(idx, extra, extensions, must_exist, list_):
+def validate_file(idx, extra_arg, extensions, get_ext, must_exist, list_):
     file = val.retrieve_sys(idx)
     if not file:
         io.abort("No file selected.")
     
-    if val.retrieve_sys(extra):
+    if val.retrieve_sys(extra_arg):
         io.abort("Too many arguments.")
 
     valid_ext, ext = val.validate_extension(file, extensions)
@@ -24,4 +24,6 @@ def validate_file(idx, extra, extensions, must_exist, list_):
         if valid_file:
             io.abort("File already exists.")
 
+    if get_ext:
+        return file, ext
     return file
