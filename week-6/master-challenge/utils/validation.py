@@ -13,10 +13,11 @@ def retrieve_sys(idx):
         return file
 
 
-def validate_extension(file, extension):
-    if not file.endswith(extension):
-        return None
-    return file
+def validate_extension(file, extensions):
+    for ext in extensions:
+        if file.endswith(ext):
+            return file
+    return None
 
 
 def access_dir(data_dir):
