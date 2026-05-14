@@ -24,4 +24,4 @@ def validate_file(idx, extra, extension, must_exist, list_):
         if valid_file:
             io.abort("File already exists.")
         
-    return valid_file
+    return file
