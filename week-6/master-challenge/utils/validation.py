@@ -16,8 +16,8 @@ def retrieve_sys(idx):
 def validate_extension(file, extensions):
     for ext in extensions:
         if file.endswith(ext):
-            return file
-    return None
+            return file, ext
+    return None, None
 
 
 def access_dir(data_dir):
