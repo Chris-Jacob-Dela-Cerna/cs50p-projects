@@ -7,10 +7,8 @@ from utils import validation as val
 
 
 def count_lines():
-    if val.retrieve_sys(3):
-        io.abort("Too many arguments.")
     smpls_path, smpls_list = val.access_dir("samples")
-    program = args.validate_file(2, ".py", True, smpls_list)
+    program = args.validate_file(2, 3, ".py", True, smpls_list)
 
     prgm_path = os.path.join(smpls_path, program)
     file = read_lines(prgm_path)
