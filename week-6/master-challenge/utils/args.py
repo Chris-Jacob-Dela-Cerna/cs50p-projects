@@ -9,9 +9,6 @@ def validate_file(idx, ext, list_):
     if not file:
         io.abort("No file selected.")
 
-    if val.retrieve_sys(idx + 1):
-        io.abort("Too many arguments.")
-
     valid_file_ext = val.validate_extension(file, ext)
     if not valid_file_ext:
         io.abort("Invalid file.")

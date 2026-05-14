@@ -2,10 +2,13 @@
 
 import os
 from utils import args
+from utils import io
 from utils import validation as val
 
 
 def count_lines():
+    if val.retrieve_sys(3):
+        io.abort("Too many arguments.")
     smpls_path, smpls_list = val.access_dir("samples")
     program = args.validate_file(2, ".py", smpls_list)
 

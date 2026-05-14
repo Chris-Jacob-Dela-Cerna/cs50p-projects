@@ -4,16 +4,19 @@ import csv
 import os
 import tabulate as tb
 from utils import args
+from utils import io
 from utils import validation as val
 
 
 def show_menu():
+    if val.retrieve_sys(3):
+        io.abort("Too many arguments.")
     csvs_path, csvs_list = val.access_dir("csvs")
-    program = args.validate_file(2, ".csv", csvs_list)
+    file = args.validate_file(2, ".csv", csvs_list)
 
-    prgm_path = os.path.join(csvs_path, program)
+    prgm_path = os.path.join(csvs_path, file)
     header, table = extract_table_data(prgm_path)
-    
+
     print(tb.tabulate(table, header, tablefmt="grid"))
 
 
