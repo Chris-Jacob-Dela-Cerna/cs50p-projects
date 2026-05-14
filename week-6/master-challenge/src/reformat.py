@@ -12,13 +12,27 @@ def reformat_names():
     new_file = args.validate_file(3, 4, ".csv", False, csvs_list)
 
     old_path = os.path.join(csvs_path, old_file)
-    new_path = os.path.join(csvs_path, new_file)
+    formatted = reformat(old_path)
 
-    with open(old_path, "r") as old:
-        reader = csv.DictReader(old)
+    new_path = os.path.join(csvs_path, new_file)
+    import_to_file(new_path, formatted)
+
+    print(f"[Success:  System] File successfully formatted.")
+
+
+def reformat(path):
+    with open(path, "r") as file:
+        reader = csv.DictReader(file)
         formatted = []
         for row in reader:
             last, first = row["name"].split(", ")
             affiliation = row["affiliation"]
-            formatted.append({"First Name": first, "Last Name": last, "affiliation": affiliation})
+            formatted.append({"First Name": first, "Last Name": last, "Affiliation": affiliation})
     return formatted
+
+
+def import_to_file(path, formatted):
+    with open(path, "w", newline="") as file:
+        writer = csv.DictWriter(file, fieldnames=["First Name", "Last Name", "Affiliation"])
+        writer.writeheader()
+        writer.writerows(formatted)
