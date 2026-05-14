@@ -13,6 +13,7 @@ def show_menu():
 
     prgm_path = os.path.join(csvs_path, program)
     header, table = extract_table_data(prgm_path)
+    
     print(tb.tabulate(table, header, tablefmt="grid"))
 
 
