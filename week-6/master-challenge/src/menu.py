@@ -3,28 +3,14 @@
 import csv
 import os
 import tabulate as tb
-from utils import io
+from utils import args
 from utils import validation as val
 
 
 def show_menu():
-    file = val.retrieve_sys(2)
-    if not file: 
-        io.abort("No file selected.")
-
-    if val.retrieve_sys(3):
-        io.abort("Too many arguments.")
-    
-    valid_file = val.validate_extension(file, ".csv")
-    if not valid_file:
-        io.abort("Invalid file.")
-
     csvs_path, csvs_list = val.access_dir("csvs")
+    program = args.validate_file(2, ".csv", csvs_list)
 
-    program = val.check_file(valid_file, csvs_list)
-    if not program:
-        io.abort("File does not exist.")
-    
     prgm_path = os.path.join(csvs_path, program)
     header, table = extract_table_data(prgm_path)
     print(tb.tabulate(table, header, tablefmt="grid"))
