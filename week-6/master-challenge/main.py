@@ -5,14 +5,14 @@ from src.count import count_lines
 from src.menu import show_menu
 from src.reformat import reformat_names
 from src.shirtify import shirtify
+from utils import io
+from utils import validation as val
 
 
 def main():
-    try:
-        mode = sys.argv[1]
-    except IndexError:
-        print("[Error  :  System] No mode selected.")
-        sys.exit(1)
+    mode = val.retrieve_sys(1)
+    if not mode:
+        io.abort("No mode selected.")
 
     modes = {
         "count": count_lines,

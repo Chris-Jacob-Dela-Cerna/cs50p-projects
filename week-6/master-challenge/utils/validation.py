@@ -4,7 +4,7 @@ import os
 import sys
 
 
-def retrieve_file(idx):
+def retrieve_sys(idx):
     try:
         file = sys.argv[idx]
     except IndexError:

@@ -8,7 +8,7 @@ from utils import validation as val
 
 
 def show_menu():
-    file = val.retrieve_file(2)
+    file = val.retrieve_sys(2)
     if not file: 
         io.abort("No file selected.")
     
@@ -28,8 +28,8 @@ def show_menu():
 
 
 def extract_table_data(path):
-    with open(path, "r") as csv_:
-        reader = csv.reader(csv_)
+    with open(path, "r") as file:
+        reader = csv.reader(file)
         table = []
         for idx, line in enumerate(reader):
             if idx == 0:
