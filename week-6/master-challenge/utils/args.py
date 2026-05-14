@@ -4,7 +4,7 @@ from utils import io
 from utils import validation as val
 
 
-def validate_file(idx, ext, list_):
+def validate_file(idx, ext, must_exist, list_):
     file = val.retrieve_sys(idx)
     if not file:
         io.abort("No file selected.")
@@ -14,6 +14,11 @@ def validate_file(idx, ext, list_):
         io.abort("Invalid file.")
 
     valid_file = val.check_file(valid_file_ext, list_)
-    if not valid_file:
-        io.abort("File does not exist.")
+    if must_exist:
+        if not valid_file:
+            io.abort("File does not exist.")
+    else:
+        if valid_file:
+            io.abort("File already exists.")
+        
     return valid_file
