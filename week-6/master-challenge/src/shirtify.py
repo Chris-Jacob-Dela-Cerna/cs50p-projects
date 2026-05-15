@@ -17,7 +17,8 @@ def shirtify():
     new_path = os.path.join(imgs_path, new_file)
     shirt_path = os.path.join(imgs_path, shirt_file)
 
-    old = Image.open(old_path)
+    old_image = Image.open(old_path)
     shirt = Image.open(shirt_path)
-    old.paste(shirt)
-    
+    new_image = ImageOps.fit(old_image, shirt.size)
+    new_image.paste(shirt, shirt)
+    new_image.save(new_path)
