@@ -12,8 +12,8 @@ def show_menu():
     file = args.validate_file(2, 3, [".csv"], False, True, csvs_list)
 
     prgm_path = os.path.join(csvs_path, file)
-    header, table = extract_table_data(prgm_path)
 
+    header, table = extract_table_data(prgm_path)
     print(tb.tabulate(table, header, tablefmt="grid"))
 
 

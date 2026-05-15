@@ -10,10 +10,11 @@ def count_lines():
     program = args.validate_file(2, 3, [".py"], False, True, smpls_list)
 
     prgm_path = os.path.join(smpls_path, program)
+
     file = read_lines(prgm_path)
     lines = filter_lines(file)
     num = count(lines)
-
+    
     print(f"[Success:  System] Total line count: {num}")
 
 

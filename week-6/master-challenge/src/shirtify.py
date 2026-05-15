@@ -22,3 +22,5 @@ def shirtify():
     new_image = ImageOps.fit(old_image, shirt.size)
     new_image.paste(shirt, shirt)
     new_image.save(new_path)
+
+    print(f"[Success:  System] File successfully saved.")

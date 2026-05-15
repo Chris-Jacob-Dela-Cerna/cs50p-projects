@@ -12,9 +12,9 @@ def reformat_names():
     new_file = args.validate_file(3, 4, [".csv"], False, False, csvs_list)
 
     old_path = os.path.join(csvs_path, old_file)
-    formatted = reformat(old_path)
-
     new_path = os.path.join(csvs_path, new_file)
+
+    formatted = reformat(old_path)
     import_to_file(new_path, formatted)
 
     print(f"[Success:  System] File successfully formatted.")
