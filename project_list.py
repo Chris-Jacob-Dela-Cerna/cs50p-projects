@@ -39,6 +39,7 @@ weeks = [[
 ], [
     "Simple demographics data interpreter",
     "Ambitious Project - Quizpin"
+    "Master Challenge - Multi-CLI Tool from Week-6 P-Sets"
 ]]
 
 
