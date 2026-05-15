@@ -13,7 +13,7 @@ def count_lines():
 
     file = read_lines(prgm_path)
     lines = filter_lines(file)
-    num = count(lines)
+    num = len(lines)
     
     print(f"[Success:  System] Total line count: {num}")
 
@@ -33,10 +33,3 @@ def filter_lines(file):
             continue
         new_file.append(line)
     return new_file
-
-
-def count(lines):
-    total = 0
-    for _ in lines:
-        total += 1
-    return total
