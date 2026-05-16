@@ -6,7 +6,7 @@ import re
 while True:
     user = input("Enter a 5-digit number: ").strip()
 
-    if re.search(r"^[1234567890]{5}$", user):
+    if re.search(r"^[0-9]{5}$", user):
         print("Valid")
         break
     else:
@@ -15,7 +15,7 @@ while True:
 while True:
     user = input("Enter a 3 or 4-digit number: ").strip()
 
-    if re.search(r"^[1234567890]{3,4}$", user):
+    if re.search(r"^[0-9]{3,4}$", user):
         print("Valid")
         break
     else:
@@ -24,7 +24,7 @@ while True:
 while True:
     number = input("Enter your phone number: ").strip()
 
-    if re.search(r"^[0123456789]{4}-[0123456789]{3}-[0123456789]{4}$", number):
+    if re.search(r"^[0-9]{4}-[0-9]{3}-[0-9]{4}$", number):
         print("Valid")
         break
     else:
