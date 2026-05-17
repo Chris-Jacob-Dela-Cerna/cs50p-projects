@@ -8,7 +8,7 @@ import re
 while True:
     url = input("Enter your Instagram URL: ").strip()
 
-    if re.search(r"^(?:https?://|)(?:www\.|)instagram\.com/\w+/?$", url):
-        print("[Success:  System]")
+    if matches := re.search(r"^(?:https?://|)(?:www\.|)instagram\.com/(\w+)/?$", url):
+        print(f"[Success:  System] Your username is {matches.group(1)}.")
     else:
-        print("[Fail   :  System]")
+        print("[Fail   :  System] Please enter a valid URL.")
