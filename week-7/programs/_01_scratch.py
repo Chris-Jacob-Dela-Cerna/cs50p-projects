@@ -1,9 +1,15 @@
-
+# RegEx scratch file - practicing regular expressions, syntax, and logic
 
 import re
 
-
-# https://www.instagram.com/username/
+""" 
+Accepted variations: 
+https://www.instagram.com/username/
+http://www.instagram.com/username/
+www.instagram.com/username/
+instagram.com/username/
+instagram.com/username
+"""
 
 while True:
     url = input("Enter your Instagram URL: ").strip()
