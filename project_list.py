@@ -12,6 +12,7 @@ weeks = [[
     "Simple inside voice converter",
     "Simple word counter",
     "Master Challenge - Einstein's Formatter",
+    "Refactor - Eintein Formatter v2",
 ], [
     "Simple odd or even checker",
     "10-item Quiz",

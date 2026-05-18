@@ -9,7 +9,6 @@ def main():
     print_results(message, energy)
 
 
-
 def user_input():
     print("[Prompt  -  System] Please enter a message.")
     message = input("[User    -  System] ").strip()
