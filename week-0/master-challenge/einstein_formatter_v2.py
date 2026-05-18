@@ -4,12 +4,13 @@ def main():
     print(
         "\n[Message -  System] Greetings user!"
     )
-    name = user_input()
+    message, mass = user_input()
+    converted, result = process_input(message, mass)
 
 
 def user_input():
-    print("[Prompt  -  System] Please enter your name.")
-    name = input("[User    -  System] ").strip()
+    print("[Prompt  -  System] Please enter a message.")
+    message = input("[User    -  System] ").strip()
 
     print("[Prompt  -  System] Using E = mc^2, enter a mass.")
     while True:
@@ -20,7 +21,14 @@ def user_input():
             print("[Error   -  System] Invalid number.")
         else:
             break
-    return name, mass
+    return message, mass
+
+
+def process_input(message, mass):
+    converted = message.title().replace(" ", "...").replace(":)", "🙂").replace(":(", "🙁")
+    c = 300000000
+    result = mass * (c * c)
+    return converted, result
 
 
 if __name__ == "__main__":
