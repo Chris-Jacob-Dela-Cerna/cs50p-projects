@@ -4,8 +4,10 @@ def main():
     print(
         "\n[Message -  System] Greetings user!"
     )
-    message, mass = user_input()
-    converted, result = process_input(message, mass)
+    user, mass = user_input()
+    message, energy = process_input(user, mass)
+    print_results(message, energy)
+
 
 
 def user_input():
@@ -24,11 +26,20 @@ def user_input():
     return message, mass
 
 
-def process_input(message, mass):
-    converted = message.title().replace(" ", "...").replace(":)", "🙂").replace(":(", "🙁")
+def process_input(user, mass):
+    message = user.title().replace(" ", "...").replace(":)", "🙂").replace(":(", "🙁")
     c = 300000000
     result = mass * (c * c)
-    return converted, result
+    return message, result
+
+
+def print_results(message, energy):
+    print(
+        f"\n{message}"
+        f"\n\"{message}\""
+        f"\nCharacters: {len(message)}"
+        f"\nEnergy: {energy}"
+    )
 
 
 if __name__ == "__main__":
