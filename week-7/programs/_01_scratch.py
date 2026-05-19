@@ -4,7 +4,7 @@ import re
 
 
 def main():
-    pass
+    color_code()
 
 """ 
 Accepted variations: 
@@ -21,12 +21,18 @@ def instagram_login():
 
         if matches := re.search(r"^(?:https?://|)(?:www\.|)instagram\.com/(\w+)/?$", url):
             print(f"[Success:  System] Your username is {matches.group(1)}.")
+            break
         else:
             print("[Fail   :  System] Please enter a valid URL.")
 
 
 def color_code():
-    pass
+    while True:
+        user_code = input("Enter a hexadecimal color code: ").strip()
 
+        if re.search(r"#[a-zA-Z0-9]{6}", user_code):
+            print("[Success:  System] Valid color code.")
+        else:
+            print("[Fail   :  System] Invalid color code.")
 
 main()
