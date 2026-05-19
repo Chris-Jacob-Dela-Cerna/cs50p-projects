@@ -31,7 +31,7 @@ def color_code():
     while True:
         user_code = input("Enter a hexadecimal color code: ").strip()
 
-        if code := re.search(r"^#([a-zA-Z0-9]{6})$", user_code):
+        if code := re.search(r"^#([a-fA-F0-9]{6})$", user_code):
             print(f"[Success:  System] Your color code is {code.group(1)}.")
         else:
             print("[Fail   :  System] Please enter a valid color code.")
