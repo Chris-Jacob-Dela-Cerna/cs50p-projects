@@ -1,6 +1,7 @@
 
 
 import sys
+from src.check_ip import check_ip
 
 
 def main():
@@ -11,13 +12,15 @@ def main():
         sys.exit()
     match mode:
         case "ipv4":
-            "check_ip()"
+            check_ip()
         case "html":
             "extract_html()"
         case "24hour":
             "convert_time()"
         case "validate()":
             "validate_email()"
+        case _:
+            print("[Error  - System] Invalid mode.")
 
 
 if __name__ == "__main__":
