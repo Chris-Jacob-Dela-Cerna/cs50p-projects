@@ -12,9 +12,11 @@ def check_ip():
         for number in ip.groups():
             if not validate_number(number):
                 print(f"[Error  - System] Invalid IP number ({number}).")
+                sys.exit(1)
+        print("[Success - System] Valid IPv4 address.")
     else:
         print("[Error  - System] Invalid IPv4 format.")
-        sys.exit()
+        sys.exit(1)
 
 
 def validate_number(number):

@@ -9,7 +9,7 @@ def main():
         mode = sys.argv[1]
     except IndexError:
         print("[Error  - System] No modes selected.")
-        sys.exit()
+        sys.exit(1)
     match mode:
         case "ipv4":
             check_ip()
