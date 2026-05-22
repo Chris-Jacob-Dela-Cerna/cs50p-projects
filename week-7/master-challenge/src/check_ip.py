@@ -9,9 +9,9 @@ def check_ip():
     user_ip = input(">>> ").strip()
 
     if ip := re.search(r"^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$", user_ip):
-        for number in ip.groups():
-            if not validate_number(number):
-                print(f"[Error  - System] Invalid IP number ({number}).")
+        for ipnum in ip.groups():
+            if not validate_number(ipnum):
+                print(f"[Error  - System] Invalid IP number ({ipnum}).")
                 sys.exit(1)
         print("[Success - System] Valid IPv4 address.")
     else:
@@ -22,4 +22,4 @@ def check_ip():
 def validate_number(number):
     if 0 > int(number) or int(number) > 255:
         return False
-    return True 
+    return True
