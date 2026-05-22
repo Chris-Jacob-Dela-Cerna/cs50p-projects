@@ -2,6 +2,7 @@
 
 import sys
 from src.check_ip import check_ip
+from src.extract_html import extract_html
 
 
 def main():
@@ -14,7 +15,7 @@ def main():
         case "ipv4":
             check_ip()
         case "html":
-            "extract_html()"
+            extract_html()
         case "24hour":
             "convert_time()"
         case "validate()":
