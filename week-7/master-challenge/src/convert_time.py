@@ -23,6 +23,13 @@ def convert_time():
     period1 = time_list[1]
     period2 = time_list[3]
 
+    if period1 == "PM":
+        hour1 *= 2
+    if period2 == "PM":
+        hour2 *= 2
+    
+    print(hour1, hour2)
+
 
 def extract_time(time):
     if ":" in time:
