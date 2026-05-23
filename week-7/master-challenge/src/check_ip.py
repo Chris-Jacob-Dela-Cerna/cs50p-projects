@@ -10,14 +10,14 @@ def check_ip():
     input_ = input(">>> ").strip()
     condition = r"^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$"
 
-    if ipnum_list := filter_(condition, input_):
-        for item in ipnum_list.groups():
-            if not validate_number(item):
-                print(f"[Error  - System] Invalid IP number ({item}).")
-                sys.exit(1)
-        print("[Success - System] Valid IPv4 address.")
-    else:
+    if not (ipnum_list := filter_(condition, input_)):
         abort("Invalid IPv4 format.")
+
+    for item in ipnum_list.groups():
+        if not validate_number(item):
+            abort(f"Invalid IP number ({item}).")
+            
+    print("[Success - System] Valid IPv4 address.")
 
 
 def validate_number(number):
