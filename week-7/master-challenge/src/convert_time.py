@@ -1,13 +1,13 @@
 
 
-import re
+from utils.abort import abort
+from utils.filter import filter_
 
 
 def convert_time():
     print("[Prompt - System] Enter time:")
-    user_time = input(">>> ").strip()
+    input_ = input(">>> ").strip()
+    condition = r"^([0-9](?::[0-9]{2})?) (AM|PM) to ([0-9](?::[0-9]{2})?) (AM|PM)$"
 
-    if time := re.search(r"^([0-9](?::[0-9]{2})?) (AM|PM) to ([0-9](?::[0-9]{2})?) (AM|PM)$", user_time):
-        print(time.groups())
-    else:
-        print("[Error  - System] Invalid time format.")
+    if not (time := filter_(condition, input_)):
+        abort("Invalid time format.")
