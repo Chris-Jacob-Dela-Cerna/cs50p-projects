@@ -13,12 +13,7 @@ def check_ip():
         abort("Invalid IPv4 format.")
 
     for ipnum in ipnum_list:
-        if not validate_number(ipnum):
+        if 0 > int(ipnum) or int(ipnum) > 255:
             abort(f"Invalid IP number ({ipnum}).")
 
     print("[Success - System] Valid IPv4 address.")
-
-
-def validate_number(number):
-    if not (0 > int(number) or int(number) > 255):
-        return True
