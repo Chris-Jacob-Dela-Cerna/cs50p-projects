@@ -12,5 +12,20 @@ def convert_time():
     if not (time_list := filter_(condition, input_)):
         abort("Invalid time format.")
 
-    list_ = [idx for idx in time_list]
-    print(list_)
+    time1 = time_list[0]
+    meridiem1 = time_list[1]
+    time2 = time_list[2]
+    meridiem2 = time_list[3]
+
+    if ":" in time1:
+        hour1, minute1 = time1.split(":")
+        hour1 = int(hour1)
+    if 1 > hour1 > 12 or 1 > hour1 > 12:
+        abort("Invalid hour range.")
+    if ":" in time2:
+        hour2, minute2 = time2.split(":")
+        hour2 = int(hour2)
+    if 1 > hour2 > 12 or 1 > hour2 > 12:
+        abort("Invalid hour range.")
+
+    
