@@ -19,8 +19,8 @@ def convert_time():
 
     period1 = time_list[1]
     period2 = time_list[3]
-    hour1 = check_meridiem(period1, hour1)
-    hour2 = check_meridiem(period2, hour2)
+    hour1 = convert_hour(period1, hour1)
+    hour2 = convert_hour(period2, hour2)
 
 
 def extract_time(time):
@@ -37,5 +37,10 @@ def check_time(hour, minute):
         abort(f"Invalid minute range ({minute}).")
 
 
-def check_meridiem(period, hour):
-    pass
+def convert_hour(period, hour):
+    if period == "AM":
+        if hour == 12:
+            return 0
+        return hour
+    else:
+        return hour + 12
