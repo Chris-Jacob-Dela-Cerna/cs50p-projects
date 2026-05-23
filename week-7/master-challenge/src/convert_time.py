@@ -13,30 +13,24 @@ def convert_time():
         abort("Invalid time format.")
 
     time1 = time_list[0]
-    meridiem1 = time_list[1]
+    period1 = time_list[1]
     time2 = time_list[2]
-    meridiem2 = time_list[3]
+    period2 = time_list[3]
 
-    if ":" in time1:
-        hour, minute = time1.split(":")
-        hour1 = int(hour)
-        minute1 = int(minute)
-    else:
-        hour1 = int(time1)
-        minute1 = 0
+    hour1, minute1 = extract_time(time1)
 
     if 1 > hour1 > 12 or 1 > hour1 > 12:
         abort("Invalid hour range.")
 
-    if ":" in time2:
-        hour, minute = time2.split(":")
-        hour2 = int(hour)
-        minute2 = int(minute)
-    else:
-        hour2 = int(time2)
-        minute2 = 0
+    hour2, minute2 = extract_time(time2)
 
     if 1 > hour2 > 12 or 1 > hour2 > 12:
         abort("Invalid hour range.")
 
-    
+
+def extract_time(time):
+    if ":" in time:
+        hour, minute = time.split(":")
+        return int(hour), int(minute)
+    else:
+        return int(time), 0
