@@ -12,7 +12,7 @@ def check_ip():
     if not (ipnum_list := filter_(condition, input_)):
         abort("Invalid IPv4 format.")
 
-    for ipnum in ipnum_list.groups():
+    for ipnum in ipnum_list:
         if not validate_number(ipnum):
             abort(f"Invalid IP number ({ipnum}).")
 

@@ -11,6 +11,6 @@ def convert_time():
 
     if not (time_list := filter_(condition, input_)):
         abort("Invalid time format.")
-    
-    list_ = [time for time in time_list]
+
+    list_ = [idx for idx in time_list]
     print(list_)

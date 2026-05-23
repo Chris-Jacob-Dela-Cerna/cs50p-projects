@@ -12,4 +12,4 @@ def extract_html():
     if not (src := filter_(condition, input_)):
         abort("Invalid HTML format.")
     
-    print(f"[Success - System] {src[1]}youtu.be/{src[2]}")
+    print(f"[Success - System] {src[0]}youtu.be/{src[1]}")
