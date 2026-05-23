@@ -12,25 +12,20 @@ def convert_time():
     if not (time_list := filter_(condition, input_)):
         abort("Invalid time format.")
 
-    time1 = time_list[0]
+    hour1, minute1 = extract_time(time_list[0])
+    hour2, minute2 = extract_time(time_list[2])
+
+    if 1 > hour1 > 12 or 1 > hour2 > 12:
+        abort("Invalid hour range.")
+    if minute1 > 59 or minute2 > 59:
+        abort("Invalid minute range.")
+
     period1 = time_list[1]
-    time2 = time_list[2]
     period2 = time_list[3]
-
-    hour1, minute1 = extract_time(time1)
-
-    if 1 > hour1 > 12 or 1 > hour1 > 12:
-        abort("Invalid hour range.")
-
-    hour2, minute2 = extract_time(time2)
-
-    if 1 > hour2 > 12 or 1 > hour2 > 12:
-        abort("Invalid hour range.")
 
 
 def extract_time(time):
     if ":" in time:
         hour, minute = time.split(":")
         return int(hour), int(minute)
-    else:
-        return int(time), 0
+    return int(time), 0
