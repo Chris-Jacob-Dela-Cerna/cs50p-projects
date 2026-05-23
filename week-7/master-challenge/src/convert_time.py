@@ -22,6 +22,8 @@ def convert_time():
     hour1 = convert_hour(period1, hour1)
     hour2 = convert_hour(period2, hour2)
 
+    print(f"[Success - System] Time: {hour1}:{minute1:02d} to {hour2}:{minute2:02d}.")
+
 
 def extract_time(time):
     if ":" in time:
