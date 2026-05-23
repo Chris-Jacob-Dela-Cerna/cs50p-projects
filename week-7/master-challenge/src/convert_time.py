@@ -18,13 +18,24 @@ def convert_time():
     meridiem2 = time_list[3]
 
     if ":" in time1:
-        hour1, minute1 = time1.split(":")
-        hour1 = int(hour1)
+        hour, minute = time1.split(":")
+        hour1 = int(hour)
+        minute1 = int(minute)
+    else:
+        hour1 = int(time1)
+        minute1 = 0
+
     if 1 > hour1 > 12 or 1 > hour1 > 12:
         abort("Invalid hour range.")
+
     if ":" in time2:
-        hour2, minute2 = time2.split(":")
-        hour2 = int(hour2)
+        hour, minute = time2.split(":")
+        hour2 = int(hour)
+        minute2 = int(minute)
+    else:
+        hour2 = int(time2)
+        minute2 = 0
+
     if 1 > hour2 > 12 or 1 > hour2 > 12:
         abort("Invalid hour range.")
 
