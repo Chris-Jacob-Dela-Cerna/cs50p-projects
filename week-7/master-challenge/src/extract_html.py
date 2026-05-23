@@ -9,7 +9,7 @@ def extract_html():
     input_ = input(">>> ").strip()
     condition = r"^<iframe .*src=\"(https?://(?:www\.)?)youtube.com/embed/(.{11})\" *.*></iframe>$"
 
-    if src := filter_(condition, input_):
-        print(f"[Success - System] {src[1]}youtu.be/{src[2]}")
-    else:
+    if not (src := filter_(condition, input_)):
         abort("Invalid HTML format.")
+    
+    print(f"[Success - System] {src[1]}youtu.be/{src[2]}")
