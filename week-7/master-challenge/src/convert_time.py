@@ -9,5 +9,8 @@ def convert_time():
     input_ = input(">>> ").strip()
     condition = r"^([0-9](?::[0-9]{2})?) (AM|PM) to ([0-9](?::[0-9]{2})?) (AM|PM)$"
 
-    if not (time := filter_(condition, input_)):
+    if not (time_list := filter_(condition, input_)):
         abort("Invalid time format.")
+    
+    list_ = [time for time in time_list]
+    print(list_)
