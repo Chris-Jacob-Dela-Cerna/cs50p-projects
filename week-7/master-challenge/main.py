@@ -5,6 +5,7 @@ from src.check_ip import check_ip
 from src.convert_time import convert_time
 from src.count_um import count_um
 from src.extract_html import extract_html
+from src.validate_email import validate_email
 
 
 def main():
@@ -23,7 +24,7 @@ def main():
         case "html":
             extract_html()
         case "validate()":
-            "validate_email()"
+            validate_email()
         case _:
             print("[Error  - System] Invalid mode.")
 
