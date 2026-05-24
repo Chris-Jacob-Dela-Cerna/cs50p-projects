@@ -1,15 +1,13 @@
 
 
-from utils.abort import abort
 from utils.filter import filter_all
 
 
 def count_um():
     print("[Prompt - System] Enter text:")
     input_ = input(">>> ").strip()
-    condition = r"(um| um)"
+    condition = r"\bum\b"
 
-    if not (um_list := filter_all(condition, input_)):
-        abort("Invalid IPv4 format.")
-    
-    print(um_list)
+    um_list = filter_all(condition, input_)
+    ums = len(um_list)
+    print(f"[Success - System] Total ums: {ums}")
