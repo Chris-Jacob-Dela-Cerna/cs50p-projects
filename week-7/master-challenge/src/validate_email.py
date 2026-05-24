@@ -1,4 +1,5 @@
 
 
 def validate_email():
-    pass
+    print("[Prompt - System] Enter email address:")
+    input_ = input(">>> ").strip()
