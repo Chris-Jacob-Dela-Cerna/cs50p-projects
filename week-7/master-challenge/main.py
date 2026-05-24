@@ -23,7 +23,7 @@ def main():
             count_um()
         case "html":
             extract_html()
-        case "validate()":
+        case "validate":
             validate_email()
         case _:
             print("[Error  - System] Invalid mode.")
