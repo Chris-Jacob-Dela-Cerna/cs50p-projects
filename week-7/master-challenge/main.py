@@ -3,6 +3,7 @@
 import sys
 from src.check_ip import check_ip
 from src.convert_time import convert_time
+from src.count_um import count_um
 from src.extract_html import extract_html
 
 
@@ -18,7 +19,7 @@ def main():
         case "24hour":
             convert_time()
         case "countum":
-            "count_um()"
+            count_um()
         case "html":
             extract_html()
         case "validate()":
