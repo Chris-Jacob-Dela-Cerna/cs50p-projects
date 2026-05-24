@@ -1,6 +1,7 @@
 
 
 import sys
+from utils.abort import abort
 from src.check_ip import check_ip
 from src.convert_time import convert_time
 from src.count_um import count_um
@@ -12,8 +13,7 @@ def main():
     try:
         mode = sys.argv[1]
     except IndexError:
-        print("[Error  - System] No modes selected.")
-        sys.exit(1)
+        abort("No modes selected.")
 
     modes = {
         "ipv4": check_ip,
@@ -24,7 +24,7 @@ def main():
     }
 
     if mode not in modes:
-        sys.exit(1)
+        abort("Invalid mode.")
     modes[mode]()
 
 
