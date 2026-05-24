@@ -1,7 +1,7 @@
 
 
 from utils.abort import abort
-from utils.filter import filter_
+from utils.filter import filter_all
 
 
 def count_um():
@@ -9,7 +9,7 @@ def count_um():
     input_ = input(">>> ").strip()
     condition = r"(um| um)"
 
-    if not (um_list := filter_(condition, input_)):
+    if not (um_list := filter_all(condition, input_)):
         abort("Invalid IPv4 format.")
     
-    print("Succeed")
+    print(um_list)
