@@ -10,10 +10,21 @@ class Fruits:
         self.name = name
         self.color = color
 
+    def __str__(self):
+        return f"I'mma {self.name} n I'mma {self.color}."
+    
+    def angry(self):
+        return self.name.upper()
+
 
 def main():
     fruit = get_fruits()
     print(f"[Succeed - System] {fruit.name} is {fruit.color}.")
+    fruit2 = get_fruits()
+    print(f"[Succeed - System] {fruit2.name} is {fruit2.color} unlike {fruit.name}.")
+    input()
+    print(fruit)
+    print(fruit2.angry())
 
 
 def get_fruits():
