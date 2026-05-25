@@ -12,5 +12,7 @@ def extract_html():
     if not (src := filter_(condition, input_)):
         abort("Invalid HTML format.")
     
+    print(src.groups())
+
     src_list = src.groups()
     print(f"[Success - System] {src_list[0]}youtu.be/{src_list[1]}")
