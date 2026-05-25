@@ -12,8 +12,14 @@ def check_ip():
     if not (ipnum_list := filter_(condition, input_)):
         abort("Invalid IPv4 format.")
 
-    for ipnum in ipnum_list:
-        if int(ipnum) > 255:
-            abort(f"Invalid IP number ({ipnum}).")
+    if not check_ip_number(ipnum_list.groups()):
+        abort(f"Invalid IP number.")
 
     print("[Success - System] Valid IPv4 address.")
+
+
+def check_ip_number(list_):
+    for num in list_:
+        if int(num) > 255:
+            return False
+    return True
