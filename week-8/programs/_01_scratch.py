@@ -12,9 +12,6 @@ class Fruits:
 
     def __str__(self):
         return f"I'mma {self.name} n I'mma {self.color}."
-    
-    def angry(self):
-        return self.name.upper()
 
 
 def main():
