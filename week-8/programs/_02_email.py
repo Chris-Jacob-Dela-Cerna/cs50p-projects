@@ -1,6 +1,7 @@
 
 
 import re
+import sys
 
 
 class Email:
@@ -11,6 +12,7 @@ class Email:
     def email(self):
         return self._email
     
+    @email.setter
     def email(self, email):
         if not email:
             raise ValueError
@@ -24,13 +26,19 @@ class Account:
 
 def main():
     input(
-        "\n   ============"
-        "\n     Sign-up"
-        "\n   ============"
+        "\n ===================="
+        "\n  Sign-up with Email"
+        "\n ===================="
         "\n"
     )
     print("[Prompt - System] Enter your email:")
-    email = Email(input(">>> ").strip())
+    while True:
+        try:
+            email = Email(input(">>> ").strip())
+        except ValueError:
+            sys.exit("[Error  - System] Invalid email.")
+        print("[Success - System] Email saved successfully.")
+        break
 
 
 if __name__ == "__main__":
