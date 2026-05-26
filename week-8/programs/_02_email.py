@@ -1,7 +1,6 @@
 
 
 import re
-import sys
 
 
 class Email:
@@ -15,7 +14,7 @@ class Email:
     @email.setter
     def email(self, email):
         if not email:
-            raise ValueError
+            raise ValueError(1)
         self._email = email
 
 
@@ -35,10 +34,12 @@ def main():
     while True:
         try:
             email = Email(input(">>> ").strip())
-        except ValueError:
-            sys.exit("[Error  - System] Invalid email.")
-        print("[Success - System] Email saved successfully.")
-        break
+        except ValueError as ve:
+            if ve.args[0] == 1:
+                print("[Error  - System] Invalid email.")
+        else:
+            print("[Success - System] Email saved successfully.")
+            break
 
 
 if __name__ == "__main__":
