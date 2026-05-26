@@ -15,9 +15,12 @@ class Email:
     def email(self, email):
         if not email:
             raise ValueError(1)
-        condition = r"^([a-zA-Z0-9!#$%&'*+-/=?^_`{|}~]+)@([a-zA-Z0-9]+)(\.[a-zA-Z0-9]+)+$"
-        if not re.search(condition, email):
+        if len(email) > 254:
             raise ValueError(2)
+        condition = r"^([a-zA-Z0-9!#$%&'*+-/=?^_`{|}~]+)@((?:[a-zA-Z0-9]+)(?:\.[a-zA-Z0-9]+)+)$"
+        if not (email_ := re.search(condition, email)):
+            raise ValueError(3)
+        username, domain = email_.groups()
         self._email = email
 
 
@@ -41,6 +44,8 @@ def main():
             if ve.args[0] == 1:
                 print("[Error  - System] Please enter an email.")
             elif ve.args[0] == 2:
+                print("[Error  - System] Email must not exceed 254 characters.")
+            elif ve.args[0] == 3:
                 print("[Error  - System] Invalid email format.")
         else:
             print("[Success - System] Email saved successfully.")
