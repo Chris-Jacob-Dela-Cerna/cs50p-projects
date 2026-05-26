@@ -6,6 +6,15 @@ import re
 class Email:
     def __init__(self, email):
         self.email = email
+    
+    @property
+    def email(self):
+        return self._email
+    
+    def email(self, email):
+        if not email:
+            raise ValueError
+        self._email = email
 
 
 class Account:
@@ -22,7 +31,6 @@ def main():
     )
     print("[Prompt - System] Enter your email:")
     email = Email(input(">>> ").strip())
-    print(email.email)
 
 
 if __name__ == "__main__":
