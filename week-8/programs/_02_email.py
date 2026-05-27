@@ -14,21 +14,21 @@ class Email:
     @email.setter
     def email(self, email):
         if not email:
-            raise ValueError(1)
+            raise ValueError("[Error  - System] Please enter an email.")
         if len(email) > 254:
-            raise ValueError(2)
-        condition = r"^([a-zA-Z0-9!#$%&'*+-/=?^_`{|}~]+)@((?:[a-zA-Z0-9]+)(?:\.[a-zA-Z0-9]+)+)$"
+            raise ValueError("[Error  - System] Email must not exceed 254 characters.")
+        condition = r"^([a-zA-Z0-9!#$%&'*+-/=?^_`{|}~\.]+)@((?:[a-zA-Z0-9]+)(?:\.[a-zA-Z0-9]+)+)$"
         if not (email_ := re.search(condition, email)):
-            raise ValueError(3)
+            raise ValueError("[Error  - System] Invalid email format.")
         username, domain = email_.groups()
         if len(username) > 64:
-            raise ValueError(4)
+            raise ValueError("[Error  - System] Email username must not exceed 64 characters.")
         if len(domain) > 189:
-            raise ValueError(5)
+            raise ValueError("[Error  - System] Email domain must not exceed 189 characters.")
         if username.startswith(".") or username.endswith("."):
-            raise ValueError(6)
+            raise ValueError("[Error  - System] Email username must not start or end with a period.")
         if ".." in username or ".." in domain:
-            raise ValueError(7)
+            raise ValueError("[Error  - System] Email username/domain must not have consecutive periods.")
         self._email = email
 
 
@@ -37,30 +37,30 @@ class Username:
         self.username = username
     
     @property
-    def email(self):
+    def username(self):
         return self._username
     
-    @email.setter
-    def email(self, username):
+    @username.setter
+    def username(self, username):
         if not username:
-            raise ValueError(1)
+            raise ValueError()
         if len(username) > 30:
-            raise ValueError(2)
-        condition = r"^[a-z0-9_-.]+$"
+            raise ValueError()
+        condition = r"^[a-z0-9_\-\.]+$"
         if not re.search(condition, username):
-            raise ValueError(3)
+            raise ValueError()
         if username.startswith("_") or username.endswith("_"):
-            raise ValueError(4)
+            raise ValueError()
         if username.startswith("-") or username.endswith("-"):
-            raise ValueError(5)
+            raise ValueError()
         if username.startswith(".") or username.endswith("."):
-            raise ValueError(6)
+            raise ValueError()
         if "__" in username:
-            raise ValueError(7)
+            raise ValueError()
         if "--" in username:
-            raise ValueError(8)
+            raise ValueError()
         if ".." in username:
-            raise ValueError(9)
+            raise ValueError()
         self._username = username
 
 
@@ -69,11 +69,11 @@ class Password:
         self.password = password
     
     @property
-    def email(self):
+    def password(self):
         return self._password
     
-    @email.setter
-    def email(self, password):
+    @password.setter
+    def password(self, password):
         self._password = password
 
 
@@ -92,7 +92,7 @@ def main():
         "\n ======================="
         "\n"
     )
-    get_username()
+    username = get_username()
     get_password()
 
 
@@ -102,20 +102,7 @@ def get_email():
         try:
             email = Email(input(">>> ").strip())
         except ValueError as ve:
-            if ve.args[0] == 1:
-                print("[Error  - System] Please enter an email.")
-            elif ve.args[0] == 2:
-                print("[Error  - System] Email must not exceed 254 characters.")
-            elif ve.args[0] == 3:
-                print("[Error  - System] Invalid email format.")
-            elif ve.args[0] == 4:
-                print("[Error  - System] Email username must not exceed 64 characters.")
-            elif ve.args[0] == 5:
-                print("[Error  - System] Email domain must not exceed 189 characters.")
-            elif ve.args[0] == 6:
-                print("[Error  - System] Email username must not start or end with a period.")
-            elif ve.args[0] == 7:
-                print("[Error  - System] Email username/domain must not have consecutive periods.")
+            print(ve)
         else:
             print("[Success - System] Email saved successfully.")
             break
@@ -124,6 +111,15 @@ def get_email():
 
 def get_username():
     print("[Prompt - System] Enter your username:")
+    while True:
+        try:
+            username = Username(input(">>> ").strip())
+        except ValueError:
+            print("[Error  - System] ")
+        else:
+            print("[Success - System] Username saved successfully.")
+            break
+    return username
     
 
 def get_password():
