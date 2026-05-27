@@ -1,4 +1,4 @@
-
+# Document: This python is my last application of CS50P Week 6.
 
 import sys
 from src.count import count_lines

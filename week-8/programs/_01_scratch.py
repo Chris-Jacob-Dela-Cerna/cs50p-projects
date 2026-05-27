@@ -1,4 +1,4 @@
-
+# OOP scratch file - practicing classes and objects
 
 import sys
 
