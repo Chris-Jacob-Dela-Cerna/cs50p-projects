@@ -39,14 +39,14 @@ weeks = [[
     "Master Challenge - Sign-up with username and password",
 ], [
     "Simple demographics data interpreter",
-    "Scratch File",
+    "File I/O Scratch File",
     "Ambitious Project - Quizpin",
     "Master Challenge - Multi-CLI Tool from Week-6 P-Sets",
 ], [
-    "Scratch File",
+    "RegEx Scratch File",
     "Master Challenge - Multi-program utilizing RegEx",
 ], [
-    "Scratch File",
+    "OOP Scratch File",
 ]]
 
 
