@@ -77,12 +77,12 @@ class Password:
         if not password:
             raise ValueError()
         if len(password) < 10:
-            raise ValueError()
+            raise ValueError("[Error  - System] Password must be more than 9 characters.")
         if len(password) > 64:
-            raise ValueError()
+            raise ValueError("[Error  - System] Password must not exceed 64 characters.")
         condition = r"[a-zA-Z0-9!#$%&'*+\-/=?^_`{|}~\.]+"
         if not re.search(condition, password):
-            raise ValueError()
+            raise ValueError("[Error  - System] Invalid password format.")
         self._password = password
 
 
