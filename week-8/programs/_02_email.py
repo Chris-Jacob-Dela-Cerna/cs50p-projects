@@ -86,7 +86,8 @@ def get_email():
 
 def get_username():
     print("[Prompt - System] Enter your username:")
-
+    
+    
 
 def get_password():
     ...
