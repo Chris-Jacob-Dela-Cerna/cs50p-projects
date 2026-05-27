@@ -93,7 +93,7 @@ def main():
         "\n"
     )
     username = get_username()
-    get_password()
+    password = get_password()
 
 
 def get_email():
@@ -123,7 +123,16 @@ def get_username():
     
 
 def get_password():
-    ...
+    print("[Prompt - System] Enter your password:")
+    while True:
+        try:
+            password = Password(input(">>> ").strip())
+        except ValueError as ve:
+            print(ve)
+        else:
+            print("[Success - System] Password saved successfully.")
+            break
+    return password
 
 
 if __name__ == "__main__":
