@@ -32,9 +32,30 @@ class Email:
         self._email = email
 
 
-class Account:
-    def __init__(self, username, password):
-        ...
+class Username:
+    def __init__(self, username):
+        self.username = username
+    
+    @property
+    def email(self):
+        return self._username
+    
+    @email.setter
+    def email(self, username):
+        self._username = username
+
+
+class Password:
+    def __init__(self, password):
+        self.password = password
+    
+    @property
+    def email(self):
+        return self._password
+    
+    @email.setter
+    def email(self, password):
+        self._password = password
 
 
 def main():
@@ -86,7 +107,6 @@ def get_email():
 
 def get_username():
     print("[Prompt - System] Enter your username:")
-    
     
 
 def get_password():
