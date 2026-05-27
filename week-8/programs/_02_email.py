@@ -47,7 +47,7 @@ class Username:
         if len(username) > 30:
             raise ValueError(2)
         condition = r"^([a-z0-9_-.]+)$"
-        if not (username_ := re.search(condition, username)):
+        if not re.search(condition, username):
             raise ValueError(3)
         self._username = username
 
