@@ -17,7 +17,7 @@ class Email:
             raise ValueError("[Error  - System] Please enter an email.")
         if len(email) > 254:
             raise ValueError("[Error  - System] Email must not exceed 254 characters.")
-        condition = r"^([a-zA-Z0-9!#$%&'*+-/=?^_`{|}~\.]+)@((?:[a-zA-Z0-9]+)(?:\.[a-zA-Z0-9]+)+)$"
+        condition = r"^([a-zA-Z0-9!#$%&'*+\-/=?^_`{|}~\.]+)@((?:[a-zA-Z0-9]+)(?:\.[a-zA-Z0-9]+)+)$"
         if not (email_ := re.search(condition, email)):
             raise ValueError("[Error  - System] Invalid email format.")
         username, domain = email_.groups()
@@ -74,6 +74,15 @@ class Password:
     
     @password.setter
     def password(self, password):
+        if not password:
+            raise ValueError()
+        if len(password) < 10:
+            raise ValueError()
+        if len(password) > 64:
+            raise ValueError()
+        condition = r"[a-zA-Z0-9!#$%&'*+\-/=?^_`{|}~\.]+"
+        if not re.search(condition, password):
+            raise ValueError()
         self._password = password
 
 
