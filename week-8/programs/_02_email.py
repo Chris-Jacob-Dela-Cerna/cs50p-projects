@@ -104,6 +104,13 @@ def main():
     username = get_username()
     password = get_password()
 
+    print(
+        "\n=============================="
+        "\n Account created succesfully."
+        "\n=============================="
+        "\n"
+    )
+
 
 def get_email():
     print("[Prompt - System] Enter your email:")
