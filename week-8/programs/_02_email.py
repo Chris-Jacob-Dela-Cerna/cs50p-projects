@@ -27,7 +27,7 @@ class Email:
             raise ValueError(5)
         if username.startswith(".") or username.endswith("."):
             raise ValueError(6)
-        if re.search("..", username):
+        if ".." in username or ".." in domain:
             raise ValueError(7)
         self._email = email
 
@@ -38,12 +38,27 @@ class Account:
 
 
 def main():
-    input(
+    print(
         "\n ===================="
         "\n  Sign-up with Email"
         "\n ===================="
         "\n"
     )
+    email = get_email()
+    
+    print(
+        "\n ======================="
+        "\n  Username and Password"
+        "\n ======================="
+        "\n"
+    )
+    get_username()
+    get_password()
+
+    
+
+
+def get_email():
     print("[Prompt - System] Enter your email:")
     while True:
         try:
@@ -62,10 +77,19 @@ def main():
             elif ve.args[0] == 6:
                 print("[Error  - System] Email username must not start or end with a period.")
             elif ve.args[0] == 7:
-                print("[Error  - System] Email username must not have consecutive periods.")
+                print("[Error  - System] Email username/domain must not have consecutive periods.")
         else:
             print("[Success - System] Email saved successfully.")
             break
+    return email
+
+
+def get_username():
+    print("[Prompt - System] Enter your username:")
+
+
+def get_password():
+    ...
 
 
 if __name__ == "__main__":
