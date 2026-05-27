@@ -1,6 +1,5 @@
 # Document: This python is my 2nd application of CS50P Week 8.
 
-
 import re
 
 
@@ -43,6 +42,13 @@ class Username:
     
     @email.setter
     def email(self, username):
+        if not username:
+            raise ValueError(1)
+        if len(username) > 30:
+            raise ValueError(2)
+        condition = r"^([a-z0-9_-.]+)$"
+        if not (username_ := re.search(condition, username)):
+            raise ValueError(3)
         self._username = username
 
 
@@ -76,8 +82,6 @@ def main():
     )
     get_username()
     get_password()
-
-    
 
 
 def get_email():
