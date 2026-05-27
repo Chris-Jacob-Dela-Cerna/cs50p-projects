@@ -43,24 +43,24 @@ class Username:
     @username.setter
     def username(self, username):
         if not username:
-            raise ValueError()
+            raise ValueError("[Error  - System] Please enter a username.")
         if len(username) > 30:
-            raise ValueError()
+            raise ValueError("[Error  - System] Username must not exceed 30 characters.")
         condition = r"^[a-z0-9_\-\.]+$"
         if not re.search(condition, username):
-            raise ValueError()
+            raise ValueError("[Error  - System] Invalid username format.")
         if username.startswith("_") or username.endswith("_"):
-            raise ValueError()
+            raise ValueError("[Error  - System] Username must not start or end with an underscore.")
         if username.startswith("-") or username.endswith("-"):
-            raise ValueError()
+            raise ValueError("[Error  - System] Username must not start or end with a hyphen.")
         if username.startswith(".") or username.endswith("."):
-            raise ValueError()
+            raise ValueError("[Error  - System] Username must not start or end with a period.")
         if "__" in username:
-            raise ValueError()
+            raise ValueError("[Error  - System] Username must not have consecutive underscores.")
         if "--" in username:
-            raise ValueError()
+            raise ValueError("[Error  - System] Username must not have consecutive hyphens.")
         if ".." in username:
-            raise ValueError()
+            raise ValueError("[Error  - System] Username must not have consecutive periods.")
         self._username = username
 
 
@@ -114,8 +114,8 @@ def get_username():
     while True:
         try:
             username = Username(input(">>> ").strip())
-        except ValueError:
-            print("[Error  - System] ")
+        except ValueError as ve:
+            print(ve)
         else:
             print("[Success - System] Username saved successfully.")
             break
