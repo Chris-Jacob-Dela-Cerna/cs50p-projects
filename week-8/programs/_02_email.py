@@ -25,6 +25,12 @@ class Email:
             raise ValueError(4)
         if len(domain) > 189:
             raise ValueError(5)
+        if username.startswith(".") or username.endswith("."):
+            raise ValueError(6)
+        if domain.startswith("-") or domain.endswith("-"):
+            raise ValueError(7)
+        if not domain[len(domain)].isalpha():
+            raise ValueError(8)
         self._email = email
 
 
@@ -55,6 +61,12 @@ def main():
                 print("[Error  - System] Email username must not exceed 64 characters.")
             elif ve.args[0] == 5:
                 print("[Error  - System] Email domain must not exceed 189 characters.")
+            elif ve.args[0] == 6:
+                print("[Error  - System] Email username must not start or end with a period.")
+            elif ve.args[0] == 7:
+                print("[Error  - System] Email domain must not start or end with a hyphen.")
+            elif ve.args[0] == 8:
+                print("[Error  - System] Email username must end with letter.")
         else:
             print("[Success - System] Email saved successfully.")
             break
