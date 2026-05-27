@@ -27,10 +27,8 @@ class Email:
             raise ValueError(5)
         if username.startswith(".") or username.endswith("."):
             raise ValueError(6)
-        if domain.startswith("-") or domain.endswith("-"):
+        if re.search("..", username):
             raise ValueError(7)
-        if not domain[len(domain)].isalpha():
-            raise ValueError(8)
         self._email = email
 
 
@@ -64,9 +62,7 @@ def main():
             elif ve.args[0] == 6:
                 print("[Error  - System] Email username must not start or end with a period.")
             elif ve.args[0] == 7:
-                print("[Error  - System] Email domain must not start or end with a hyphen.")
-            elif ve.args[0] == 8:
-                print("[Error  - System] Email username must end with letter.")
+                print("[Error  - System] Email username must not have consecutive periods.")
         else:
             print("[Success - System] Email saved successfully.")
             break
