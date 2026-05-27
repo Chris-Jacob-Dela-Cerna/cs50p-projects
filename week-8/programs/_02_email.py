@@ -46,9 +46,21 @@ class Username:
             raise ValueError(1)
         if len(username) > 30:
             raise ValueError(2)
-        condition = r"^([a-z0-9_-.]+)$"
+        condition = r"^[a-z0-9_-.]+$"
         if not re.search(condition, username):
             raise ValueError(3)
+        if username.startswith("_") or username.endswith("_"):
+            raise ValueError(4)
+        if username.startswith("-") or username.endswith("-"):
+            raise ValueError(5)
+        if username.startswith(".") or username.endswith("."):
+            raise ValueError(6)
+        if "__" in username:
+            raise ValueError(7)
+        if "--" in username:
+            raise ValueError(8)
+        if ".." in username:
+            raise ValueError(9)
         self._username = username
 
 
