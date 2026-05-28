@@ -111,6 +111,13 @@ def main():
         "\n"
     )
 
+    print(
+        f"\nEmail: {email.email}"
+        f"\nUsername: {username.username}"
+        f"\nPassword: {password.password}"
+        "\n"
+    )
+
 
 def get_email():
     print("[Prompt - System] Enter your email:")
