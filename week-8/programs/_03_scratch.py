@@ -21,7 +21,7 @@ try:
 except ValueError as ve:
     print(ve)
 
-horse = Horse()
+horse = Horse
 try:
     horse.move(2)
 except ValueError as ve:
