@@ -18,3 +18,26 @@ class Warrior:
             "attack": 3,
         },
     }
+
+    def __init__(self, trait):
+        self.trait = trait
+
+    @property
+    def trait(self):
+        return self._trait
+    
+    @trait.setter
+    def trait(self, trait):
+        if not trait:
+            raise ValueError("No trait selected.")
+        if trait not in Warrior.traits:
+            raise ValueError("Invalid trait.")
+        self._trait = trait
+
+
+def main():
+    ...
+
+
+if __name__ == "__main__":
+    main()
