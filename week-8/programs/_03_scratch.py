@@ -27,7 +27,20 @@ class Horse:
     @property
     def max_movement(self):
         return self._max_movement
+    
+    @classmethod
+    def damage(cls, damage):
+        cls.health -= damage
+
+    @staticmethod
+    def yell():
+        print("Horse yelled.")
 
 
-horse1 = Horse("Slow")
-print(horse1.horse_type, "-", horse1.max_movement)
+h1 = Horse("Slow")
+print(h1.horse_type, "-", h1.max_movement)
+h1.damage(3)
+print(h1.horse_type, "-", h1.health)
+h1.damage(3)
+print(h1.horse_type, "-", h1.health)
+h1.yell()
