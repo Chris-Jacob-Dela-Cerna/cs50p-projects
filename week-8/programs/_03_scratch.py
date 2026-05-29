@@ -1,28 +1,27 @@
 # OOP scratch file 2 - practicing classes and objects
 
-
 class Horse:
-    health = 5
-    attack = 2
+    health = 10
+    attack = 3
     defence = 2
     min_movement = 1
-    max_movement = 2
+    horse_types = {
+        "fast": {"max_movement": 3},
+        "slow": {"max_movement": 2},
+    }
 
-    @classmethod
-    def move(cls, movement):
-        if movement < cls.min_movement:
-            raise ValueError("Too small.")
-        if movement > cls.max_movement:
-            raise ValueError("Too big.")
-        print(f"Horse has moved {movement} tiles.")
+    def __init__(self, horse_type):
+        self.type = horse_type
 
-try:
-    Horse.move(1)
-except ValueError as ve:
-    print(ve)
+    @property
+    def horse_type(self):
+        return self._horse_type
 
-horse = Horse
-try:
-    horse.move(2)
-except ValueError as ve:
-    print(ve)
+    @horse_type.setter
+    def horse_type(self, horse_type):
+        if horse_type not in Horse.horse_types:
+            raise ValueError("Invalid type.")
+        self._horse_type = horse_type
+
+
+horse1 = Horse("fast")
