@@ -6,12 +6,12 @@ class Horse:
     defence = 2
     min_movement = 1
     horse_types = {
-        "fast": {"max_movement": 3},
-        "slow": {"max_movement": 2},
+        "Fast": {"max_movement": 3},
+        "Slow": {"max_movement": 2},
     }
 
     def __init__(self, horse_type):
-        self.type = horse_type
+        self.horse_type = horse_type
 
     @property
     def horse_type(self):
@@ -22,6 +22,12 @@ class Horse:
         if horse_type not in Horse.horse_types:
             raise ValueError("Invalid type.")
         self._horse_type = horse_type
+        self._max_movement = self.horse_types[horse_type]["max_movement"]
+
+    @property
+    def max_movement(self):
+        return self._max_movement
 
 
-horse1 = Horse("fast")
+horse1 = Horse("Slow")
+print(horse1.horse_type, "-", horse1.max_movement)
