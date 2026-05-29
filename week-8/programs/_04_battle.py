@@ -20,7 +20,12 @@ class Warrior:
     }
 
     def __init__(self, trait):
+        self.traits = Warrior.traits
         self.trait = trait
+        self._health = self.traits[trait]["health"]
+        self._defence = self.traits[trait]["defence"]
+        self._attack = self.traits[trait]["attack"]
+        self._initialized = True
 
     @property
     def trait(self):
@@ -28,6 +33,8 @@ class Warrior:
     
     @trait.setter
     def trait(self, trait):
+        if hasattr(self, "_initialized") and self._initialized:
+            raise AttributeError("Trait cannot be changed.")
         if not trait:
             raise ValueError("No trait selected.")
         if trait not in Warrior.traits:
