@@ -41,9 +41,17 @@ class Warrior:
             raise ValueError("Invalid trait.")
         self._trait = trait
 
+    def stats(self):
+        return f"\nTrait: {self._trait.title()}\nHealth: {self._health}\nDefence: {self._defence}\nAttack: {self._attack}"
+
 
 def main():
-    ...
+    w1 = Warrior("normal")
+    print(w1.stats())
+    w2 = Warrior("tanky")
+    print(w2.stats())
+    w3 = Warrior("agile")
+    print(w3.stats())
 
 
 if __name__ == "__main__":
