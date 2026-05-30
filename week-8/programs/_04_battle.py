@@ -3,19 +3,19 @@
 class Warrior:
     traits = {
         "normal": {
-            "health": 10,
+            "health": 12,
             "defence": 2,
             "attack": 2,
         },
         "tanky": {
-            "health": 15,
+            "health": 16,
             "defence": 3,
             "attack": 1,
         },
         "agile": {
             "health": 10,
             "defence": 1,
-            "attack": 3,
+            "attack": 4,
         },
     }
 
@@ -24,8 +24,10 @@ class Warrior:
             raise ValueError("No trait selected.")
         if trait not in Warrior.traits:
             raise ValueError("Invalid trait.")
+
         self._trait = trait
         self.trait = trait
+
         self._health = Warrior.traits[trait]["health"]
         self._defence = Warrior.traits[trait]["defence"]
         self._attack = Warrior.traits[trait]["attack"]
