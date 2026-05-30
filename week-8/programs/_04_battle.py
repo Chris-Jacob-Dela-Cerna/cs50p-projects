@@ -3,19 +3,19 @@
 class Warrior:
     traits = {
         "normal": {
-            "health": 12,
-            "defence": 2,
-            "attack": 2,
-        },
-        "tanky": {
-            "health": 16,
-            "defence": 3,
-            "attack": 1,
+            "health": 120,
+            "attack": 25,
+            "defence": 15,
         },
         "agile": {
-            "health": 10,
-            "defence": 1,
-            "attack": 4,
+            "health": 100,
+            "attack": 35,
+            "defence": 10,
+        },
+        "tanky": {
+            "health": 150,
+            "attack": 18,
+            "defence": 25,
         },
     }
 
@@ -24,9 +24,7 @@ class Warrior:
             raise ValueError("No trait selected.")
         if trait not in Warrior.traits:
             raise ValueError("Invalid trait.")
-
         self._trait = trait
-        self.trait = trait
 
         self._health = Warrior.traits[trait]["health"]
         self._defence = Warrior.traits[trait]["defence"]
@@ -46,7 +44,6 @@ def main():
     w1 = Warrior("normal")
     w2 = Warrior("tanky")
     w3 = Warrior("agile")
-    print(w1.stats())
 
 
 if __name__ == "__main__":
