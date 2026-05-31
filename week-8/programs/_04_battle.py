@@ -8,7 +8,8 @@ class Unit:
         if trait not in cls_.traits:
             raise ValueError("Invalid trait.")
         self._trait = trait
-        self._health = cls_.traits[trait]["health"]
+        self._max_health = cls_.traits[trait]["health"]
+        self._health = self._max_health
         self._defence = cls_.traits[trait]["defence"]
         self._attack = cls_.traits[trait]["attack"]
 
@@ -30,7 +31,7 @@ class Unit:
 
     def stats(self):
         return f"\nTrait: {self._trait.title()}" \
-               f"\nHealth: {self._health}" \
+               f"\nHealth: {self._health}/{self._max_health}" \
                f"\nAttack: {self._attack}" \
                f"\nDefence: {self._defence}"
     
@@ -118,7 +119,7 @@ def main():
     print(a1.stats())
     print(g1.stats())
     g1.damage(50)
-    print(g1.stats())
+    print(g1.health)
 
 
 if __name__ == "__main__":
