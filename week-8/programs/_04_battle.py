@@ -27,7 +27,10 @@ class Unit:
 
     # Shows a unit's stats
     def stats(self):
-        return f"\nTrait: {self._trait.title()}\nHealth: {self._health}\nDefence: {self._defence}\nAttack: {self._attack}"
+        return f"\nTrait: {self._trait.title()}" \
+               f"\nHealth: {self._health}" \
+               f"\nAttack: {self._attack}" \
+               f"\nDefence: {self._defence}"
 
 
 class Warrior(Unit):
@@ -112,9 +115,9 @@ def main():
     w1 = Warrior("agile")
     a1 = Archer("sniper")
     g1 = Giant("brawler")
-    print(w1.stats(), "\n")
-    print(a1.stats(), "\n")
-    print(g1.stats(), "\n")
+    print(w1.stats())
+    print(a1.stats())
+    print(g1.stats())
 
 
 if __name__ == "__main__":
