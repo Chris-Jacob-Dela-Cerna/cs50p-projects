@@ -4,11 +4,14 @@ class Unit:
     def __init__(self, trait):
         if not trait:
             raise ValueError("No trait selected.")
-        if trait not in self.__class__.traits:
+        cls = self.__class__
+        if trait not in cls.traits:
             raise ValueError("Invalid trait.")
         self._trait = trait
+        self._health = cls.traits[trait]["health"]
+        self._defence = cls.traits[trait]["defence"]
+        self._attack = cls.traits[trait]["attack"]
 
-    # Runs once when setting the unit's trait
     @property
     def trait(self):
         return self._trait
@@ -25,7 +28,6 @@ class Unit:
     def defence(self):
         return self._defence
 
-    # Shows a unit's stats
     def stats(self):
         return f"\nTrait: {self._trait.title()}" \
                f"\nHealth: {self._health}" \
@@ -54,9 +56,6 @@ class Warrior(Unit):
 
     def __init__(self, trait):
         super().__init__(trait)
-        self._health = Warrior.traits[trait]["health"]
-        self._defence = Warrior.traits[trait]["defence"]
-        self._attack = Warrior.traits[trait]["attack"]
     
 
 class Archer(Unit):
@@ -80,9 +79,6 @@ class Archer(Unit):
 
     def __init__(self, trait):
         super().__init__(trait)
-        self._health = Archer.traits[trait]["health"]
-        self._defence = Archer.traits[trait]["defence"]
-        self._attack = Archer.traits[trait]["attack"]
     
 
 class Giant(Unit):
@@ -106,9 +102,6 @@ class Giant(Unit):
 
     def __init__(self, trait):
         super().__init__(trait)
-        self._health = Giant.traits[trait]["health"]
-        self._defence = Giant.traits[trait]["defence"]
-        self._attack = Giant.traits[trait]["attack"]
 
 
 def main():
