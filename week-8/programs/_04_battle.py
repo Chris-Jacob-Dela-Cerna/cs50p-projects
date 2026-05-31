@@ -41,6 +41,13 @@ class Unit:
             dmg = 1
         self._health -= dmg
 
+    def heal(self):
+        max_heal = self._max_health / 2
+        min_heal = self._max_health / 100
+        miss_health = 1 - (self._health / self._max_health)
+        healed = min_heal + (max_heal - min_heal) * miss_health
+        self._health += healed
+        
 
 class Warrior(Unit):
     traits = {
@@ -63,7 +70,7 @@ class Warrior(Unit):
 
     def __init__(self, trait):
         super().__init__(trait)
-    
+
 
 class Archer(Unit):
     traits = {
@@ -112,14 +119,11 @@ class Giant(Unit):
 
 
 def main():
-    w1 = Warrior("agile")
-    a1 = Archer("sniper")
-    g1 = Giant("brawler")
-    print(w1.stats())
+    a1 = Archer("normal")
+    a1.damage(32)
     print(a1.stats())
-    print(g1.stats())
-    g1.damage(50)
-    print(g1.health)
+    a1.heal()
+    print(a1.stats())
 
 
 if __name__ == "__main__":
