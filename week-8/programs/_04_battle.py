@@ -1,6 +1,24 @@
 
 
-class Warrior:
+class Unit:
+    def __init__(self, trait):
+        if not trait:
+            raise ValueError("No trait selected.")
+        if trait not in Warrior.traits:
+            raise ValueError("Invalid trait.")
+        self._trait = trait
+
+    # Runs once when setting the unit's trait
+    @property
+    def trait(self):
+        return self._trait
+
+    # Shows a unit's stats
+    def stats(self):
+        return f"\nTrait: {self._trait.title()}\nHealth: {self._health}\nDefence: {self._defence}\nAttack: {self._attack}"
+
+
+class Warrior(Unit):
     traits = {
         "normal": {
             "health": 120,
@@ -20,32 +38,18 @@ class Warrior:
     }
 
     def __init__(self, trait):
-        if not trait:
-            raise ValueError("No trait selected.")
-        if trait not in Warrior.traits:
-            raise ValueError("Invalid trait.")
-        self._trait = trait
-
+        super().__init__(trait)
         self._health = Warrior.traits[trait]["health"]
         self._defence = Warrior.traits[trait]["defence"]
         self._attack = Warrior.traits[trait]["attack"]
-
-    # Runs once when setting the unit's trait
-    @property
-    def trait(self):
-        return self._trait
-
-    # Shows a unit's stats
-    def stats(self):
-        return f"\nTrait: {self._trait.title()}\nHealth: {self._health}\nDefence: {self._defence}\nAttack: {self._attack}"
     
 
-class Archer:
+class Archer(Unit):
     traits = {
         "normal": {
-            "health": 120,
-            "attack": 25,
-            "defence": 15,
+            "health": 100,
+            "attack": 22,
+            "defence": 12,
         },
         "sniper": {
             "health": 80,
@@ -60,32 +64,18 @@ class Archer:
     }
 
     def __init__(self, trait):
-        if not trait:
-            raise ValueError("No trait selected.")
-        if trait not in Archer.traits:
-            raise ValueError("Invalid trait.")
-        self._trait = trait
-
+        super().__init__(trait)
         self._health = Archer.traits[trait]["health"]
         self._defence = Archer.traits[trait]["defence"]
         self._attack = Archer.traits[trait]["attack"]
-
-    # Runs once when setting the unit's trait
-    @property
-    def trait(self):
-        return self._trait
-
-    # Shows a unit's stats
-    def stats(self):
-        return f"\nTrait: {self._trait.title()}\nHealth: {self._health}\nDefence: {self._defence}\nAttack: {self._attack}"
     
 
-class Giant:
+class Giant(Unit):
     traits = {
         "normal": {
             "health": 160,
             "attack": 28,
-            "defence": 15,
+            "defence": 10,
         },
         "brawler": {
             "health": 140,
@@ -100,28 +90,19 @@ class Giant:
     }
 
     def __init__(self, trait):
-        if not trait:
-            raise ValueError("No trait selected.")
-        if trait not in Giant.traits:
-            raise ValueError("Invalid trait.")
-        self._trait = trait
-
+        super().__init__(trait)
         self._health = Giant.traits[trait]["health"]
         self._defence = Giant.traits[trait]["defence"]
         self._attack = Giant.traits[trait]["attack"]
 
-    # Runs once when setting the unit's trait
-    @property
-    def trait(self):
-        return self._trait
-
-    # Shows a unit's stats
-    def stats(self):
-        return f"\nTrait: {self._trait.title()}\nHealth: {self._health}\nDefence: {self._defence}\nAttack: {self._attack}"
-
 
 def main():
-    ...
+    w1 = Warrior("normal")
+    a1 = Archer("normal")
+    g1 = Giant("normal")
+    print(w1.stats(), "\n")
+    print(a1.stats(), "\n")
+    print(g1.stats(), "\n")
 
 
 if __name__ == "__main__":
