@@ -4,26 +4,26 @@ class Unit:
     def __init__(self, trait):
         if not trait:
             raise ValueError("No trait selected.")
-        cls = self.__class__
-        if trait not in cls.traits:
+        cls_ = self.__class__
+        if trait not in cls_.traits:
             raise ValueError("Invalid trait.")
         self._trait = trait
-        self._health = cls.traits[trait]["health"]
-        self._defence = cls.traits[trait]["defence"]
-        self._attack = cls.traits[trait]["attack"]
+        self._health = cls_.traits[trait]["health"]
+        self._defence = cls_.traits[trait]["defence"]
+        self._attack = cls_.traits[trait]["attack"]
 
     @property
     def trait(self):
         return self._trait
-    
+
     @property
     def health(self):
         return self._health
-    
+
     @property
     def attack(self):
         return self._attack
-    
+
     @property
     def defence(self):
         return self._defence
@@ -33,6 +33,12 @@ class Unit:
                f"\nHealth: {self._health}" \
                f"\nAttack: {self._attack}" \
                f"\nDefence: {self._defence}"
+    
+    def damage(self, attack):
+        dmg = attack - self._defence
+        if dmg <= 0:
+            dmg = 1
+        self._health -= dmg
 
 
 class Warrior(Unit):
@@ -110,6 +116,8 @@ def main():
     g1 = Giant("brawler")
     print(w1.stats())
     print(a1.stats())
+    print(g1.stats())
+    g1.damage(50)
     print(g1.stats())
 
 
