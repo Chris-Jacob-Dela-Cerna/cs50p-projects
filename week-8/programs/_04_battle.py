@@ -50,8 +50,12 @@ class Unit:
         min_heal = self._max_health / 100
         miss_health = 1 - (self._health / self._max_health)
         healed = min_heal + (max_heal - min_heal) * miss_health
-        self._health += healed
-        
+        total = self._health + healed
+        if total >= self._max_health:
+            self._health = self._max_health
+        else:
+            self._health = total
+
 
 class Warrior(Unit):
     traits = {
@@ -125,6 +129,8 @@ class Giant(Unit):
 def main():
     a1 = Archer("normal")
     a1.damage(32)
+    print(a1.stats())
+    a1.heal()
     print(a1.stats())
     a1.heal()
     print(a1.stats())
