@@ -18,8 +18,12 @@ class Unit:
         return self._trait
 
     @property
+    def max_health(self):
+        return self._max_health
+
+    @property
     def health(self):
-        return self._health
+        return round(self._health, 2)
 
     @property
     def attack(self):
@@ -30,10 +34,10 @@ class Unit:
         return self._defence
 
     def stats(self):
-        return f"\nTrait: {self._trait.title()}" \
-               f"\nHealth: {self._health}/{self._max_health}" \
-               f"\nAttack: {self._attack}" \
-               f"\nDefence: {self._defence}"
+        return f"\nTrait: {self.trait.title()}" \
+               f"\nHealth: {self.health}/{self.max_health}" \
+               f"\nAttack: {self.attack}" \
+               f"\nDefence: {self.defence}"
     
     def damage(self, attack):
         dmg = attack - self._defence
@@ -121,6 +125,12 @@ class Giant(Unit):
 def main():
     a1 = Archer("normal")
     a1.damage(32)
+    print(a1.stats())
+    a1.heal()
+    print(a1.stats())
+    a1.heal()
+    print(a1.stats())
+    a1.heal()
     print(a1.stats())
     a1.heal()
     print(a1.stats())
