@@ -39,6 +39,11 @@ class Unit:
                f"\nAttack: {self.attack}" \
                f"\nDefence: {self.defence}"
     
+    def is_alive(self):
+        if self._health <= 0:
+            return False
+        return True
+    
     def damage(self, attack):
         dmg = attack - self._defence
         if dmg <= 0:
