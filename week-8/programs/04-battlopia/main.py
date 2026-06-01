@@ -1,5 +1,6 @@
 
 
+from data import units
 from ui import intro
 
 
@@ -8,6 +9,7 @@ def main():
     intro.show_greet()
     intro.show_instructions()
 
+    # Continue this as a final project
 
 if __name__ == "__main__":
     main()
