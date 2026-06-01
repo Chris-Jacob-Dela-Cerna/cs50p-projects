@@ -6,14 +6,12 @@ from units import Giant
 
 
 def main():
-    input(
-        "\n[Message - System] Press enter between pauses."
-        "\n"
-    )
-    greet_user()
+    input("[Message - System] Press enter between pauses. ")
+    show_greet()
+    show_instructions()
 
 
-def greet_user():
+def show_greet():
     input(
         "================="
         "\n Greetings, User "
@@ -25,6 +23,15 @@ def greet_user():
         "\n   Welcome to Battlopia!  "
         "\n A Text-based Battle Game "
         "\n=========================="
+        "\n"
+    )
+
+
+def show_instructions():
+    input(
+        "Note: This game requires 2 players."
+        "\n      Each player must select 3 units for their deck."
+        "\n      The player with the last remaining units wins."
         "\n"
     )
 
