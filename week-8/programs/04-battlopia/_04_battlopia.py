@@ -7,19 +7,22 @@ from units import Giant
 
 def main():
     input(
-        "\n================="
-        "\n Greetings, User"
+        "\n[Message - System] Press enter between pauses."
+        "\n"
+    )
+    greet_user()
+
+
+def greet_user():
+    input(
+        "================="
+        "\n Greetings, User "
         "\n================="
         "\n"
     )
     input(
-        "\n========================"
-        "\n Welcome to Battlopia "
-        "\n========================"
-        "\n"
-    )
-    input(
-        "\n=========================="
+        "=========================="
+        "\n   Welcome to Battlopia!  "
         "\n A Text-based Battle Game "
         "\n=========================="
         "\n"
