@@ -23,7 +23,7 @@ class Unit:
 
     @property
     def health(self):
-        return round(self._health, 2)
+        return round(self._health)
 
     @property
     def attack(self):
@@ -38,12 +38,12 @@ class Unit:
                f"\nHealth: {self.health}/{self.max_health}" \
                f"\nAttack: {self.attack}" \
                f"\nDefence: {self.defence}"
-    
+
     def is_alive(self):
         if self._health <= 0:
             return False
         return True
-    
+
     def damage(self, attack):
         dmg = attack - self._defence
         if dmg <= 0:
@@ -59,12 +59,12 @@ class Unit:
         max_heal = self._max_health / 2
         min_heal = self._max_health / 100
         miss_health = 1 - (self._health / self._max_health)
-        healed = min_heal + (max_heal - min_heal) * miss_health
-        total = self._health + healed
-        if total >= self._max_health:
+        healing = min_heal + (max_heal - min_heal) * miss_health
+        healed = self._health + healing
+        if healed >= self._max_health:
             self._health = self._max_health
         else:
-            self._health = total
+            self._health = healed
 
 
 class Warrior(Unit):
@@ -137,19 +137,12 @@ class Giant(Unit):
 
 
 def main():
-    a1 = Archer("normal")
-    a1.damage(32)
-    print(a1.stats())
-    a1.heal()
-    print(a1.stats())
-    a1.heal()
-    print(a1.stats())
-    a1.heal()
-    print(a1.stats())
-    a1.heal()
-    print(a1.stats())
-    a1.heal()
-    print(a1.stats())
+    print(
+        "\n=================="
+        "\n Ready to Battle? "
+        "\n=================="
+        "\n"
+    )
 
 
 if __name__ == "__main__":
