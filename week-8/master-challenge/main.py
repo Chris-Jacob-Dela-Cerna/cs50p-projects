@@ -10,7 +10,10 @@ class Jar:
         self._cookies = Jar.cookies
 
     def __str__(self):
-        return f"{self._cookies}"
+        cookies = ""
+        for _ in range(self._cookies):
+            cookies += "🍪"
+        return f"Cookies: {cookies}"
 
     @property
     def capacity(self):
