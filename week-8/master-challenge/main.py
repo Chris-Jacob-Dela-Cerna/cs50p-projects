@@ -10,8 +10,10 @@ class Jar:
     
     @capacity.setter
     def capacity(self, capacity):
-        if not self.capacity:
-            raise ValueError
+        if not capacity:
+            raise ValueError("A cookie jar can accept more cookies than that.")
         if capacity < 1:
-            raise ValueError
+            raise ValueError("A cookie jar can't be negatively full.")
         self._capacity = capacity
+
+print(Jar(1).capacity)
