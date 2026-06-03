@@ -2,13 +2,11 @@
 
 import sys
 from src.age import age
+from utils.get_sys import get_sys
 
 
 def main():
-    try:
-        mode = sys.argv[1]
-    except IndexError:
-        sys.exit("[Error  - System] Please enter a mode.")
+    mode = get_sys(1, "[Error  - System] Please enter a mode.")
     
     modes = {
         "age": age,
