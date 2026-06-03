@@ -16,10 +16,3 @@ class Bank:
         dollars = self.dollars + other.dollars
         gold = self.gold + other.gold
         return Bank(pesos, dollars, gold)
-    
-hexeus = Bank(150, 10, 5)
-lucien = Bank(0, 0, 20)
-both = hexeus + lucien
-print(hexeus)
-print(lucien)
-print(both)
