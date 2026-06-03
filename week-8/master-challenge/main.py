@@ -4,8 +4,13 @@ import re
 
 
 class Jar:
+    cookies = 0
     def __init__(self, capacity):
         self.capacity = capacity
+        self._cookies = Jar.cookies
+
+    def __str__(self):
+        return f"{self._cookies}"
 
     @property
     def capacity(self):
@@ -33,7 +38,3 @@ class Jar:
         if cookies > self._capacity:
             raise ValueError("Cookie overflow!")
         self._cookies = cookies
-
-jar = Jar(3)
-print(jar.capacity)
-jar.deposit("l")
