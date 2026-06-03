@@ -1,17 +1,17 @@
 
 
-import datetime as dt
-import inflect
+class Jar:
+    def __init__(self, capacity):
+        self.capacity = capacity
 
-
-birth_date = dt.date(2008, 5, 2)
-today = dt.date.today()
-age = today - birth_date
-days = dt.timedelta(days=6606)
-minutes = round(days.total_seconds() / 60)
-
-print(minutes)
-
-p = inflect.engine()
-
-print(p.number_to_words(minutes, andword="").capitalize())
+    @property
+    def capacity(self):
+        return self._capacity
+    
+    @capacity.setter
+    def capacity(self, capacity):
+        if not self.capacity:
+            raise ValueError
+        if capacity < 1:
+            raise ValueError
+        self._capacity = capacity
