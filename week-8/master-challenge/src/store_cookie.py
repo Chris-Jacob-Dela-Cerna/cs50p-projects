@@ -21,4 +21,5 @@ def store_cookie():
             print("[Error  - System] " + str(ve))
         else:
             break
-    print("yum yum yum :)")
+    
+    print(jar)
