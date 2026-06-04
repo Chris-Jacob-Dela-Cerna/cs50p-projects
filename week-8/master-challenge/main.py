@@ -1,7 +1,8 @@
 
 
 import sys
-from src.age import get_age
+from src.get_age import get_age
+from src.store_cookie import store_cookie
 from utils.get_sys import get_sys
 
 
@@ -10,6 +11,7 @@ def main():
 
     modes = {
         "age": get_age,
+        "jar": store_cookie,
     }
     if mode not in modes:
         sys.exit("[Error  - System] Invalid mode.")

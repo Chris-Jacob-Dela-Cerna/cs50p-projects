@@ -1,0 +1,4 @@
+
+
+def store_cookie():
+    ...
