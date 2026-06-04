@@ -17,14 +17,12 @@ class Jar:
         return self._capacity
     
     @capacity.setter
-    def capacity(self, capacity):
+    def capacity(self, capacity_):
+        if not capacity_.isdigit():
+            raise ValueError("A quantity must be a positive number.")
+        capacity = int(capacity_)
         if not capacity:
             raise ValueError("A cookie jar can accept more cookies than that.")
-        if not isinstance(capacity, int):
-            if not isinstance(capacity, float):
-                raise ValueError("A quantity must be a number.")
-        if capacity < 1:
-            raise ValueError("A cookie jar can't be negatively full.")
         self._capacity = capacity
 
     def deposit(self, cookies):
