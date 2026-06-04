@@ -12,9 +12,10 @@ def age():
     if not (bd := re.search(r"^([0-9]{4})-([0-9]{2})-([0-9]{2})$", birth_date)):
         sys.exit("[Error  - System] Please use the right format: YYYY-MM-DD")
 
-    b_year = int(bd[1])
-    b_month = int(bd[2])
-    b_day = int(bd[3])
+    try:
+        b_date = dt.date(int(bd[1]), int(bd[2]), int(bd[3]))
+    except ValueError as ve:
+        sys.exit(f"[Error  - System] {str(ve).title()}.")
+
     today = dt.date.today()
-    age = today - dt.date(b_year, b_month, b_day)
-    print(age)
+    age_days = today - b_date
