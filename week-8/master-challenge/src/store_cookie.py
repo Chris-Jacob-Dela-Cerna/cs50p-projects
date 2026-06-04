@@ -11,3 +11,14 @@ def store_cookie():
         jar = Jar(capacity)
     except ValueError as ve:
         sys.exit("[Error  - System] " + str(ve))
+    
+    print("How many cookies do you want to store?")
+    while True:
+        cookies = input(">>> ").strip()
+        try:
+            jar.deposit(cookies=cookies)
+        except ValueError as ve:
+            print("[Error  - System] " + str(ve))
+        else:
+            break
+    print("yum yum yum :)")
