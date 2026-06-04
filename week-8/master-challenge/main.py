@@ -7,7 +7,7 @@ from utils.get_sys import get_sys
 
 
 def main():
-    mode = get_sys(1, "[Error  - System] Please enter a mode.")
+    mode = get_sys(1, "Please enter a mode.")
 
     modes = {
         "age": get_age,

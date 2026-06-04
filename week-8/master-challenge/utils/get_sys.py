@@ -3,9 +3,9 @@
 import sys
 
 
-def get_sys(idx, message="[Error  - System] Missing system argument."):
+def get_sys(idx, message=" Missing system argument."):
     try:
         sys_ = sys.argv[idx]
     except IndexError:
-        sys.exit(message)
+        sys.exit("[Error  - System] " + message)
     return sys_
