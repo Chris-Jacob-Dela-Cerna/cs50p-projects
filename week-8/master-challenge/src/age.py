@@ -15,11 +15,12 @@ def get_age():
     try:
         b_date = dt.date(int(bd[1]), int(bd[2]), int(bd[3]))
     except ValueError as ve:
-        sys.exit(f"[Error  - System] {str(ve).title()}.")
+        sys.exit(f"[Error  - System] {str(ve).capitalize()}.")
 
     today = dt.date.today()
     date = today - b_date
-    age = re.search(r"^([0-9]*) days?, 0:00:00$", str(date))
-    days = dt.timedelta(days=int(age.group(1)))
-    minutes = round(days.total_seconds() / 60)
-    print(minutes)
+    minutes = round(date.total_seconds() / 60)
+
+    p = inflect.engine()
+    words = p.number_to_words(minutes, andword="")
+    print(f"You are {words} years old.")
