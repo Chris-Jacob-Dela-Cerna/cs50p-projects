@@ -13,14 +13,15 @@ def get_age():
         sys.exit("[Error  - System] Please use the right format: YYYY-MM-DD")
 
     try:
-        b_date = dt.date(int(bd[1]), int(bd[2]), int(bd[3]))
+        date = dt.date(int(bd[1]), int(bd[2]), int(bd[3]))
     except ValueError as ve:
         sys.exit(f"[Error  - System] {str(ve).capitalize()}.")
 
     today = dt.date.today()
-    date = today - b_date
-    minutes = round(date.total_seconds() / 60)
+    b_date = today - date
 
-    p = inflect.engine()
-    words = p.number_to_words(minutes, andword="")
+    minutes = round(b_date.total_seconds() / 60)
+    inf = inflect.engine()
+    words = inf.number_to_words(minutes, andword="")
+
     print(f"You are {words} years old.")

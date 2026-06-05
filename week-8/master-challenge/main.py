@@ -17,7 +17,7 @@ def main():
         sys.exit("[Error  - System] Invalid mode.")
 
     modes[mode]()
-    
+
 
 if __name__ == "__main__":
     main()
