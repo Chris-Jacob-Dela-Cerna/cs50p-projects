@@ -1,4 +1,4 @@
-
+# Document: This python is my 5th application of CS50P Week 8.
 
 class Bank:
     def __init__(self, pesos=0, dollars=0, gold=0):

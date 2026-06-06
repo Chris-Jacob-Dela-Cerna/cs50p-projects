@@ -44,9 +44,16 @@ weeks = [[
     "Master Challenge - Multi-CLI Tool from Week-6 P-Sets",
 ], [
     "RegEx Scratch File",
-    "Master Challenge - Multi-program utilizing RegEx",
+    "Master Challenge - Multi-CLI Tool utilizing RegEx",
 ], [
-    "OOP Scratch File",
+    "OOP Scratch File 1",
+    "Email signup with classes"
+    "OOP Scratch File 2"
+    "Transition to Final Project - Battlopia"
+    "Bank class"
+    "Master Challenge - Multi-CLI Tool utilizing Classes and Class Data"
+], [
+    "Banana Global Variable"
 ]]
 
 
