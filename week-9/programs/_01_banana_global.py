@@ -13,7 +13,7 @@ def main():
         print(f"Tommie now has {banana: int} bananas.")
 
 
-def add_banana():
+def add_banana() -> None:
     global banana
     banana += 1
     print("You gave him 1 banana.\n")

@@ -57,7 +57,6 @@ weeks = [[
 ]]
 
 
-
 print("\nFull Project List")
 for num, week in enumerate(weeks):
     print(f"\nWeek {num + 1}:")
