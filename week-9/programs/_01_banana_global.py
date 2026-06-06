@@ -6,11 +6,11 @@ def main():
     print(f"Tommie has {banana} banana.")
     while True:
         print("Do you want to give him 1 more banana? Enter y or n")
-        resp = input(">>> ").strip()
+        resp: str = input(">>> ").strip()
         if resp != "y":
             break
         add_banana()
-        print(f"Tommie now has {banana} bananas.")
+        print(f"Tommie now has {banana: int} bananas.")
 
 
 def add_banana():
