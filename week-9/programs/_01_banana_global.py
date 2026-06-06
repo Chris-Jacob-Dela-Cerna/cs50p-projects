@@ -1,26 +1,22 @@
 
 
-
 def main():
     global banana
     banana = 1
+    print(f"Tommie has {banana} banana.")
     while True:
-        if banana == 1:
-            print(f"Tommie has {banana} banana.")
-        else:
-            print(f"Tommie has {banana} bananas.")
         print("Do you want to give him 1 more banana? Enter y or n")
         resp = input(">>> ").strip()
-        if resp == "y":
-            add_banana()
-        else:
+        if resp != "y":
             break
+        add_banana()
+        print(f"Tommie now has {banana} bananas.")
 
 
 def add_banana():
     global banana
     banana += 1
-    print("You gave him 1 banana.")
+    print("You gave him 1 banana.\n")
 
 
 if __name__ == "__main__":
