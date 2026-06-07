@@ -2,7 +2,6 @@
 
 import os
 
-
 abspath = os.path.abspath(__file__)
 dir = os.path.dirname(abspath)
 cart_path = os.path.join(dir, "02-fruit-cart")
