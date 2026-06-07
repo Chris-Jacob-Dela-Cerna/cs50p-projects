@@ -1,13 +1,20 @@
-# Week 9 scratch file - understanding unpacking method and *args/**kwargs
+# Week 9 scratch file
 
 def main():
-    show_names("Chris", "Jacob")
-    show_names(name="Chris", name2="Jacob")
+    guys = [
+        {"name": "Jacob", "strength": "high"},
+        {"name": "Chris", "strength": "high"},
+        {"name": "John", "strength": "medium"},
+        {"name": "Doe", "strength": "low"},
+        {"name": "Pratt", "strength": "low"},
+    ]
+    strongmen = filter(high, guys)
+    for man in sorted(strongmen, key=lambda x: x["name"]):
+        print(man)
 
 
-def show_names(*args, **kwargs):
-    print(args)
-    print(kwargs)
+def high(list_):
+    return list_["strength"] == "high"
 
 
 if __name__ == "__main__":
