@@ -1,20 +1,15 @@
 # Week 9 scratch file
 
 def main():
-    guys = [
-        {"name": "Jacob", "strength": "high"},
-        {"name": "Chris", "strength": "high"},
-        {"name": "John", "strength": "medium"},
-        {"name": "Doe", "strength": "low"},
-        {"name": "Pratt", "strength": "low"},
-    ]
-    strongmen = filter(high, guys)
-    for man in sorted(strongmen, key=lambda x: x["name"]):
-        print(man)
+    x = int(input("x: ").strip())
+    oss = add(x)
+    for y in oss:
+        print(y)
 
 
-def high(list_):
-    return list_["strength"] == "high"
+def add(x):
+    for y in range(x):
+        yield "0" * (y + 1)
 
 
 if __name__ == "__main__":
