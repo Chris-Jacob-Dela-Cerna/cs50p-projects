@@ -21,7 +21,7 @@ Each week has two parts:
 
 **`programs/`** — Small, exploratory programs written immediately after learning something new. Not polished. Trying out `conditionals` using calculators, a random fruit guesser right after learning `lists`. These exist because writing something real, however small, was how I made concepts stick.
 
-**`master-challenge/`** — Instead of doing the standard problem sets, I combined the week's concepts into one original project. Early weeks are single-file programs while later weeks became multi-file programs — some menu-based, some `sys.argv`-based — that scaled in complexity as the material did. Every master challenge is mine in the sense that I used the concepts as building blocks, not the problems as templates.
+**`master-challenge/`** — Instead of doing the standard individual problem sets, I combined the problem sets into one original project. Early weeks are single-file programs while later weeks became multi-file programs — some menu-based, some `sys.argv`-based — that scaled in complexity as the material did. Every master challenge is mine in the sense that I used the concepts as building blocks, not the problems as templates.
 
 ---
 
@@ -37,7 +37,7 @@ That's intentional. This is what actually learning looks like.
 
 Two projects started inside this repo and grew large enough to move out on their own:
 
-- **[QuizPin](https://github.com/Chris-Jacob-Dela-Cerna/quizpin)** — began as a Week 6 file I/O exercise, grew into a full quiz maker and runner with CSV support.
+- **[QuizPin](https://github.com/Chris-Jacob-Dela-Cerna/quizpin)** — began as a Week 6 file I/O idea, grew into a full quiz app with CSV support.
 - **[Bugtopia](https://github.com/Chris-Jacob-Dela-Cerna/bugtopia)** — the CS50P final project, built during Week 9. Scaled into something that deserved its own release. Shipped as v1.0.0.
 
 Both started here. Neither fit here anymore.
